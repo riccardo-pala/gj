@@ -29,7 +29,7 @@ else{
 }
 
 // Get user from login
-$stmt = mysqli_prepare($con, "SELECT firstname, lastname, username, email, isAdmin FROM users WHERE email=? AND password=?");
+$stmt = mysqli_prepare($con, "SELECT firstname, lastname, email, isAdmin FROM users WHERE email=? AND password=?");
 mysqli_stmt_bind_param($stmt, 'ss', $email, $pass);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);

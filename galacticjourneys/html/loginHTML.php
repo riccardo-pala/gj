@@ -35,7 +35,7 @@
 	</div>
 	<div class="form">
 		<form action="../php/login.php" method="POST">
-			<input type="text" name="email" placeholder="Email" required>
+			<input type="email" name="email" placeholder="Email" required>
 			<br>
 			<input type="password" name="pass" placeholder="Password" required>
 			<div id='error' style='color:red'></div>
