@@ -11,7 +11,7 @@ if (isset($_GET['sl']) && isset($_SESSION['firstname'])) {
 
 <!doctype html>
 <html>
-dio cane
+
 <head>
 	<meta name="author" content="J&R inc.">
 	<meta name="description" content="Scopri il viaggio interstellare dei tuoi sogni">
