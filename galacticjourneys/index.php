@@ -1,15 +1,16 @@
 <?php
 session_start();
-if (isset($_GET['sl']) && isset($_SESSION['firstname'])) {
-	if($_GET['sl']==1) {
-		$name = $_SESSION['name'];
+if (isset($_GET['sl'])) {
+	if($_GET['sl']==1 && isset($_SESSION['firstname'])) {
+		$name = $_SESSION['firstname'];
 		echo "<script>window.alert('Benvenuto $name!')</script>";
 	}
-	else if($_GET['sl']==0) {
+	else if($_GET['sl']==0 && isset($_SESSION['email'])) {
 		$email = $_SESSION['email'];
 		echo "<script>window.alert('ERRORE! Sei già loggato come $email!')</script>";
 	}
 }
+if (isset($_SESSION['isLogged']))
 ?>
 
 <!doctype html>
@@ -29,6 +30,8 @@ if (isset($_GET['sl']) && isset($_SESSION['firstname'])) {
 
 <body>
 	<button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button>
+	<div id='regButton'></div>
+	<div id='logButton'></div>
 	<button class="button" name="reg_button" onclick="window.location.href='html/registrationHTML.php'">Registrati</button>
 	<button class="button" name="login_button" onclick="window.location.href='html/loginHTML.php'">Login</button>
 	<button class="button" name="profile_button" onclick="window.location.href='html/show_profile.php'">Visualizza Profilo</button>

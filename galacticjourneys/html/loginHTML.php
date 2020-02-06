@@ -3,10 +3,6 @@
 	if(isset($_GET['sr']) && $_GET['sr']==1) {
 		echo "<script>window.alert('Registrazione avvenuta con successo.')</script>";
 	}
-	if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-		$email = $_SESSION['email'];
-		echo "<div id='alreadyLogged'>ERRORE! Sei già loggato come $email.</div>";
-	}
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +21,15 @@
 </head>
 
 <body>
+	<?php
+	if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+		if(isset($_SESSION['email'])){
+			$email = " come ".$_SESSION['email'];
+		}
+		echo "<div style='color:red'>ERRORE! Risulti già loggato$email.</div>";
+		exit;
+	}
+	?>
 	<div class="title">
 		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
 		LOGIN
@@ -34,7 +39,7 @@
 			<input type="text" name="email" placeholder="Email" required>
 			<br>
 			<input type="password" name="pass" placeholder="Password" required>
-			<div id='error'></div>
+			<div id='error' style='color:red'></div>
 			<input type="submit" value="Conferma">
 			<br>
 		</form>
