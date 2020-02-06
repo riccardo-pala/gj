@@ -60,7 +60,6 @@ else {
 <div class="title">
 	<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
 	LOGIN
-	<button class="button" name="mod_button" onclick="window.location.href='show_password.php'">Modifica Password</button>
 </div>
 
 <div class="form">
@@ -68,7 +67,7 @@ else {
 	<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>"><br>
 	<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>"><br>
 	<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>"><br>
-	<input type="submit" value="Modifica"><br>
+	<input type="submit" value="Modifica"><button class="button" name="mod_button" onclick="window.location.href='show_password.php'">Modifica Password</button>
 </form>
 	<div id='error'></div>
 </div>
