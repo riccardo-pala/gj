@@ -4,7 +4,6 @@
 	<meta name="author" content="J&R inc.">
 	<meta name="description" content="Scopri il viaggio interstellare dei tuoi sogni">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="refresh" content="30">
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href=''>
