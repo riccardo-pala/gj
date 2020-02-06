@@ -67,7 +67,7 @@ else {
 <form action="../php/update_profile.php" method="POST" name="Form">
 	<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>"><br>
 	<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>"><br>
-	<input type="email" required name="email" placeholder="Email" value="$email"><br>
+	<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>"><br>
 	<input type="submit" value="Modifica"><br>
 </form>
 	<div id='error'></div>
