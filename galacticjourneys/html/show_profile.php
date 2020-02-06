@@ -79,7 +79,7 @@ if(isset($_GET['err']) && $_GET['err'] == 1)
 	echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
 
 if (isset($_GET['succ']) && $_GET['succ']==1) {
-	echo "<script>window.alert('Modifiche effettuate con successo!')</script>";
+	echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
 }
 ?>
 </body>
