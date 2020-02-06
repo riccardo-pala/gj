@@ -1,11 +1,14 @@
 <?php
 session_start();
 if (isset($_GET['sl']) && isset($_SESSION['firstname'])) {
-	$name = $_SESSION['firstname'];
-	if($_GET['sl']==1)
+	if($_GET['sl']==1) {
+		$name = $_SESSION['name'];
 		echo "<script>window.alert('Benvenuto $name!')</script>";
-	else if($_GET['sl']==0)
-		echo "<script>window.alert('ERRORE! Sei già loggato come $name!')</script>";
+	}
+	else if($_GET['sl']==0) {
+		$email = $_SESSION['email'];
+		echo "<script>window.alert('ERRORE! Sei già loggato come $email!')</script>";
+	}
 }
 ?>
 

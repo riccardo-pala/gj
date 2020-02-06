@@ -3,6 +3,10 @@
 	if(isset($_GET['sr']) && $_GET['sr']==1) {
 		echo "<script>window.alert('Registrazione avvenuta con successo.')</script>";
 	}
+	if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+		$email = $_SESSION['email'];
+		echo "<div id='alreadyLogged'>ERRORE! Sei già loggato come $email.</div>";
+	}
 ?>
 
 <!DOCTYPE html>
