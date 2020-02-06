@@ -10,7 +10,6 @@ if (mysqli_connect_errno($con)) {
 	header('Location:../index.php');
 	exit;
 }
-
 // Get value from $_SESSION
 $oldEmail = $_SESSION['email'];
 

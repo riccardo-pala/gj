@@ -7,7 +7,6 @@ if (isset($_GET['err']) && $_GET['err'] == 2) {
 }
 
 require_once('../db/mysql_credentials.php');
-
 // Open DBMS Server connection
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
