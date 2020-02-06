@@ -18,14 +18,6 @@ if (isset($_POST['firstname'])&&isset($_POST['lastname'])
 
 	$firstname = test_input($con, $_POST['firstname']);
 	$lastname = test_input($con, $_POST['lastname']);
-	if (!empty($_POST['username'])) {
-		$username = test_input($con, $_POST['username']);
-		if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-			mysqli_close($con);
-			header('Location: ../html/registrationHTML.php?err=8');
-			exit;
-		}
-	}
 	$email = test_input($con, $_POST['email']);
 	$pass = crypt_password($_POST['pass']);
 	$confirm = crypt_password($_POST['confirm']);
@@ -66,29 +58,10 @@ if (mysqli_num_rows($result) > 0) {
 }
 mysqli_free_result($result);
 
-if (!empty($_POST['username'])) {
-	$stmt = mysqli_prepare($con, "SELECT username FROM users WHERE username=?");
-	mysqli_stmt_bind_param($stmt, 's', $username);
-	mysqli_stmt_execute($stmt);
-	$result = mysqli_stmt_get_result($stmt);
-	if (mysqli_num_rows($result) > 0) {
-		//username già esistente
-		mysqli_free_result($result);
-		mysqli_stmt_close($stmt);
-		mysqli_close($con);
-		header('Location: ../html/registrationHTML.php?err=6');
-		exit;
-	}
-	mysqli_free_result($result);
-	//preparo la query nel caso ci sia username
-	$stmt = mysqli_prepare($con, "INSERT INTO users (firstname, lastname, username, email, password, isAdmin) VALUES (?, ?, ?, ?, ?, 0)");
-	mysqli_stmt_bind_param($stmt, 'sssss', $firstname, $lastname, $username, $email, $pass);
-}
-else {
-	//preparo la query nel caso non ci sia username
-	$stmt = mysqli_prepare($con, "INSERT INTO users (firstname, lastname, email, password, isAdmin) VALUES (?, ?, ?, ?, 0)");
-	mysqli_stmt_bind_param($stmt, 'ssss', $firstname, $lastname, $email, $pass);
-}
+//preparo la query
+$stmt = mysqli_prepare($con, "INSERT INTO users (firstname, lastname, email, password, isAdmin) VALUES (?, ?, ?, ?, 0)");
+mysqli_stmt_bind_param($stmt, 'ssss', $firstname, $lastname, $email, $pass);
+
 //eseguo la query
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
