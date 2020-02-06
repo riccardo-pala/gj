@@ -1,9 +1,18 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['isLogged']) || !$_SESSION['isLogged'] && !isset($_SESSION['email'])) {
 	header('Location: loginHTML.php');
 	exit;
 }	
+if (isset($_GET['err']) && $_GET['err'] == 1) {
+	echo "Errore fatale. Contattare l'amministratore del sito.";
+	exit;
+}
+if (isset($_GET['err']) && $_GET['err'] == 4) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,33 +33,24 @@ if (!isset($_SESSION['isLogged']) || !$_SESSION['isLogged'] && !isset($_SESSION[
 	</div>
 	<div class="form">
 		<form action="update_password.php" method="POST" name="Form">
-			<input type="password" required name="oldPass" placeholder="Password Attuale"><br>
-			<input type="password" required name="newPass" placeholder="Nuova Password"><br>
-			<input type="password" required name="newPassAgain" placeholder="Conferma Nuova Password"><br>
+			<input type="password" required name="oldPassword" placeholder="Password Attuale"><br>
+			<input type="password" required name="newPassword" placeholder="Nuova Password"><br>
+			<input type="password" required name="newPassword2" placeholder="Conferma Nuova Password"><br>
 			<input type="submit" name="Modifica" value="MODIFICA"><br>
 		</form>
-		
-		<?php //TODO: controllare
-			if(isset($_GET["err"])) {				
-				if($_GET["err"] == "ol") {
-						echo "
-								<div class=\"messaggio\" >
-									Password attuale errata.
-								</div>
-							";
-				}
-				else if($_GET["err"] == "ne") {
-					echo "
-							<div class=\"messaggio\" >
-								Le Password non coincidono.
-							</div>
-						";
-				}
-
-				unset($_GET["err"]);
-			}
-		?>
+		<div id='error'></div>
 	</div>
+	
+	<?php
+	if(isset($_GET['err']) && $_GET['err'] == 2)
+		echo "<script>document.getElementById('error').innerHTML = 'Password attuale errata.'</script>";
+
+	if(isset($_GET['err']) && $_GET['err'] == 3)
+		echo "<script>document.getElementById('error').innerHTML = 'Le nuove password NON corrispondono.'</script>";
+
+	if (isset($_GET['succ']) && $_GET['succ'] == 1)
+		echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
+	?>
 	
 </body>
 </html>

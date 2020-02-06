@@ -5,12 +5,16 @@ if (isset($_GET['err']) && $_GET['err'] == 2) {
 	echo "Errore fatale. Contattare l'amministratore del sito.";
 	exit;
 }
+if (isset($_GET['err']) && $_GET['err'] == 3) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
+	exit;
+}
 
 require_once('../db/mysql_credentials.php');
 // Open DBMS Server connection
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
-	echo "Errore di connessione al server <a class=\"link\" href=\"index.php\">HOME</a>"; 
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
 	exit;
 }
 // Get profile data from database (check current session)
@@ -57,28 +61,28 @@ else {
 
 <body>
 
-<div class="title">
-	<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
-	LOGIN
-</div>
+	<div class="title">
+		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
+		LOGIN
+	</div>
 
-<div class="form">
-<form action="../php/update_profile.php" method="POST" name="Form">
-	<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>"><br>
-	<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>"><br>
-	<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>"><br>
-	<input type="submit" value="Modifica"><button class="button" name="mod_button" onclick="window.location.href='show_password.php'">Modifica Password</button>
-</form>
-	<div id='error'></div>
-</div>
+	<div class="form">
+		<form action="../php/update_profile.php" method="POST" name="Form">
+			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>"><br>
+			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>"><br>
+			<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>"><br>
+			<input type="submit" value="Modifica">
+			<button class="button" name="mod_button" onclick="window.location.href='show_password.php'">Modifica Password</button>
+		</form>
+		<div id='error'></div>
+	</div>
 
-<?php
-if(isset($_GET['err']) && $_GET['err'] == 1)
-	echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
+	<?php
+	if(isset($_GET['err']) && $_GET['err'] == 1)
+		echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
 
-if (isset($_GET['succ']) && $_GET['succ']==1) {
-	echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
-}
-?>
+	if (isset($_GET['succ']) && $_GET['succ'] == 1)
+		echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
+	?>
 </body>
 </html>

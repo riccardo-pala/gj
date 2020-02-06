@@ -7,7 +7,7 @@ include('functions.php');
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-	header('Location:../index.php');
+	header("Location: ../html/show_profile.php?err=3");
 	exit;
 }
 // Get value from $_SESSION
