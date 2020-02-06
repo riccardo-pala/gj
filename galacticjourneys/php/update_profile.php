@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// TODO: change credentials in the db/mysql_credentials.php file
 require_once('../db/mysql_credentials.php');
 include('functions.php');
 // Open DBMS Server connection

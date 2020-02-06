@@ -62,7 +62,7 @@ else {
 		<div class=\"title\">
 		<button class=\"button\" name=\"home_button\" onclick=\"window.location.href='../index.php'\">Home</button>
 		LOGIN
-		<button class=\"button\" name=\"mod_button\" onclick=\"window.location.href=''\">Modifica Password</button>
+		<button class=\"button\" name=\"mod_button\" onclick=\"window.location.href='show_password.php'\">Modifica Password</button>
 		</div>
 
 		<div class=\"form\">
