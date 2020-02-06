@@ -27,7 +27,7 @@
 	</div>
 	<div class="form">
 		<form action="../php/login.php" method="POST">
-			<input type="text" name="email" placeholder="Username (o Email)" required>
+			<input type="text" name="email" placeholder="Email" required>
 			<br>
 			<input type="password" name="pass" placeholder="Password" required>
 			<div id='error'></div>
@@ -43,7 +43,7 @@
 						break;
 					}
 					case 2: {
-						echo "<script>document.getElementById('error').innerHTML = 'Username o Password errati.'</script>";
+						echo "<script>document.getElementById('error').innerHTML = 'Email o Password errati.'</script>";
 						break;
 					}
 					case 3: {
