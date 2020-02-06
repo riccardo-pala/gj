@@ -5,7 +5,7 @@ if (isset($_GET['err']) && $_GET['err'] == 2) {
 	echo "Errore fatale. Contattare l'amministratore del sito.";
 	exit;
 }
-if (isset($_GET['succ']) && $_GET['succ']===true) {
+if (isset($_GET['succ']) && $_GET['succ']==1) {
 	echo "<script>window.alert('Modifiche effettuate con successo!')</script>";
 }
 

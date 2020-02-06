@@ -43,7 +43,7 @@ else {
 		$_SESSION['email'] = $newEmail;
 		mysqli_stmt_close($stmt);
 		mysqli_close($con);
-		header("Location: ../html/show_profile.php?succ=true");
+		header("Location: ../html/show_profile.php?succ=1");
 	}
 	else {
 		mysqli_stmt_close($stmt);
