@@ -5,6 +5,9 @@ if (isset($_GET['err']) && $_GET['err'] == 2) {
 	echo "Errore fatale. Contattare l'amministratore del sito.";
 	exit;
 }
+if (isset($_GET['succ']) && $_GET['succ']===true) {
+	echo "<script>window.alert('Modifiche effettuate con successo!')</script>";
+}
 
 require_once('../db/mysql_credentials.php');
 // Open DBMS Server connection

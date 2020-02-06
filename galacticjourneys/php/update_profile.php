@@ -23,27 +23,27 @@ if ($newEmail != $oldEmail) {
 	$stmt = mysqli_prepare($con,$checkEmail);
 	mysqli_stmt_bind_param($stmt, 's', $newEmail);
 	mysqli_stmt_execute($stmt);
-	$res1 = mysqli_stmt_get_result($stmt);
+	$result = mysqli_stmt_get_result($stmt);
 	mysqli_stmt_close($stmt);	
 }
 
-if (isset($res1) && mysqli_num_rows($res1) > 0) {
+if (isset($result) && mysqli_num_rows($result) > 0) {
 	// "Email già esistente.";
-	mysqli_free_result($res1); 
+	mysqli_free_result($result); 
 	mysqli_close($con);
 	header("Location: ../html/show_profile.php?err=1");
 }
 else {
 	$query = 'UPDATE users SET firstname=?,lastname=?,email=? WHERE email=?';
 	$stmt = mysqli_prepare($con, $query);
-	mysqli_stmt_bind_param($stmt, 'ssss', $newFirstname,$newLastname,$newEmail,$oldEmail);
+	mysqli_stmt_bind_param($stmt, 'ssss', $newFirstname, $newLastname, $newEmail, $oldEmail);
 	mysqli_stmt_execute($stmt);
 
 	if (mysqli_stmt_affected_rows($stmt) == 1) {
 		$_SESSION['email'] = $newEmail;
 		mysqli_stmt_close($stmt);
 		mysqli_close($con);
-		header("Location: ../html/show_profile.php");
+		header("Location: ../html/show_profile.php?succ=true");
 	}
 	else {
 		mysqli_stmt_close($stmt);
