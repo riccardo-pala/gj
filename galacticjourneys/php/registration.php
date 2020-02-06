@@ -53,7 +53,7 @@ if (mysqli_num_rows($result) > 0) {
 	mysqli_free_result($result);
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
-	header('Location: ../html/registrationHTML.php?err=7');
+	header('Location: ../html/registrationHTML.php?err=6');
 	exit;
 }
 mysqli_free_result($result);

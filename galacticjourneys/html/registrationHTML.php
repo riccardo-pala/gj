@@ -20,8 +20,6 @@
 		<br>
 		<input type="text" name="lastname" placeholder="Cognome*" required>
 		<br>
-		<input type="text" name="username" placeholder="Username">
-		<br>
 		<input type="email" name="email" placeholder="Email*" required>
 		<br>
 		<input type="password" name="pass" placeholder="Password*" required>
@@ -50,13 +48,7 @@
 					echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Le password non corrispondono.'</script>";
 					break;
 				case 6:
-					echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Username già esistente.'</script>";
-					break;
-				case 7:
 					echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Email già esistente.'</script>";
-					break;
-				case 8:
-					echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Username non valido.'</script>";
 					break;
 				default:
 					break;
