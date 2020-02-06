@@ -10,7 +10,6 @@ if (isset($_GET['sl'])) {
 		echo "<script>window.alert('ERRORE! Sei già loggato come $email!')</script>";
 	}
 }
-if (isset($_SESSION['isLogged']))
 ?>
 
 <!doctype html>
@@ -28,12 +27,27 @@ if (isset($_SESSION['isLogged']))
 </head>
 
 <body>
-	<button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button>
-	<div id='regButton'></div>
-	<div id='logButton'></div>
-	<button class="button" name="reg_button" onclick="window.location.href='html/registrationHTML.php'">Registrati</button>
-	<button class="button" name="login_button" onclick="window.location.href='html/loginHTML.php'">Login</button>
-	<button class="button" name="profile_button" onclick="window.location.href='html/show_profile.php'">Visualizza Profilo</button>
+	<span id='homeButton'>
+		<button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button>
+	</span>
+	<span id='regButton'></span>
+	<span id='logButton'></span>
+	<span id='profButton'></span>
+	<?php
+		if (empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) {
+			echo "	<script>document.getElementById(\"regButton\").innerHTML = 
+						'<button class=\"button\" name=\"reg_button\" onclick=\"window.location.href=\'html/registrationHTML.php\'\">Registrati</button>'
+					</script>";
+			echo "	<script>document.getElementById(\"logButton\").innerHTML = 
+						'<button class=\"button\" name=\"log_button\" onclick=\"window.location.href=\'html/loginHTML.php\'\">Login</button>'
+					</script>";
+		}
+		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
+			echo "	<script>document.getElementById(\"profButton\").innerHTML =
+						'<button class=\"button\" name=\"prof_button\" onclick=\"window.location.href=\'html/show_profile.php\'\">Visualizza Profilo</button>'
+					</script>";
+		}
+	?>
 	
 	<div class="slideshow-container">
 
