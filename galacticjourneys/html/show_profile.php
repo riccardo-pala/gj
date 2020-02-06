@@ -56,25 +56,24 @@ else {
 </head>
 
 <body>
-<?php	
-echo "
-	<div class=\"title\">
-	<button class=\"button\" name=\"home_button\" onclick=\"window.location.href='../index.php'\">Home</button>
+
+<div class="title">
+	<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
 	LOGIN
-	<button class=\"button\" name=\"mod_button\" onclick=\"window.location.href='show_password.php'\">Modifica Password</button>
-	</div>
+	<button class="button" name="mod_button" onclick="window.location.href='show_password.php'">Modifica Password</button>
+</div>
 
-	<div class=\"form\">
-	<form action=\"../php/update_profile.php\" method=\"POST\" name=\"Form\">
-		<input type=\"text\" name=\"firstname\" placeholder=\"Nome\" value=\"$firstname\"><br>
-		<input type=\"text\" name=\"lastname\" placeholder=\"Cognome\" value=\"$lastname\"><br>
-		<input type=\"email\" required name=\"email\" placeholder=\"Email\" value=\"$email\"><br>
-		<input type=\"submit\" value=\"Modifica\"><br>
-	</form>
-		<div id='error'></div>
-	</div>	
-";
+<div class="form">
+<form action="../php/update_profile.php" method="POST" name="Form">
+	<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>"><br>
+	<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>"><br>
+	<input type="email" required name="email" placeholder="Email" value="$email"><br>
+	<input type="submit" value="Modifica"><br>
+</form>
+	<div id='error'></div>
+</div>
 
+<?php
 if(isset($_GET['err']) && $_GET['err'] == 1)
 	echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
 
