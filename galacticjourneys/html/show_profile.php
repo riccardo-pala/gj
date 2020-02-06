@@ -1,35 +1,38 @@
 <?php
 session_start();
 
+if (isset($_GET['err']) && $_GET['err'] == 2) {
+	echo "Errore fatale. Contattare l'amministratore del sito.";
+	exit;
+}
+
 require_once('../db/mysql_credentials.php');
 
 // Open DBMS Server connection
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
-	echo "<div id=serror>Errore di connessione al server.</div>"; 
+	echo "Errore di connessione al server <a class=\"link\" href=\"index.php\">HOME</a>"; 
 	exit;
 }
 // Get profile data from database (check current session)
 if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['email'])) {
 	$email = $_SESSION['email'];
-	$stmt = mysqli_prepare($con, 'SELECT firstname,lastname,username,email FROM users WHERE email=?');
+	$stmt = mysqli_prepare($con, 'SELECT firstname,lastname,email FROM users WHERE email=?');
 	mysqli_stmt_bind_param($stmt, 's', $email);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	
 	if (mysqli_num_rows($result) == 1) {
-		
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		
 		$firstname = $row['firstname'];
 		$lastname = $row['lastname'];
-		$username = $row['username'];
 		$email = $row['email'];
-		
+		mysqli_free_result($result);
 		mysqli_stmt_close($stmt);
 		mysqli_close($con);		
 	}
 	else {
+		mysqli_free_result($result);
 		mysqli_stmt_close($stmt);
 		mysqli_close($con);
 		echo "Errore fatale. Contattare l'amministratore del sito."; 
@@ -37,14 +40,13 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 	}
 }
 else {
-	mysqli_stmt_close($stmt);
 	mysqli_close($con);
 	header('Location: loginHTML.php');
 	exit;
 }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -67,29 +69,16 @@ else {
 		<form action=\"../php/update_profile.php\" method=\"POST\" name=\"Form\">
 			<input type=\"text\" name=\"firstname\" placeholder=\"Nome\" value=\"$firstname\"><br>
 			<input type=\"text\" name=\"lastname\" placeholder=\"Cognome\" value=\"$lastname\"><br>
-			<input type=\"text\" name=\"username\" placeholder=\"Username\" value=\"$username\"><br>
 			<input type=\"email\" required name=\"email\" placeholder=\"Email\" value=\"$email\"><br>
-			<div id='error'></div>
 			<input type=\"submit\" value=\"Modifica\"><br>
 		</form>
+			<div id='error'></div>
 		</div>	
 	";
 	
-	if(isset($_GET['err'])) {
-		switch($_GET['err']) {
-			case 1:
-				echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
-				break;
-			case 2:
-				echo "<script>document.getElementById('error').innerHTML = 'Username già esistente.'</script>";
-				break;
-			case 3:
-				echo "<script>document.getElementById('error').innerHTML = 'Username non valido.'</script>";
-				break;
-			default:
-				break;
-		}
-	}
+	if(isset($_GET['err']) && $_GET['err'] == 1)
+		echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
+
 ?>
 </body>
 </html>
