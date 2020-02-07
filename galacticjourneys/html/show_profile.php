@@ -78,9 +78,27 @@ else {
 	</div>
 
 	<?php
-	if(isset($_GET['err']) && $_GET['err'] == 1)
-		echo "<script>document.getElementById('error').innerHTML = 'Email già esistente.'</script>";
-
+	if(isset($_GET['err'])) {
+		switch($_GET['err']) {
+			case 1:
+				echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Email già esistente.'</script>";
+				break;
+			case 2:
+				echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Email non valida.'</script>";
+				break;
+			case 3:
+				echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Nome non valido.'</script>";
+				break;
+			case 4:
+				echo "<script>document.getElementById('error').innerHTML = 'ERRORE! Cognome non valido.'</script>";
+				break;
+			case 5:
+				echo "<script>document.getElementById('error').innerHTML = 'Si prega di inserire almeno un dato diverso da quelli attuali.'</script>";
+				break;
+			default:
+				break;
+		}
+	}
 	if (isset($_GET['succ']) && $_GET['succ'] == 1)
 		echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
 	?>
