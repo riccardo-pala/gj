@@ -49,65 +49,89 @@ if (isset($_GET['sl'])) {
 		}
 	?>
 	
+	<!-- Slideshow container -->
 	<div class="slideshow-container">
 
-	<div class="slide fade">
-		<div class="numbertext">1 / 3</div>
-		<img src="images/ss1.jpg" id="slidePic">
-		<div class="text">Caption Text</div>
-	</div>
-
-	<div class="slide fade">
-		<div class="numbertext">2 / 3</div>
-		<img src="images/ss2.jpg" id="slidePic">
-		<div class="text">Caption Two</div>
-	</div>
-
-	<div class="slide fade">
-		<div class="numbertext">3 / 3</div>
-		<img src="images/ss3.jpg" id="slidePic">
-		<div class="text">Caption Three</div>
-	</div>
-
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
+		<!-- Full-width images with number and caption text -->
+		<div class="slides fade">
+			<div class="numbertext">1 / 7</div>
+			<img src="images/ss1.jpg" style="width:100%">
+		</div>
+		<div class="slides fade">
+			<div class="numbertext">2 / 7</div>
+			<img src="images/ss2.jpg" style="width:100%">
+		</div>
+		<div class="slides fade">
+			<div class="numbertext">3 / 7</div>
+			<img src="images/ss3.jpg" style="width:100%">
+		</div>
+		<div class="slides fade">
+			<div class="numbertext">4 / 7</div>
+			<img src="images/ss4.jpg" style="width:100%">
+		</div>
+		<div class="slides fade">
+			<div class="numbertext">5 / 7</div>
+			<img src="images/ss5.jpg" style="width:100%">
+		</div>
+		<div class="slides fade">
+			<div class="numbertext">6 / 7</div>
+			<img src="images/ss6.jpg" style="width:100%">
+		</div>
+		<div class="slides fade">
+			<div class="numbertext">7 / 7</div>
+			<img src="images/ss7.jpg" style="width:100%">
+		</div>
+		<!-- Next and previous buttons -->
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
 	</div>
 	<br>
-
+	<!-- The dots/circles -->
 	<div style="text-align:center">
-	  <span class="dot" onclick="currentSlide(1)"></span> 
-	  <span class="dot" onclick="currentSlide(2)"></span> 
-	  <span class="dot" onclick="currentSlide(3)"></span> 
+		<span class="dot" onclick="currentSlide(1)"></span>
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
+		<span class="dot" onclick="currentSlide(4)"></span>
+		<span class="dot" onclick="currentSlide(5)"></span>
+		<span class="dot" onclick="currentSlide(6)"></span>
+		<span class="dot" onclick="currentSlide(7)"></span>
 	</div>
+	
 	<script>
-		var slideIndex = 1;
-		showSlides(slideIndex);
-		
+		var slideIndex = 0;
+		showSlides();
+		var clock = setInterval(showSlides, 5000);
+
+		// Next/previous controls
 		function plusSlides(n) {
-			showSlides(slideIndex += n);
+			clearInterval(clock);
+			slideIndex += (n-1);
+			var clock = showSlides(showSlides, 5000);
 		}
-
+		// Thumbnail image controls
 		function currentSlide(n) {
-			showSlides(slideIndex = n);
+			clearInterval(clock);
+			slideIndex = (n-1);
+			var clock = showSlides(showSlides, 5000);
 		}
-
-		function showSlides(n) {
+		function showSlides() {
+			slideIndex += 1;
 			var i;
 			var slides = document.getElementsByClassName("slides");
 			var dots = document.getElementsByClassName("dot");
-			if (n > slides.length) {slideIndex = 1}    
-			if (n < 1) {slideIndex = slides.length}
+			if (slideIndex > slides.length) {slideIndex = 1}
+			if (slideIndex < 1) {slideIndex = slides.length}
 			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";  
+				slides[i].style.display = "none";
 			}
 			for (i = 0; i < dots.length; i++) {
 				dots[i].className = dots[i].className.replace(" active", "");
 			}
-			slides[slideIndex-1].style.display = "block";  
+			slides[slideIndex-1].style.display = "block";
 			dots[slideIndex-1].className += " active";
 		}
 	</script>
+	
 </body>
 
 </html>
