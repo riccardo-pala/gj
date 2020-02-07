@@ -27,12 +27,12 @@ if (isset($_GET['sl'])) {
 </head>
 
 <body>
-	<span id='homeButton'>
-		<button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button>
-	</span>
-	<span id='regButton'></span>
-	<span id='logButton'></span>
-	<span id='profButton'></span>
+	<div id="button_bar">
+		<span id='homeButton'><button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button></span>
+		<span id='regButton'></span>
+		<span id='logButton'></span>
+		<span id='profButton'></span>
+	</div>
 	<?php
 		if (empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) {
 			echo "	<script>document.getElementById(\"regButton\").innerHTML = 
@@ -50,44 +50,42 @@ if (isset($_GET['sl'])) {
 	?>
 	
 	<!-- Slideshow container -->
-	<div class="slideshow-container">
-
+	<div class="slideshow_container">
 		<!-- Full-width images with number and caption text -->
 		<div class="slides fade">
 			<div class="numbertext">1 / 7</div>
-			<img src="images/ss1.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss1.jpg">
 		</div>
 		<div class="slides fade">
 			<div class="numbertext">2 / 7</div>
-			<img src="images/ss2.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss2.jpg">
 		</div>
 		<div class="slides fade">
 			<div class="numbertext">3 / 7</div>
-			<img src="images/ss3.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss3.jpg">
 		</div>
 		<div class="slides fade">
 			<div class="numbertext">4 / 7</div>
-			<img src="images/ss4.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss4.jpg">
 		</div>
 		<div class="slides fade">
 			<div class="numbertext">5 / 7</div>
-			<img src="images/ss5.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss5.jpg">
 		</div>
 		<div class="slides fade">
 			<div class="numbertext">6 / 7</div>
-			<img src="images/ss6.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss6.jpg">
 		</div>
 		<div class="slides fade">
 			<div class="numbertext">7 / 7</div>
-			<img src="images/ss7.jpg" style="width:100%">
+			<img class="slideshow_pics" src="images/ss7.jpg">
 		</div>
 		<!-- Next and previous buttons -->
 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 		<a class="next" onclick="plusSlides(1)">&#10095;</a>
 	</div>
-	<br>
 	<!-- The dots/circles -->
-	<div style="text-align:center">
+	<div class="dots-container">
 		<span class="dot" onclick="currentSlide(1)"></span>
 		<span class="dot" onclick="currentSlide(2)"></span>
 		<span class="dot" onclick="currentSlide(3)"></span>
