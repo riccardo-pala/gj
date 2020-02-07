@@ -67,14 +67,14 @@ mysqli_stmt_bind_param($stmt, 'ssss', $firstname, $lastname, $email, $pass);
 
 //eseguo la query
 mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
-mysqli_close($con);
 
 if (mysqli_stmt_affected_rows($stmt) == 1) {
+	mysqli_stmt_close($stmt);
 	mysqli_close($con);
 	header('Location: ../html/loginHTML.php?sr=1'); // registrato con successo
 }
 else {
+	mysqli_stmt_close($stmt);
 	mysqli_close($con);
 	header("Location: ../html/registrationHTML.php?err=8"); // FATAL ERROR
 }
