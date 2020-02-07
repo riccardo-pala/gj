@@ -68,9 +68,9 @@ else {
 
 	<div class="form">
 		<form action="../php/update_profile.php" method="POST" name="Form">
-			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>"><br>
-			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>"><br>
-			<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>"><br>
+			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>" required><br>
+			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>" required><br>
+			<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>" required><br>
 			<input type="submit" value="Modifica">
 			<button class="button" name="mod_button" onclick="window.location.href='show_password.php'">Modifica Password</button>
 		</form>

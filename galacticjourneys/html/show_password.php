@@ -33,9 +33,9 @@ if (isset($_GET['err']) && $_GET['err'] == 4) {
 	</div>
 	<div class="form">
 		<form action="update_password.php" method="POST" name="Form">
-			<input type="password" required name="oldPassword" placeholder="Password Attuale"><br>
-			<input type="password" required name="newPassword" placeholder="Nuova Password"><br>
-			<input type="password" required name="newPassword2" placeholder="Conferma Nuova Password"><br>
+			<input type="password" required name="oldPassword" placeholder="Password Attuale" required><br>
+			<input type="password" required name="newPassword" placeholder="Nuova Password" required><br>
+			<input type="password" required name="newPassword2" placeholder="Conferma Nuova Password" required><br>
 			<input type="submit" name="Modifica" value="MODIFICA"><br>
 		</form>
 		<div id='error'></div>
