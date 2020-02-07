@@ -1,23 +1,23 @@
 <?php
 session_start();
 
-if (isset($_GET['err']) && $_GET['err'] == 2) {
-	echo "Errore fatale. Contattare l'amministratore del sito.";
+if (isset($_GET['err']) && $_GET['err'] == 7) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
 	exit;
 }
-if (isset($_GET['err']) && $_GET['err'] == 3) {
-	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
+if (isset($_GET['err']) && $_GET['err'] == 8) {
+	echo "Errore fatale. Contattare l'amministratore del sito.";
 	exit;
 }
 
 require_once('../db/mysql_credentials.php');
-// Open DBMS Server connection
+
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
 	exit;
 }
-// Get profile data from database (check current session)
+
 if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['email'])) {
 	$email = $_SESSION['email'];
 	$stmt = mysqli_prepare($con, 'SELECT firstname,lastname,email FROM users WHERE email=?');

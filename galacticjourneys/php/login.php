@@ -1,30 +1,27 @@
 <?php
 session_start();
 
-// TODO: change credentials in the db/mysql_credentials.php file
 require_once('../db/mysql_credentials.php');
 include('functions.php');
-// Add session control, header, ...
+
 if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
 	header('Location: ../index.php');
 	exit;
 }
 
-// Open DBMS Server connection
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-	header('Location: ../html/loginHTML.php?fl=3');
+	header('Location: ../html/loginHTML.php?err=7'); // mancata connessione al server
 	exit;
 }
-// Get credentials from $_POST['email'] and $_POST['pass']
-// but do it IN A SECURE WAY
+
 if(isset($_POST['email']) && isset($_POST['pass'])) {
 	$email =  test_input($con, $_POST['email']);
 	$pass =  crypt_password($_POST['pass']);
 }
 else{
-	header('Location: ../html/loginHTML.php?fl=1');
+	header('Location: ../html/loginHTML.php?err=1'); // i campi del form non sono correttamente compilati
 	exit;
 }
 
@@ -51,13 +48,13 @@ if (mysqli_num_rows($result) == 1) {
 else if (mysqli_num_rows($result) == 0) {
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
-	header('Location: ../html/loginHTML.php?fl=2');
+	header('Location: ../html/loginHTML.php?err=2'); // email o password errati
 	exit;
 }
 else {
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
-	header('Location: ../html/loginHTML.php?fl=4');
+	header('Location: ../html/loginHTML.php?err=8'); // FATAL ERROR
 	exit;
 }
 ?>

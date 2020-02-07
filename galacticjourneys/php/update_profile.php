@@ -3,17 +3,16 @@ session_start();
 
 require_once('../db/mysql_credentials.php');
 include('functions.php');
-// Open DBMS Server connection
+
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-	header("Location: ../html/show_profile.php?err=3");
+	header("Location: ../html/show_profile.php?err=7"); // mancata connessione al server
 	exit;
 }
-// Get value from $_SESSION
+
 $oldEmail = $_SESSION['email'];
 
-// Get values from $_POST, but do it IN A SECURE WAY
 $newFirstname = test_input($con, $_POST['firstname']); 
 $newLastname = test_input($con, $_POST['lastname']); 	
 $newEmail = test_input($con, $_POST['email']); 
@@ -28,10 +27,9 @@ if ($newEmail != $oldEmail) {
 }
 
 if (isset($result) && mysqli_num_rows($result) > 0) {
-	// "Email già esistente.";
 	mysqli_free_result($result); 
 	mysqli_close($con);
-	header("Location: ../html/show_profile.php?err=1");
+	header("Location: ../html/show_profile.php?err=1"); // email già esistente
 }
 else {
 	$query = 'UPDATE users SET firstname=?,lastname=?,email=? WHERE email=?';
@@ -48,7 +46,6 @@ else {
 	else {
 		mysqli_stmt_close($stmt);
 		mysqli_close($con);
-		//echo "Errore fatale. Contattare l'amministratore del sito."; 
-		header("Location: ../html/show_profile.php?err=2");
+		header("Location: ../html/show_profile.php?err=8"); // FATAL ERROR
 	}
 }

@@ -3,15 +3,14 @@ session_start();
 
 require_once('../db/mysql_credentials.php');
 include('functions.php');
-// Open DBMS Server connection
+
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-	header("Location: ../html/show_password.php?err=4"); // mancata connessione al server
+	header("Location: ../html/show_password.php?err=7"); // mancata connessione al server
 	exit;
 }
 
-// Get value from $_SESSION
 $email = $_SESSION['email'];
 
 $oldPassword = crypt_password(test_input($con, $_POST['oldPassword'])); 
@@ -29,14 +28,14 @@ if (mysqli_num_rows($result) == 1)
 else {
 	mysqli_free_result($result); 
 	mysqli_close($con);
-	header("Location: ../html/show_password.php?err=1"); //FATAL ERROR
+	header("Location: ../html/show_password.php?err=8"); // FATAL ERROR
 	exit;
 }
 mysqli_free_result($result);
 
 if($row['password'] != $oldPassword) {
 	mysqli_close($con); 
-	header("Location: ../html/show_password.php?err=2"); //PASSWORD ATTUALE ERRATA
+	header("Location: ../html/show_password.php?err=2"); // PASSWORD ATTUALE ERRATA
 }
 else if($newPassword != $newPassword2) {
 	mysqli_close($con);
@@ -53,7 +52,7 @@ else {
 	}
 	else {
 		mysqli_close($con);
-		header("Location: ../html/show_password.php?err=1"); // FATAL ERROR
+		header("Location: ../html/show_password.php?err=8"); // FATAL ERROR
 	}
 }
 	

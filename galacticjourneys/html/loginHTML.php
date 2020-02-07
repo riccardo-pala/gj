@@ -1,8 +1,17 @@
 <?php
-	session_start();
-	if(isset($_GET['sr']) && $_GET['sr']==1) {
-		echo "<script>window.alert('Registrazione avvenuta con successo.')</script>";
-	}
+session_start();
+
+if(isset($_GET['sr']) && $_GET['sr']==1) {
+	echo "<script>window.alert('Registrazione avvenuta con successo.')</script>";
+}
+if (isset($_GET['err']) && $_GET['err'] == 7) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
+	exit;
+}
+if (isset($_GET['err']) && $_GET['err'] == 8) {
+	echo "Errore fatale. Contattare l'amministratore del sito.";
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +34,7 @@
 		if(isset($_SESSION['email'])){
 			$email = " come ".$_SESSION['email'];
 		}
-		echo "<div style='color:red'>ERRORE! Risulti già loggato$email.</div>";
+		echo "<div style='color:red'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
 		exit;
 	}
 	?>
@@ -44,8 +53,8 @@
 		</form>
 		Non possiedi un account? <a class="link" href="registrationHTML.php">REGISTRATI</a>
 		<?php
-			if(isset($_GET['fl'])){
-				switch ($_GET['fl']) {
+			if(isset($_GET['err'])){
+				switch ($_GET['err']) {
 					case 1: {
 						echo "<script>document.getElementById('error').innerHTML = 'Si prega di compilare tutti i campi del form.'</script>";
 						break;
@@ -54,11 +63,11 @@
 						echo "<script>document.getElementById('error').innerHTML = 'Email o Password errati.'</script>";
 						break;
 					}
-					case 3: {
+					case 7: {
 						echo "<script>document.getElementById('error').innerHTML = 'Errore di connessione al server. Riprova.'</script>";
 						break;
 					}
-					case 4: {
+					case 8: {
 						echo "<script>document.getElementById('error').innerHTML = 'Errore fatale. Contattare l\'amministratore del sito.'</script>";
 						break;
 					}

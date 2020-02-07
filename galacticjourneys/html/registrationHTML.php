@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (isset($_GET['err']) && $_GET['err'] == 7) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
+	exit;
+}
+if (isset($_GET['err']) && $_GET['err'] == 8) {
+	echo "Errore fatale. Contattare l'amministratore del sito.";
+	exit;
+}
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -12,6 +25,15 @@
 </head>
 
 <body>
+	<?php
+	if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+		if(isset($_SESSION['email'])){
+			$email = " come ".$_SESSION['email'];
+		}
+		echo "<div style='color:red'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
+		exit;
+	}
+	?>
 	<div>
 		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
 		<form action="../php/registration.php" method="POST">
