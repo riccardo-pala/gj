@@ -35,11 +35,15 @@ mysqli_free_result($result);
 
 if($row['password'] != $oldPassword) {
 	mysqli_close($con); 
-	header("Location: ../html/show_password.php?err=2"); // PASSWORD ATTUALE ERRATA
+	header("Location: ../html/show_password.php?err=2"); // password attuale errata
+}
+else if ($oldPassword == $newPassword) {
+	mysqli_close($con);
+	header("Location: ../html/show_password.php?err=3"); // password nuova uguale alla vecchia 
 }
 else if($newPassword != $newPassword2) {
 	mysqli_close($con);
-	header("Location: ../html/show_password.php?err=3"); // PASSWORD NON CORRISPONDONO
+	header("Location: ../html/show_password.php?err=4"); // password non corrispondono
 }
 else {
 	$stmt = mysqli_prepare($con, 'UPDATE users SET password=? WHERE email=?');

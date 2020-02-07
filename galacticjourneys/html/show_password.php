@@ -44,8 +44,9 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<?php
 	if(isset($_GET['err']) && $_GET['err'] == 2)
 		echo "<script>document.getElementById('error').innerHTML = 'Password attuale errata.'</script>";
-
 	if(isset($_GET['err']) && $_GET['err'] == 3)
+		echo "<script>document.getElementById('error').innerHTML = 'Si prega di inserire una password diversa da quella attuale.'</script>";
+	if(isset($_GET['err']) && $_GET['err'] == 4)
 		echo "<script>document.getElementById('error').innerHTML = 'Le nuove password NON corrispondono.'</script>";
 
 	if (isset($_GET['succ']) && $_GET['succ'] == 1)
