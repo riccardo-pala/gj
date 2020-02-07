@@ -32,7 +32,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>			
 	</div>
 	<div class="form">
-		<form action="update_password.php" method="POST" name="Form">
+		<form action="../php/update_password.php" method="POST" name="Form">
 			<input type="password" required name="oldPassword" placeholder="Password Attuale" required><br>
 			<input type="password" required name="newPassword" placeholder="Nuova Password" required><br>
 			<input type="password" required name="newPassword2" placeholder="Conferma Nuova Password" required><br>
