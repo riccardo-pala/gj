@@ -33,16 +33,16 @@ if (isset($_GET['sl'])) {
 
 <body>
 	<div id="button_bar">
-		<span id='homeButton'><button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button></span>
-		<span id='regButton'></span>
-		<span id='logButton'></span>
-		<span id='logoutButton'></span>
-		<span id='profButton'></span>
+		<span id="homeButton"><button class="button" name="home_button" style="border-right: solid #FF3F00 2px" onclick="window.location.href='index.php'">Home</button></span>
+		<span id="regButton"></span>
+		<span id="logButton"></span>
+		<span id="logoutButton"></span>
+		<span id="profButton"></span>
 	</div>
 	<?php
 		if (empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) {
 			echo "	<script>document.getElementById(\"regButton\").innerHTML = 
-						'<button class=\"button\" name=\"reg_button\" onclick=\"window.location.href=\'html/registrationHTML.php\'\">Registrati</button>'
+						'<button class=\"button\" name=\"reg_button\" style=\"border-right: solid #FF3F00 2px\" onclick=\"window.location.href=\'html/registrationHTML.php\'\">Registrati</button>'
 					</script>";
 			echo "	<script>document.getElementById(\"logButton\").innerHTML = 
 						'<button class=\"button\" name=\"log_button\" onclick=\"window.location.href=\'html/loginHTML.php\'\">Login</button>'
@@ -53,7 +53,7 @@ if (isset($_GET['sl'])) {
 						'<button class=\"button\" name=\"prof_button\" onclick=\"window.location.href=\'html/show_profile.php\'\">Visualizza Profilo</button>'
 					</script>";
 			echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
-						'<button class=\"button\" name=\"logout_button\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
+						'<button class=\"button\" name=\"logout_button\" style=\"border-right: solid #FF3F00 2px\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
 					</script>";
 		}
 	?>
