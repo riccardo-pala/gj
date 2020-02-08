@@ -19,7 +19,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
-	<link rel='stylesheet' type='text/css' href=''>
+	<link rel='stylesheet' type='text/css' href='../css/registrationHTML.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Registrati! - Galactic Journeys</title>
 </head>

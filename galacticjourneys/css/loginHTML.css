@@ -1,2 +1,82 @@
-/* CSS Document */
+* {
+	font-family: 'Play', sans-serif;
+}
 
+body {
+	background-color: black;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: repeat;
+	padding: 0;
+	margin: 0;
+}
+
+/* BUTTON BAR */
+#button_bar {
+	position: relative;
+  	overflow: hidden;
+	top: 0;
+	left: 0;
+	height: 40px;
+	width: 100%;
+	background-color: #0C0C0C;
+}
+#homeButton {
+	width: 100px;
+	display: inline-block;
+	float: left;
+}
+#title {
+	display: inline-block;
+	left: 40%;
+	width: 20%;
+	height: 36px;
+	position: absolute;
+	line-height: 36px;
+	text-align: center;
+	border: solid #FF3F00 2px;
+	color: #FF3F00;
+}
+button {
+	padding: 0;
+	margin: 0;
+	border: solid #FF3F00 2px;
+	width: 100px;
+	height: 40px;
+	background-color: #0C0C0C;
+	color: #FF3F00;
+	text-shadow: 0.5px 0.5px 1px #AEAEAE;
+	font-size: 100%;
+}
+
+/* FORM */
+form {
+	color: #FF3F00;
+}
+.input {
+	background-color: #0C0C0C;
+	border: solid #FF3F00 2px;
+	padding: 0;
+	margin: 0;
+	width: 200px;
+	height: 30px;
+	font-size: 100%;
+	line-height: 90%;
+	color: #FF3F00;
+}
+#submitButton {
+	background-color: #0C0C0C;
+	border: solid #FF3F00 2px;
+	padding: 0;
+	margin: 0;
+	width: 80px;
+	height: 30px;
+	font-size: 100%;
+	line-height: 90%;
+	color: #FF3F00;
+}
+a {
+	text-decoration: none;
+	color: #FFB100;
+}
