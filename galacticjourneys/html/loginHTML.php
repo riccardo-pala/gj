@@ -34,6 +34,9 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		if(isset($_SESSION['email'])){
 			$email = " come ".$_SESSION['email'];
 		}
+		else {
+			$email = '';
+		}
 		echo "<div style='color:red'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
 		exit;
 	}

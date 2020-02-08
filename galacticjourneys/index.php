@@ -5,9 +5,14 @@ if (isset($_GET['sl'])) {
 		$name = $_SESSION['firstname'];
 		echo "<script>window.alert('Benvenuto $name!')</script>";
 	}
-	else if($_GET['sl']==0 && isset($_SESSION['email'])) {
-		$email = $_SESSION['email'];
-		echo "<script>window.alert('ERRORE! Sei già loggato come $email!')</script>";
+	else if($_GET['sl']==0) {
+		if(isset($_SESSION['email'])){
+			$email = " come ".$_SESSION['email'];
+		}
+		else {
+			$email = '';
+		}
+		echo "<script>window.alert('ERRORE! Risulti già loggato$email.')</script>";
 	}
 }
 ?>
