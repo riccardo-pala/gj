@@ -27,7 +27,8 @@ if (isset($_GET['sl'])) {
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='css/index.css'>
-	<script type='text/javascript' src='js/scripts.js'></script>
+	<script>var slideIndex = 0;</script>
+	<script src="js/scripts.js" type="text/javascript"></script>
 	<title>Home - Galactic Journeys</title>
 </head>
 
@@ -105,38 +106,8 @@ if (isset($_GET['sl'])) {
 	</div>
 	
 	<script>
-		var slideIndex = 0;
 		showSlides();
 		var clock = setInterval(showSlides, 5000);
-
-		// Next/previous controls
-		function plusSlides(n) {
-			clearInterval(clock);
-			slideIndex += (n-1);
-			var clock = showSlides(showSlides, 5000);
-		}
-		// Thumbnail image controls
-		function currentSlide(n) {
-			clearInterval(clock);
-			slideIndex = (n-1);
-			var clock = showSlides(showSlides, 5000);
-		}
-		function showSlides() {
-			slideIndex += 1;
-			var i;
-			var slides = document.getElementsByClassName("slides");
-			var dots = document.getElementsByClassName("dot");
-			if (slideIndex > slides.length) {slideIndex = 1}
-			if (slideIndex < 1) {slideIndex = slides.length}
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-			for (i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(" active", "");
-			}
-			slides[slideIndex-1].style.display = "block";
-			dots[slideIndex-1].className += " active";
-		}
 	</script>
 	
 </body>

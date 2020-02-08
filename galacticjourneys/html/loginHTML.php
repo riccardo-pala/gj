@@ -24,7 +24,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href=''>
-	<script type='text/javascript' src='../js/scripts.js'></script>
+	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Login - Galactic Journeys</title>
 </head>
 
@@ -49,7 +49,8 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		<form action="../php/login.php" method="POST">
 			<input type="email" name="email" placeholder="Email" required>
 			<br>
-			<input type="password" name="pass" placeholder="Password" required>
+			<input type="password" name="pass" placeholder="Password" id="passwordField" required>
+			<input type="checkbox" onclick="showPassword()">Mostra Password
 			<div id='error' style='color:red'></div>
 			<input type="submit" value="Conferma">
 			<br>

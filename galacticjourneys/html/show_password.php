@@ -18,10 +18,13 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta name="author" content="J&R inc.">
+	<meta name="description" content="Scopri il viaggio interstellare dei tuoi sogni">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href=''>
-	<script type='text/javascript' src='../js/scripts.js'></script>
+	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Modifica Password - Galactic Journeys</title>
 </head>
 
@@ -33,9 +36,10 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	</div>
 	<div class="form">
 		<form action="../php/update_password.php" method="POST" name="Form">
-			<input type="password" required name="oldPassword" placeholder="Password Attuale" required><br>
-			<input type="password" required name="newPassword" placeholder="Nuova Password" required><br>
-			<input type="password" required name="newPassword2" placeholder="Conferma Nuova Password" required><br>
+			<input type="password" name="oldPassword" placeholder="Password Attuale" id="passwordField"  required>
+			<input type="checkbox" onclick="showPassword()">Mostra Password<br>
+			<input type="password" name="newPassword" placeholder="Nuova Password" required><br>
+			<input type="password" name="newPassword2" placeholder="Conferma Nuova Password" required><br>
 			<input type="submit" name="Modifica" value="MODIFICA"><br>
 		</form>
 		<div id='error'></div>

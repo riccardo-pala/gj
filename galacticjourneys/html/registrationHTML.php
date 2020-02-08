@@ -20,7 +20,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href=''>
-	<script type='text/javascript' src='../js/scripts.js'></script>
+	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Registrati! - Galactic Journeys</title>
 </head>
 

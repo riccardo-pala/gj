@@ -52,10 +52,13 @@ else {
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta name="author" content="J&R inc.">
+	<meta name="description" content="Scopri il viaggio interstellare dei tuoi sogni">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href=''>
-	<script type='text/javascript' src='../js/scripts.js'></script>
+	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Modifica Profilo - Galactic Journeys</title>
 </head>
 
