@@ -24,15 +24,28 @@ body {
 }
 #homeButton {
 	width: 100px;
+	display: inline-block;
+	float: left;
 }
 #regButton {
 	width: 100px;
+	display: inline-block;
+	float: right;
 }
 #logButton {
 	width: 100px;
+	display: inline-block;
+	float: right;
 }
 #profButton {
 	width: 100px;
+	display: inline-block;
+	float: right;
+}
+#logoutButton {
+	width: 100px;
+	display: inline-block;
+	float: right;
 }
 
 /* SS CONTAINER */

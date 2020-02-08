@@ -3,7 +3,7 @@ session_start();
 if (isset($_GET['sl'])) {
 	if($_GET['sl']==1 && isset($_SESSION['firstname'])) {
 		$name = $_SESSION['firstname'];
-		echo "<script>window.alert('Benvenuto $name!')</script>";
+		echo "<script>window.alert('Benvenuto/a $name!')</script>";
 	}
 	else if($_GET['sl']==0) {
 		if(isset($_SESSION['email'])){
@@ -36,6 +36,7 @@ if (isset($_GET['sl'])) {
 		<span id='homeButton'><button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button></span>
 		<span id='regButton'></span>
 		<span id='logButton'></span>
+		<span id='logoutButton'></span>
 		<span id='profButton'></span>
 	</div>
 	<?php
@@ -50,6 +51,9 @@ if (isset($_GET['sl'])) {
 		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
 			echo "	<script>document.getElementById(\"profButton\").innerHTML =
 						'<button class=\"button\" name=\"prof_button\" onclick=\"window.location.href=\'html/show_profile.php\'\">Visualizza Profilo</button>'
+					</script>";
+			echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
+						'<button class=\"button\" name=\"logout_button\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
 					</script>";
 		}
 	?>
