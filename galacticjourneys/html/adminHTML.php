@@ -1,3 +1,16 @@
+<?php
+if (isset($_GET['err']) && $_GET['err'] == 7) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"index.php\">HOME</a>"; 
+	exit;
+}
+if (isset($_GET['err']) && $_GET['err'] == 8) {
+	echo "Errore fatale. Contattare l'amministratore del sito.";
+	exit;
+}
+
+require_once('../php/admin.php');
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -12,6 +25,6 @@
 </head>
 
 <body>
-	
+	<button class="button" name="add_button" onclick="window.location.href='index.php'">Home</button>
 </body>
 </html>
