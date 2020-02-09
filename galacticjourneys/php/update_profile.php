@@ -7,7 +7,7 @@ include('functions.php');
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-	header("Location: ../html/show_profile.php?err=7"); // mancata connessione al server
+	header("Location: ../html/profileHTML.php?err=7"); // mancata connessione al server
 	exit;
 }
 
@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) == 1)
 else {
 	mysqli_free_result($result); 
 	mysqli_close($con);
-	header("Location: ../html/show_profile.php?err=8"); // FATAL ERROR
+	header("Location: ../html/profileHTML.php?err=8"); // FATAL ERROR
 	exit;
 }
 
@@ -41,29 +41,29 @@ if ($newEmail != $oldEmail) {
 	if (isset($result) && mysqli_num_rows($result) > 0) {
 		mysqli_free_result($result); 
 		mysqli_close($con);
-		header("Location: ../html/show_profile.php?err=1"); // email già esistente
+		header("Location: ../html/profileHTML.php?err=1"); // email già esistente
 		exit;
 	}
 }
 else if ($newFirstname==$oldFirstname && $newLastname==$oldLastname) {
 	mysqli_close($con);
-	header("Location: ../html/show_profile.php?err=5"); // dati nuovi uguali ai vecchi
+	header("Location: ../html/profileHTML.php?err=5"); // dati nuovi uguali ai vecchi
 	exit;
 }
 
 if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
 	mysqli_close($con);
-	header('Location: ../html/show_profile.php?err=2'); // la nuova email è in un formato non valido
+	header('Location: ../html/profileHTML.php?err=2'); // la nuova email è in un formato non valido
 	exit;
 }
 else if (!preg_match("/^[a-zA-Z ]*$/", $newFirstname)) {
 	mysqli_close($con);
-	header('Location: ../html/show_profile.php?err=3'); // il nome non è puramente alfabetico
+	header('Location: ../html/profileHTML.php?err=3'); // il nome non è puramente alfabetico
 	exit;
 }
 else if (!preg_match("/^[a-zA-Z ]*$/", $newLastname)) {
 	mysqli_close($con);
-	header('Location: ../html/show_profile.php?err=4'); // il cognome non è puramente alfabetico
+	header('Location: ../html/profileHTML.php?err=4'); // il cognome non è puramente alfabetico
 	exit;
 }
 
@@ -79,10 +79,10 @@ if (mysqli_stmt_affected_rows($stmt) == 1) {
 	$_SESSION['firstname'] = $newFirstname;
 	$_SESSION['lastname'] = $newLastname;
 	$_SESSION['email'] = $newEmail;
-	header("Location: ../html/show_profile.php?succ=1");
+	header("Location: ../html/profileHTML.php?succ=1");
 }
 else {
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
-	header("Location: ../html/show_profile.php?err=8"); // FATAL ERROR
+	header("Location: ../html/profileHTML.php?err=8"); // FATAL ERROR
 }

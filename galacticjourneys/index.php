@@ -54,7 +54,7 @@ if (isset($_GET['sl'])) {
 		}
 		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
 			echo "	<script>document.getElementById(\"profButton\").innerHTML =
-						'<button class=\"button\" name=\"prof_button\" onclick=\"window.location.href=\'html/show_profile.php\'\">Visualizza Profilo</button>'
+						'<button class=\"button\" name=\"prof_button\" onclick=\"window.location.href=\'html/profileHTML.php\'\">Visualizza Profilo</button>'
 					</script>";
 			echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
 						'<button class=\"button\" name=\"logout_button\" style=\"border-right: solid #FF3F00 2px\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
