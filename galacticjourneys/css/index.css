@@ -51,15 +51,14 @@ body {
 .button {
 	padding: 0;
 	margin: 0;
-	border-left: solid #FF3F00 2px;
-	border-top: solid #FF3F00 2px;
-	border-right: 0;
-	border-bottom: solid #FF3F00 2px;
+	border-left: solid #FF3F00 1px;
+	border-top: solid #FF3F00 1px;
+	border-right: 0px;
+	border-bottom: solid #FF3F00 1px;
 	width: 100px;
 	height: 40px;
 	background-color: #0C0C0C;
 	color: #FF3F00;
-	text-shadow: 0.5px 0.5px 1px #AEAEAE;
 	font-size: 100%;
 }
 
@@ -69,6 +68,7 @@ body {
 	position: relative;
 	padding: 0;
 	margin: 0;
+	background: none;
 }
 /* SS PICS */
 .slides {
@@ -100,7 +100,7 @@ body {
 	border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
-	background-color: #0C0C0C;
+	background-color: #FF3F00;
 }
 /* SS TEXT */
 .text {
@@ -112,27 +112,23 @@ body {
 	width: 100%;
 	text-align: center;
 }
-.numbertext {
-	color: #FFFFFF;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-}
+
 /* SS DOTS */
 .dots-container {
-	background-color: #0C0C0C;
+	background: none;
 	text-align: center;
 	height: 45px;
-	top: 0px;
-	position: relative;
+	position: absolute;
+	bottom: 0px;
+	right: 20%;
+	left: 20%;
 }
 .dot {
 	cursor: pointer;
 	height: 15px;
 	width: 15px;
 	margin: 15px 2px;
-	background-color: #3D3D3D;
+	background-color: black;
 	border-radius: 50%;
 	display: inline-block;
 	transition: background-color 0.6s ease;
