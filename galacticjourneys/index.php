@@ -84,6 +84,16 @@ if (isset($_GET['sl'])) {
 		<span id="logButton"></span>
 		<span id="logoutButton"></span>
 		<span id="profButton"></span>
+		<?php
+		if($_GET["logf"]==1) {
+			echo "	<form action=\"php/login.php\" method=\"POST\">
+						<span class=\"log\"><input type=\"submit\" id=\"login\" value=\"Login\"></span>
+						<span class=\"pas\"><input type=\"password\" id=\"password\" placeholder=\"Password\" name=\"password\" value=\"\" required></span>
+						<span class=\"us\"><input type=\"text\" id=\"usem\" placeholder=\"Email\" name=\"email\" value=\"\" required></span>
+						<span class=\"ba\"><button type=\"button\" id=\"back\" onclick=\"location.href='index.php?logf=0'\">Back</button></span>
+					</form>";
+		}
+		?>
 	</div>
 	<?php
 		if (empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) {
