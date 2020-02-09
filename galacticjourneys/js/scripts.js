@@ -8,14 +8,14 @@ function showPassword() {
 }
 
 function plusSlides(n) {
-	clearInterval(clock);
 	slideIndex += (n-1);
-	var clock = showSlides(showSlides, 5000);
+	showSlides();
+	clock = setInterval(showSlides, 5000);
 }
 function currentSlide(n) {
-	clearInterval(clock);
 	slideIndex = (n-1);
-	var clock = showSlides(showSlides, 5000);
+	showSlides();
+	clock = setInterval(showSlides, 5000);
 }
 function showSlides() {
 	slideIndex += 1;

@@ -27,7 +27,10 @@ if (isset($_GET['sl'])) {
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='css/index.css'>
-	<script>var slideIndex = 0;</script>
+	<script>
+		var slideIndex = 0;
+		var clock;
+	</script>
 	<script src="js/scripts.js" type="text/javascript"></script>
 	<title>Home - Galactic Journeys</title>
 </head>
@@ -91,23 +94,23 @@ if (isset($_GET['sl'])) {
 			<img class="slideshow_pics" src="images/ss7.jpg">
 		</div>
 		<!-- Next and previous buttons -->
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		<a class="prev" onclick="clearInterval(clock); plusSlides(-1);">&#10094;</a>
+		<a class="next" onclick="clearInterval(clock); plusSlides(1);">&#10095;</a>
 	</div>
 	<!-- The dots/circles -->
 	<div class="dots-container">
-		<span class="dot" onclick="currentSlide(1)"></span>
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
-		<span class="dot" onclick="currentSlide(4)"></span>
-		<span class="dot" onclick="currentSlide(5)"></span>
-		<span class="dot" onclick="currentSlide(6)"></span>
-		<span class="dot" onclick="currentSlide(7)"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(1);"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(2);"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(3);"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(4);"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(5);"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(6);"></span>
+		<span class="dot" onclick="clearInterval(clock); currentSlide(7);"></span>
 	</div>
 	
 	<script>
 		showSlides();
-		var clock = setInterval(showSlides, 5000);
+		clock = setInterval(showSlides, 5000);
 	</script>
 	
 </body>
