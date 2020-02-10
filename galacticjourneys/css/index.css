@@ -40,11 +40,33 @@ body {
 	display: inline-block;
 	float: right;
 }
-#profButton {
+span#profButton {
 	width: 100px;
 	display: inline-block;
 	float: right;
 }
+
+span#profButton ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+span#profButton li {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#profButton li ul {
+	display: none
+}
+
+div#hormenu li:hover ul {
+	display: block;
+	position: absolute;
+	z-index:1;
+}
+
 #logoutButton {
 	width: 100px;
 	display: inline-block;
@@ -299,6 +321,13 @@ select:-webkit-autofill:focus
 	cursor: pointer;
 	background-color: black; 
 }
+
+
+::-webkit-scrollbar {-webkit-appearance: none; width: 6px; height: 20px;}
+::-webkit-scrollbar-track-piece {background-color: black;}
+::-webkit-scrollbar-thumb {background-color: #0C0C0C;}
+::-webkit-scrollbar-thumb:vertical {height: 20px;}
+::-webkit-scrollbar-thumb:horizontal {width: 6px;}
 
 @-webkit-keyframes fade {
 	0% {opacity: 0}

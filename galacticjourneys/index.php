@@ -82,7 +82,7 @@ if (isset($_GET['sl'])) {
 		<span id="regButton"></span>
 		<span id="logButton"></span>
 		<span id="logoutButton"></span>
-		<span id="profButton"></span>
+		<div id="menu"></div><span id="profButton"></span></div>
 		<span id="adminButton"></span>
 		
 		<?php
@@ -97,6 +97,7 @@ if (isset($_GET['sl'])) {
 		}
 		?>
 	</div>
+	
 	<?php
 		if ((empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) && (empty($_GET['logf']) || !$_GET['logf'])) {
 			echo "	<script>document.getElementById(\"regButton\").innerHTML = 
@@ -107,12 +108,12 @@ if (isset($_GET['sl'])) {
 					</script>";
 		}
 		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
-			echo "	<script>document.getElementById(\"profButton\").innerHTML =
-						'<button class=\"button\" name=\"prof_button\" onclick=\"window.location.href=\'html/profileHTML.php\'\">Visualizza Profilo</button>'
+			echo "	<script>document.getElementById(\"profButton\").innerHTML = 
+			'<button class=\"profileButton\" name=\"prof_button\" onclick=\"window.location.href=\'#\'\">Profilo</button><ul><li><button class=\"button\" name=\"modProfile_button\" onclick=\"window.location.href=\'index.php\'\">Modifica Profilo</button></li><li><button class=\"button\" name=\"_button\" onclick=\"window.location.href=\'index.php\'\">LoremIpsum</button></li><div id=\"adminButton\"></div><li><button class=\"button\" name=\"logout_button\" onclick=\"window.location.href=\'index.php\'\">Logout</button></li></ul>';
 					</script>";
-			echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
+			/*echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
 						'<button class=\"button\" name=\"logout_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
-					</script>";
+					</script>"; */
 			if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
 				echo "	<script>document.getElementById(\"adminButton\").innerHTML = 
 						'<button class=\"button\" name=\"admin_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'html/adminHTML.php\'\">Amministra</button>'
