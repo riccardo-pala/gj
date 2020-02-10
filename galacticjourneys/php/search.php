@@ -5,15 +5,13 @@ if(isset($_GET['search'])) {
 	require_once('../db/mysql_credentials.php');
 	include('functions.php');
 
-	// Open DBMS Server connection
 	$con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 	if (mysqli_connect_errno($con)) {
 		echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
 		header("Location: ../html/searchHTML.php?err=7"); // mancata connessione al server
 		exit;
 	}
-	// Get search string from $_GET['search']
-	// but do it IN A SECURE WAY
+
 	$search = test_input($con, $_GET['search']);
 
 	$query = "SELECT * FROM journeys WHERE 
