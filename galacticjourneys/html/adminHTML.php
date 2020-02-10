@@ -26,11 +26,13 @@ require_once('../php/admin.php');
 
 <body>
 	<div id="button_bar">
-		<button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button>
-		<button class="button" id="add_button" onclick="window.location.href='adminHTML.php?act=add'">Aggiungi Viaggio</button>
+		<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+		<span id="addButton"></span>
+		<span id="adminButton"></span>
 	</div>
 	<?php
 	if (!isset($_GET['act'])) {
+		echo "<script>document.getElementById(\"addButton\").innerHTML = '<button class=\"button\" id=\"add_button\" onclick=\"window.location.href=\'adminHTML.php?act=add\'\">Aggiungi Viaggio</button>'</script>";
 		for ($i = 1; $i <= $numrows; $i++) {
 			$row = mysqli_fetch_assoc($result);
 			echo "	<div class=\"journey\">
@@ -54,6 +56,7 @@ require_once('../php/admin.php');
 		}
 	}
 	else if (isset($_GET['act'])) {
+		echo "<script>document.getElementById(\"adminButton\").innerHTML = '<button class=\"button\" id=\"add_button\" onclick=\"window.location.href=\'adminHTML.php\'\">Torna Indietro</button>'</script>";
 		if ($_GET['act']==='edit') {
 			$row = mysqli_fetch_assoc($result);
 			$datestring = substr($row['date'], 0, 10)."T".substr($row['date'], 11, 8);
