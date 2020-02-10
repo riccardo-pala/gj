@@ -1,9 +1,8 @@
 <?php
+session_start();
+
 if (empty($_SESSION['isLogged']) || !($_SESSION['isLogged']) || !($_SESSION['isAdmin'])) {
-	echo "Non hai i permessi necessari per visualizzare questa pagina. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>"; 
-	echo empty($_SESSION['isLogged']);
-	echo !($_SESSION['isLogged']);
-	echo !($_SESSION['isAdmin']);
+	echo "Non hai i permessi necessari per visualizzare questa pagina. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>";
 	exit;
 }
 if (isset($_GET['err']) && $_GET['err'] == 7) {
