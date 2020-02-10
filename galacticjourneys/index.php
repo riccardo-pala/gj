@@ -82,7 +82,7 @@ if (isset($_GET['sl'])) {
 		<span id="regButton"></span>
 		<span id="logButton"></span>
 		<span id="logoutButton"></span>
-		<div id="menu"></div><span id="profButton"></span></div>
+		<span id="profButton"></span>
 		<span id="adminButton"></span>
 		
 		<?php

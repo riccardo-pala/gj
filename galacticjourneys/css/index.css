@@ -24,6 +24,7 @@ body {
 	background-color: #0C0C0C;
 	border-top: solid #FF3F00 1px;
 	border-bottom: solid #FF3F00 1px;
+	overflow: visible;
 }
 #homeButton {
 	width: 100px;
@@ -44,6 +45,7 @@ span#profButton {
 	width: 100px;
 	display: inline-block;
 	float: right;
+	overflow: visible;
 }
 
 span#profButton ul {
@@ -57,14 +59,14 @@ span#profButton li {
 	float: left;
 }
 
-#profButton li ul {
+ul {
 	display: none
 }
 
-div#hormenu li:hover ul {
+span#profButton:hover ul {
 	display: block;
 	position: absolute;
-	z-index:1;
+	z-index: 1;
 }
 
 #logoutButton {
