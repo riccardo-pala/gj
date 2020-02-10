@@ -1,9 +1,11 @@
 <?php
 session_start();
+
 if (isset($_GET['sl'])) {
 	if($_GET['sl']==1 && isset($_SESSION['firstname'])) {
 		$name = $_SESSION['firstname'];
 		echo "<script>window.alert('Benvenuto/a $name!')</script>";
+		
 	}
 	else if($_GET['sl']==0) {
 		if(isset($_SESSION['email'])){
@@ -108,15 +110,13 @@ if (isset($_GET['sl'])) {
 					</script>";
 		}
 		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
+			$email = $_SESSION['email'];
 			echo "	<script>document.getElementById(\"profButton\").innerHTML = 
-			'<button class=\"profileButton\" name=\"prof_button\" onclick=\"window.location.href=\'#\'\">Profilo</button><ul><li><button class=\"button\" name=\"modProfile_button\" onclick=\"window.location.href=\'index.php\'\">Modifica Profilo</button></li><li><button class=\"button\" name=\"_button\" onclick=\"window.location.href=\'index.php\'\">LoremIpsum</button></li><div id=\"adminButton\"></div><li><button class=\"button\" name=\"logout_button\" onclick=\"window.location.href=\'index.php\'\">Logout</button></li></ul>';
+			'<button id=\"name_button\" name=\"profile_button\" onclick=\"window.location.href=\'#\'\">$email</button><ul><li><button class=\"list_button\" onclick=\"window.location.href=\'index.php\'\">Modifica Profilo</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'index.php\'\">LoremIpsum</button></li><div id=\"adminButton\"></div><li><button class=\"list_button\" onclick=\"window.location.href=\'index.php\'\">Logout</button></li></ul>';
 					</script>";
-			/*echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
-						'<button class=\"button\" name=\"logout_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
-					</script>"; */
 			if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
 				echo "	<script>document.getElementById(\"adminButton\").innerHTML = 
-						'<button class=\"button\" name=\"admin_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'html/adminHTML.php\'\">Amministra</button>'
+						'<button class=\"list_button\" onclick=\"window.location.href=\'html/adminHTML.php\'\">Amministra</button>'
 					</script>";
 			}
 		}
