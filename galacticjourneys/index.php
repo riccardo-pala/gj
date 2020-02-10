@@ -53,7 +53,6 @@ if (isset($_GET['sl'])) {
 			<img class="slideshow_pics" src="images/ss4.jpg">
 		</div>
 		<div class="slides fade">
-			<div class="numbertext"></div>
 			<img class="slideshow_pics" src="images/ss5.jpg">
 		</div>
 		<div class="slides fade">
@@ -85,24 +84,26 @@ if (isset($_GET['sl'])) {
 		<span id="logoutButton"></span>
 		<span id="profButton"></span>
 		<span id="adminButton"></span>
+		
 		<?php
-		if($_GET["logf"]==1) {
-			echo "	<form action=\"php/login.php\" method=\"POST\">
-						<span class=\"log\"><input type=\"submit\" id=\"login\" value=\"Login\"></span>
-						<span class=\"pas\"><input type=\"password\" id=\"password\" placeholder=\"Password\" name=\"password\" value=\"\" required></span>
-						<span class=\"us\"><input type=\"text\" id=\"usem\" placeholder=\"Email\" name=\"email\" value=\"\" required></span>
-						<span class=\"ba\"><button type=\"button\" id=\"back\" onclick=\"location.href='index.php?logf=0'\">Back</button></span>
+		if(isset( $_GET['logf']) && $_GET['logf']) {
+			echo "	<form action=\"php/login.php\" method=\"POST\" id=\"loginForm\">
+						<span><button type=\"button\" class=\"button\" id=\"back\" onclick=\"location.href='index.php?logf=0'\">
+						<</button></span>
+						<span><input type=\"email\" id=\"emailField\" placeholder=\"Email\" name=\"email\" value=\"\" required></span>
+						<span><input type=\"password\" id=\"passField\" placeholder=\"Password\" name=\"pass\" value=\"\" required></span>
+						<span><input type=\"submit\" id=\"loginField\" value=\">\"></span>
 					</form>";
 		}
 		?>
 	</div>
 	<?php
-		if (empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) {
+		if ((empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) && (empty($_GET['logf']) || !$_GET['logf'])) {
 			echo "	<script>document.getElementById(\"regButton\").innerHTML = 
 						'<button class=\"button\" name=\"reg_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'html/registrationHTML.php\'\">Registrati</button>'
 					</script>";
 			echo "	<script>document.getElementById(\"logButton\").innerHTML = 
-						'<button class=\"button\" name=\"log_button\" onclick=\"window.location.href=\'html/loginHTML.php\'\">Login</button>'
+						'<button class=\"button\" name=\"log_button\" onclick=\"window.location.href=\'index.php?logf=true\'\">Login</button>'
 					</script>";
 		}
 		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
@@ -127,7 +128,7 @@ if (isset($_GET['sl'])) {
 	<div id="search">
 		<form action="html/searchHTML.php" method="GET">
 			<input type="search" name="search" placeholder="Cerca nel sito..."><br>
-			<input type="submit" value="Cerca">
+			<input type="submit" id="search_submit" value="Cerca">
 		</form>
 	</div>
 	
