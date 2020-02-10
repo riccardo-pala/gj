@@ -25,15 +25,16 @@ require_once('../php/admin.php');
 </head>
 
 <body>
-	<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
-	<button class="button" name="add_button" onclick="window.location.href='adminHTML.php?act=add'">Aggiungi</button>
-	
+	<div id="button_bar">
+		<button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button>
+		<button class="button" id="add_button" onclick="window.location.href='adminHTML.php?act=add'">Aggiungi Viaggio</button>
+	</div>
 	<?php
 	if (!isset($_GET['act'])) {
 		for ($i = 1; $i <= $numrows; $i++) {
 			$row = mysqli_fetch_assoc($result);
 			echo "	<div class=\"journey\">
-						<img src=\"../images/card.jpg\" alt=\"image\" style=\"width:100px\">
+						<img class=\"images\" src=\"../images/card.jpg\" alt=\"image\" style=\"width:100px\">
 						<div class=\"info-container\">
 							<h4><b>
 								Partenza: 		".$row['departure']."<br>
