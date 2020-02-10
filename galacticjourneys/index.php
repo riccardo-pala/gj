@@ -111,12 +111,15 @@ if (isset($_GET['sl'])) {
 		}
 		else if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']===true) {
 			$email = $_SESSION['email'];
+			$pos = strpos($email,'@');
+			$email = substr($email, 0, $pos+1);
+			
 			echo "	<script>document.getElementById(\"profButton\").innerHTML = 
-			'<button id=\"name_button\" name=\"profile_button\" onclick=\"window.location.href=\'#\'\">$email</button><ul><li><button class=\"list_button\" onclick=\"window.location.href=\'index.php\'\">Modifica Profilo</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'index.php\'\">LoremIpsum</button></li><div id=\"adminButton\"></div><li><button class=\"list_button\" onclick=\"window.location.href=\'index.php\'\">Logout</button></li></ul>';
+			'<button id=\"name_button\" name=\"profile_button\" onclick=\"window.location.href=\'#\'\">$email</button><ul><li><button class=\"list_button\" onclick=\"window.location.href=\'html/profileHTML.php\'\">Modifica Profilo</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'html/passwordHTML.php\'\">Modifica Password</button></li><div id=\"adminButton\"></div><li><button class=\"list_button\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button></li></ul>';
 					</script>";
 			if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
 				echo "	<script>document.getElementById(\"adminButton\").innerHTML = 
-						'<button class=\"list_button\" onclick=\"window.location.href=\'html/adminHTML.php\'\">Amministra</button>'
+						'<button id=\"admin_button\" class=\"list_button\" onclick=\"window.location.href=\'html/adminHTML.php\'\">Amministra</button>'
 					</script>";
 			}
 		}

@@ -53,8 +53,6 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	if(isset($_GET['err']) && $_GET['err'] == 4)
 		echo "<script>document.getElementById('error').innerHTML = 'Le nuove password NON corrispondono.'</script>";
 
-	if (isset($_GET['succ']) && $_GET['succ'] == 1)
-		echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
 	?>
 	
 </body>

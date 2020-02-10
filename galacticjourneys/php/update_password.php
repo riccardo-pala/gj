@@ -7,7 +7,7 @@ include('functions.php');
 $con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 if (mysqli_connect_errno($con)) {
 	echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-	header("Location: ../html/show_password.php?err=7"); // mancata connessione al server
+	header("Location: ../html/passwordHTML.php?err=7"); // mancata connessione al server
 	exit;
 }
 
@@ -28,22 +28,22 @@ if (mysqli_num_rows($result) == 1)
 else {
 	mysqli_free_result($result); 
 	mysqli_close($con);
-	header("Location: ../html/show_password.php?err=8"); // FATAL ERROR
+	header("Location: ../html/passwordHTML.php?err=8"); // FATAL ERROR
 	exit;
 }
 mysqli_free_result($result);
 
 if($row['password'] != $oldPassword) {
 	mysqli_close($con); 
-	header("Location: ../html/show_password.php?err=2"); // password attuale errata
+	header("Location: ../html/passwordHTML.php?err=2"); // password attuale errata
 }
 else if ($oldPassword == $newPassword) {
 	mysqli_close($con);
-	header("Location: ../html/show_password.php?err=3"); // password nuova uguale alla vecchia 
+	header("Location: ../html/passwordHTML.php?err=3"); // password nuova uguale alla vecchia 
 }
 else if($newPassword != $newPassword2) {
 	mysqli_close($con);
-	header("Location: ../html/show_password.php?err=4"); // password non corrispondono
+	header("Location: ../html/passwordHTML.php?err=4"); // password non corrispondono
 }
 else {
 	$stmt = mysqli_prepare($con, 'UPDATE users SET password=? WHERE email=?');
@@ -52,11 +52,11 @@ else {
 	
 	if (mysqli_stmt_affected_rows($stmt) == 1) {
 		mysqli_close($con);
-		header("Location: ../html/show_password.php?succ=1");
+		header("Location: ../html/profileHTML.php?succ=1");
 	}
 	else {
 		mysqli_close($con);
-		header("Location: ../html/show_password.php?err=8"); // FATAL ERROR
+		header("Location: ../html/passwordHTML.php?err=8"); // FATAL ERROR
 	}
 }
 	
