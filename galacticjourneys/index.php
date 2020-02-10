@@ -84,6 +84,7 @@ if (isset($_GET['sl'])) {
 		<span id="logButton"></span>
 		<span id="logoutButton"></span>
 		<span id="profButton"></span>
+		<span id="adminButton"></span>
 		<?php
 		if($_GET["logf"]==1) {
 			echo "	<form action=\"php/login.php\" method=\"POST\">
@@ -111,10 +112,30 @@ if (isset($_GET['sl'])) {
 			echo "	<script>document.getElementById(\"logoutButton\").innerHTML = 
 						'<button class=\"button\" name=\"logout_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button>'
 					</script>";
+			if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
+				echo "	<script>document.getElementById(\"adminButton\").innerHTML = 
+						'<button class=\"button\" name=\"admin_button\" style=\"border-right: solid #FF3F00 1px\" onclick=\"window.location.href=\'html/adminHTML.php\'\">Amministra</button>'
+					</script>";
+			}
 		}
 	?>
 	
+	<div id="welcome">
+		Scopri il viaggio interstellare dei tuoi sogni
+	</div>
 	
+	<div id="search">
+		<form action="html/searchHTML.php" method="GET">
+			<input type="search" name="search" placeholder="Cerca nel sito..."><br>
+			<input type="submit" value="Cerca">
+		</form>
+	</div>
+	
+	<div id="option">
+		<button class="button" id="op_button" onclick="window.location.href='index.php'">Lorem ipsum</button><br>
+		<button class="button" id="op_button" onclick="window.location.href='index.php'">Lorem ipsum</button><br>
+		<button class="button" id="op_button" onclick="window.location.href='index.php'">Lorem ipsum</button>
+	</div>
 	
 	<script>
 		showSlides();
