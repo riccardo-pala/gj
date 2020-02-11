@@ -28,13 +28,14 @@ if(isset($_GET['search'])) {
 	mysqli_stmt_close($stmt);
 
 	if (mysqli_num_rows($results)==0) {
-		unset($_SESSION['results']);
+		//unset($_SESSION['results']);
 		mysqli_free_result($results);
 		mysqli_close($con);
+		unset($results);
 		//header("Location: ../html/searchHTML.php?search=".$search);
 	}
 	else {
-		$rows = array();
+		/*$rows = array();
 		$index = 0;
 		while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 			$rows[$index] = $row['departure']." ".$row['destination']." ".$row['date']." ".$row['description']."\n";
@@ -43,7 +44,9 @@ if(isset($_GET['search'])) {
 		$_SESSION['results'] = $rows;
 		mysqli_free_result($results);
 		mysqli_close($con);
-		//header("Location: ../html/searchHTML.php?search=".$search);
+		header("Location: ../html/searchHTML.php?search=".$search);*/
+		mysqli_close($con);
+		$numrows = mysqli_num_rows($results);
 	}
 }
 ?>

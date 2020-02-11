@@ -1,0 +1,98 @@
+/* CSS Document */
+
+* {
+	font-family: 'Play', sans-serif;
+}
+
+body {
+	background-color: #0C0C0C;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: repeat;
+	color: #FF3F00;
+	padding: 0;
+	margin: 0;
+}
+
+#button_bar {
+	position: relative;
+  	overflow: hidden;
+	top: 0;
+	left: 0;
+	height: 40px;
+	width: 100%;
+	background-color: #0C0C0C;
+	border-top: solid #FF3F00 1px;
+	border-bottom: solid #FF3F00 1px;
+}
+.button {
+	padding: 0;
+	margin: 0;
+	border-left: solid #FF3F00 1px;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	width: 100px;
+	height: 40px;
+	background-color: #0C0C0C;
+	color: #FF3F00;
+	font-size: 100%;
+}
+.button:hover {
+	text-shadow: 2px 2px 10px #FF3F00;
+	cursor: pointer;
+	background-color: #0C0C0C; 
+}
+#home_button {
+	border-right: solid #FF3F00 1px;
+}
+
+#search {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+input[type=search] {
+	color: white;
+	text-align: left;
+	border: solid #FF3F00 1px;
+	background: none;
+	margin: 4px;
+	width: 320px;
+	height: 40px;
+	padding-left: 5px;
+	font-size: 20px;
+}
+#search_submit {
+	display: none;
+}
+
+.journey {
+	height: 50%;
+	width: 27%;
+	margin: 3%;
+	margin-bottom: 0;
+	box-shadow: 0 4px 8px 0 #000000;
+	transition: 0.3s;
+	border: solid #FF3F00 1px;
+	border-radius: 5px;
+	color: #FF3F00;
+	display: inline-block;
+}
+.journey:hover {
+	box-shadow: 0px 0px 10px 0px #FF3F00;
+}
+
+.images {
+	margin: 5%;
+}
+
+.info-container {
+	padding: 20px 20px;
+	text-align: center;
+}
+.info-container .button {
+	border: solid #FF3F00 1px;
+	border-radius: 3px;
+}

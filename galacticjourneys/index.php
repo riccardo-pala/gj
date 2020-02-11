@@ -29,6 +29,7 @@ if (isset($_GET['sl'])) {
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='css/index.css'>
+	<link rel='stylesheet' type='text/css' href='css/standards.css'>
 	<script>
 		var slideIndex = 0;
 		var clock;
@@ -39,9 +40,7 @@ if (isset($_GET['sl'])) {
 
 <body>
 	
-	<!-- Slideshow container -->
 	<div class="slideshow_container">
-		<!-- Full-width images with number and caption text -->
 		<div class="slides fade">
 			<img class="slideshow_pics" src="images/ss2.jpg">
 		</div>
@@ -63,11 +62,8 @@ if (isset($_GET['sl'])) {
 		<div class="slides fade">
 			<img class="slideshow_pics" src="images/ss7.jpg">
 		</div>
-		<!-- Next and previous buttons -->
 		<a class="prev" onclick="clearInterval(clock); plusSlides(-1);">&#10094;</a>
 		<a class="next" onclick="clearInterval(clock); plusSlides(1);">&#10095;</a>
-		
-		<!-- The dots/circles -->
 		<div class="dots-container">
 			<span class="dot" onclick="clearInterval(clock); currentSlide(1);"></span>
 			<span class="dot" onclick="clearInterval(clock); currentSlide(2);"></span>
