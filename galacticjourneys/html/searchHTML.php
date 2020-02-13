@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+if (isset($_GET['err']) && $_GET['err'] == 7) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>"; 
+	exit;
+}
+if (isset($_GET['err']) && $_GET['err'] == 8) {
+	echo "Errore fatale.";
+	exit;
+}
 require_once('../php/search.php');
 ?>
 
@@ -46,7 +55,7 @@ if (isset($_GET['search']))	{
 								Arrivo:  		".$row['destination']."<br>
 							</b></h4>
 							<p>
-								Prezzo:  		".$row['price']."<br>
+								Prezzo:  		".$row['price']."€<br>
 								Data:  			".$row['date']."<br>
 								Descrizione:  	".$row['description']."<br>
 								Posti Tot:  	".$row['totalseat']."<br>

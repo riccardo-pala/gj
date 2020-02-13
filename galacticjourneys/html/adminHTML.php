@@ -50,7 +50,7 @@ require_once('../php/admin.php');
 								Arrivo:  		".$row['destination']."<br>
 							</b></h4>
 							<p>
-								Prezzo:  		".$row['price']."<br>
+								Prezzo:  		".$row['price']."€<br>
 								Data:  			".$row['date']."<br>
 								Descrizione:  	".$row['description']."<br>
 								Posti Tot:  	".$row['totalseat']."<br>
