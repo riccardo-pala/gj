@@ -33,6 +33,9 @@ $newFirstname = test_input($con, $_POST['firstname']);
 $newLastname = test_input($con, $_POST['lastname']); 	
 $newEmail = test_input($con, $_POST['email']); 
 
+// eliminare controllo su validità mail perchè il campo 
+// email nel db è UNIQUE 
+
 if ($newEmail != $oldEmail) {
 	$stmt = mysqli_prepare($con, 'SELECT * FROM users WHERE email=?');
 	mysqli_stmt_bind_param($stmt, 's', $newEmail);

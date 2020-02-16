@@ -20,6 +20,8 @@ if(isset($_GET['search'])) {
 				(date LIKE CONCAT('%',?,'%')) OR 
 				(description LIKE CONCAT('%',?,'%'))
 			";
+	
+	// altre query per cercare risultati in altre tabelle
 
 	$stmt = mysqli_prepare($con, $query);
 	mysqli_stmt_bind_param($stmt, 'ssss', $search,$search,$search,$search);
