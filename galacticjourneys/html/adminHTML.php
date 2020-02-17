@@ -43,7 +43,7 @@ require_once('../php/admin.php');
 		for ($i = 1; $i <= $numrows; $i++) {
 			$row = mysqli_fetch_assoc($result);
 			echo "	<div class=\"journey\">
-						<img class=\"images\" src=\"../images/card.jpg\" alt=\"image\" style=\"width:100px\">
+						<img class=\"images\" src=\"../images/".$row['image']."\" alt=\"image\" style=\"width:90%\">
 						<div class=\"info-container\">
 							<h4><b>
 								Partenza: 		".$row['departure']."<br>
@@ -67,8 +67,9 @@ require_once('../php/admin.php');
 		if ($_GET['act']==='edit') {
 			$row = mysqli_fetch_assoc($result);
 			$datestring = substr($row['date'], 0, 10)."T".substr($row['date'], 11, 8);
-			echo	"<form action=\"../php/admin.php?act=updt&id=".$row['id']."\" method=\"POST\">
-			
+			echo	"
+				<div id=\"divform\">
+					<form action=\"../php/admin.php?act=updt&id=".$row['id']."\" method=\"POST\">
 					<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" value=\"".$row['departure']."\" required>
 					<br>
 					<input type=\"text\" name=\"destination\" placeholder=\"Arrivo\" value=\"".$row['destination']."\" required>
@@ -83,12 +84,16 @@ require_once('../php/admin.php');
 					<br>
 					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" value=\"".$row['availableseat']."\" required>
 					<br>
+					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" value=\"".$row['image']."\" required>
+					<br>
 					<input type=\"submit\" value=\"Modifica\">
-					</form>";
+					</form>
+				</div>";
 		}
 		if ($_GET['act']==='add') {
-			echo	"<form action=\"../php/admin.php?act=addnew\" method=\"POST\">
-			
+			echo	"
+				<div id=\"divform\">
+					<form action=\"../php/admin.php?act=addnew\" method=\"POST\">
 					<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" required>
 					<br>
 					<input type=\"text\" name=\"destination\" placeholder=\"Arrivo\" required>
@@ -103,8 +108,11 @@ require_once('../php/admin.php');
 					<br>
 					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" required>
 					<br>
+					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" required>
+					<br>
 					<input type=\"submit\" value=\"Aggiungi Viaggio\">
-					</form>";
+					</form>
+				</div>";
 		}
 	}
 	?>
