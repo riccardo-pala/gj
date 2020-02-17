@@ -21,30 +21,30 @@ body {
 	height: 40px;
 	width: 100%;
 	background-color: #0C0C0C;
-	border-top: solid #FF3F00 1px;
-	border-bottom: solid #FF3F00 1px;
+	border-top: solid red 1px;
+	border-bottom: solid red 1px;
 }
 .button {
 	padding: 0;
 	margin: 0;
-	border-left: solid #FF3F00 1px;
+	border-left: solid red 1px;
 	border-top: 0px;
 	border-right: 0px;
 	border-bottom: 0px;
 	width: 100px;
 	height: 40px;
 	background-color: #0C0C0C;
-	color: #FF3F00;
+	color: red;
 	font-size: 100%;
 }
 .button:hover {
-	text-shadow: 2px 2px 10px #FF3F00;
+	text-shadow: 2px 2px 10px red;
 	cursor: pointer;
 	background-color: #0C0C0C; 
 }
 #add_button, #admin_button {
 	width: 200px;
-	border-right: solid #FF3F00 1px;
+	border-right: solid red 1px;
 }
 
 .journey {
@@ -54,13 +54,13 @@ body {
 	margin-bottom: 0;
 	box-shadow: 0 4px 8px 0 #000000;
 	transition: 0.3s;
-	border: solid #FF3F00 1px;
+	border: solid red 1px;
 	border-radius: 5px;
-	color: #FF3F00;
+	color: red;
 	display: inline-block;
 }
 .journey:hover {
-	box-shadow: 0px 0px 10px 0px #FF3F00;
+	box-shadow: 0px 0px 10px 0px red;
 }
 
 .images {
@@ -72,6 +72,6 @@ body {
 	text-align: center;
 }
 .info-container .button {
-	border: solid #FF3F00 1px;
+	border: solid red 1px;
 	border-radius: 3px;
 }

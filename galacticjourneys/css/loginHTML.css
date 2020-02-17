@@ -35,46 +35,46 @@ body {
 	position: absolute;
 	line-height: 36px;
 	text-align: center;
-	border: solid #FF3F00 2px;
-	color: #FF3F00;
+	border: solid red 2px;
+	color: red;
 }
 button {
 	padding: 0;
 	margin: 0;
-	border: solid #FF3F00 2px;
+	border: solid red 2px;
 	width: 100px;
 	height: 40px;
 	background-color: #0C0C0C;
-	color: #FF3F00;
+	color: red;
 	text-shadow: 0.5px 0.5px 1px #AEAEAE;
 	font-size: 100%;
 }
 
 /* FORM */
 form {
-	color: #FF3F00;
+	color: red;
 }
 .input {
 	background-color: #0C0C0C;
-	border: solid #FF3F00 2px;
+	border: solid red 2px;
 	padding: 0;
 	margin: 0;
 	width: 200px;
 	height: 30px;
 	font-size: 100%;
 	line-height: 90%;
-	color: #FF3F00;
+	color: red;
 }
 #submitButton {
 	background-color: #0C0C0C;
-	border: solid #FF3F00 2px;
+	border: solid red 2px;
 	padding: 0;
 	margin: 0;
 	width: 80px;
 	height: 30px;
 	font-size: 100%;
 	line-height: 90%;
-	color: #FF3F00;
+	color: red;
 }
 a {
 	text-decoration: none;
