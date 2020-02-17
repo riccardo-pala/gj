@@ -56,6 +56,17 @@ input[type="submit"]:hover {
 	background-color: black;
 	cursor: pointer;
 }
+input[type="date"] {
+	background-color: transparent;
+	background: url("../images/calendario.png")  99% 50% no-repeat ;
+	border-radius: 2px;
+}
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
 
 #button_bar {
 	position: relative;
