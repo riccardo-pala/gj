@@ -44,7 +44,7 @@ body {
 	cursor: pointer;
 	background-color: #0C0C0C; 
 }
-#home_button {
+#home_button, #back_button {
 	border-right: solid #FF3F00 1px;
 }
 

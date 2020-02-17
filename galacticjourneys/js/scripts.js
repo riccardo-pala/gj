@@ -33,3 +33,20 @@ function showSlides() {
 	slides[slideIndex-1].style.display = "block";
 	dots[slideIndex-1].className += " active";
 }
+
+function loadHint(value, id) {
+	if (value.length>0) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById(id + "Hints").innerHTML =
+				this.responseText;
+		   }
+		};
+		xhttp.open("GET", "../php/searchHint.php?search=" + value + "&id=" + id, true);
+		xhttp.send();
+	}
+	else {
+		document.getElementById(id + "Hints").innerHTML = '';
+	}
+}
