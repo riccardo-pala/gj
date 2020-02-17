@@ -36,19 +36,7 @@ $newEmail = test_input($con, $_POST['email']);
 // eliminare controllo su validità mail perchè il campo 
 // email nel db è UNIQUE 
 
-if ($newEmail != $oldEmail) {
-	$stmt = mysqli_prepare($con, 'SELECT * FROM users WHERE email=?');
-	mysqli_stmt_bind_param($stmt, 's', $newEmail);
-	mysqli_stmt_execute($stmt);
-	$result = mysqli_stmt_get_result($stmt);
-	if (isset($result) && mysqli_num_rows($result) > 0) {
-		mysqli_free_result($result); 
-		mysqli_close($con);
-		header("Location: ../html/profileHTML.php?err=1"); // email già esistente
-		exit;
-	}
-}
-else if ($newFirstname==$oldFirstname && $newLastname==$oldLastname) {
+if ($newFirstname==$oldFirstname && $newLastname==$oldLastname && $newEmail==$oldEmail) {
 	mysqli_close($con);
 	header("Location: ../html/profileHTML.php?err=5"); // dati nuovi uguali ai vecchi
 	exit;
@@ -72,9 +60,14 @@ else if (!preg_match("/^[a-zA-Z ]*$/", $newLastname)) {
 
 $stmt = mysqli_prepare($con, 'UPDATE users SET firstname=?,lastname=?,email=? WHERE email=?');
 mysqli_stmt_bind_param($stmt, 'ssss', $newFirstname, $newLastname, $newEmail, $oldEmail);
-mysqli_stmt_execute($stmt);
 
-if (mysqli_stmt_affected_rows($stmt) == 1) {
+if(!mysqli_stmt_execute($stmt)) {
+	echo "".mysqli_stmt_error($stmt);
+	mysqli_stmt_close($stmt);
+	mysqli_close($con);
+	//header("Location: ../html/profileHTML.php?err=1"); // email già esistente
+}
+else if (mysqli_stmt_affected_rows($stmt)==1) {
 	$_SESSION['email'] = $newEmail;
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
