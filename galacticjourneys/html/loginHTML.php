@@ -24,38 +24,49 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='../css/loginHTML.css'>
+		<link rel='stylesheet' type='text/css' href='../css/standards.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Login - Galactic Journeys</title>
 </head>
 
 <body>
-	<?php
-	if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
-		if(isset($_SESSION['email'])){
-			$email = " come ".$_SESSION['email'];
-		}
-		else {
-			$email = '';
-		}
-		echo "<div style='color:#D035D0'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
-		exit;
-	}
-	?>
-	<div id="button_bar">
-		<span id="homeButton"><button name="home_button" onclick="window.location.href='../index.php'">Home</button></span>
-		<span id="title">LOGIN</span>
-	</div>
-	<div class="form">
-		<form action="../php/login.php" method="POST">
-			<input class="input" type="email" name="email" placeholder="Email" requi#D035D0>
-			<br>
-			<input class="input" type="password" name="pass" placeholder="Password" id="passwordField" requi#D035D0>
-			<input type="checkbox" onclick="showPassword()">Mostra Password
-			<div id='error' style='color:#D035D0'></div>
-			<input id="submitButton" type="submit" value="Conferma">
-			<br>
-			Non possiedi un account? <a class="link" href="registrationHTML.php">REGISTRATI</a>
-		</form>
+	<div id="bg">
+		<div id="container"></div>
+			<?php
+			if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+				if(isset($_SESSION['email'])){
+					$email = " come ".$_SESSION['email'];
+				}
+				else {
+					$email = '';
+				}
+				echo "<div style='color:#D035D0'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
+				exit;
+			}
+			?>
+			<div id="button_bar">
+				<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+				<!-- <span id="title">LOGIN</span> -->
+			</div>
+			<div class="form">
+				<form action="../php/login.php" method="POST">
+					<input type="email" name="email" placeholder="Email" required>
+					<br>
+					<input type="password" name="pass" placeholder="Password" id="passwordField" required>
+					<br>
+					<input type="checkbox" onclick="showPassword()">Mostra Password
+					<br>
+					<input id="submitButton" type="submit" value="Conferma">
+					<div id='error'></div>
+					<br>
+					Non possiedi un account? <a class="link" href="registrationHTML.php"><u>REGISTRATI</u></a>
+				</form>
+			</div>
+			<footer>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<br><br>
+			© 2020-2020 GalacticJourneys. Tutti i diritti sono riservati.
+			</footer>
 	</div>
 </body>
 </html>
