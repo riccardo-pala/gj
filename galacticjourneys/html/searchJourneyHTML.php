@@ -35,36 +35,32 @@ require_once('../php/searchJourney.php');
 	</div>
 
 <?php
-if (isset($_GET['search']))	{
+if (isset($_GET['search']) && isset($results))	{
 	echo "<script>
 		document.getElementById('backButton').innerHTML = '<button class=\"button\" id=\"back_button\" onclick=\"window.location.href=\'searchJourneyHTML.php\'\">Indietro</button>'
 			</script>";
-	if (!isset($results) )
-		echo "La ricerca non ha prodotto risultati.";
-	else {
-		for ($i = 1; $i <= $numrows; $i++) {
-			$row = mysqli_fetch_assoc($results);
-			echo "	<div class=\"journey\">
-						<img class=\"images\" src=\"../images/card.jpg\" alt=\"image\" style=\"width:100px\">
-						<div class=\"info-container\">
-							<h4><b>
-								Partenza: 		".$row['departure']."<br>
-								Arrivo:  		".$row['destination']."<br>
-							</b></h4>
-							<p>
-								Prezzo:  		".$row['price']."€<br>
-								Data:  			".$row['date']."<br>
-								Descrizione:  	".$row['description']."<br>
-								Posti Tot:  	".$row['totalseat']."<br>
-								Posti Disp:  	".$row['availableseat']."
-							</p>
-							<form action=\"bookingHTML.php\" method=\"POST\">
-								<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">
-								<button class=\"button\">Prenota</button>
-							</form>
-						</div>
-					</div>";
-		}
+	for ($i = 1; $i <= $numrows; $i++) {
+		$row = mysqli_fetch_assoc($results);
+		echo "	<div class=\"journey\">
+					<img class=\"images\" src=\"../images/card.jpg\" alt=\"image\" style=\"width:100px\">
+					<div class=\"info-container\">
+						<h4><b>
+							Partenza: 		".$row['departure']."<br>
+							Arrivo:  		".$row['destination']."<br>
+						</b></h4>
+						<p>
+							Prezzo:  		".$row['price']."€<br>
+							Data:  			".$row['date']."<br>
+							Descrizione:  	".$row['description']."<br>
+							Posti Tot:  	".$row['totalseat']."<br>
+							Posti Disp:  	".$row['availableseat']."
+						</p>
+						<form action=\"bookingHTML.php\" method=\"POST\">
+							<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">
+							<button class=\"button\">Prenota</button>
+						</form>
+					</div>
+				</div>";
 	}
 }
 else {
@@ -86,6 +82,11 @@ else {
 			</form>
 		</div>
 	";
+	if (isset($_GET['search']) && !isset($results)) {
+		echo "	<script>document.getElementById(\"err\").innerHTML =
+					'La ricerca non ha prodotto risultati.'
+				</script>";
+	}
 }
 	
 if (isset($_GET['err']) && $_GET['err']==1) {
