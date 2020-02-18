@@ -53,6 +53,9 @@ else {
 						<b>Data:</b>   		<span class=\"infos\">".$row['date']."</span><br>
 						<b>Prezzo:</b>  	<span class=\"infos\">".$row['price']."€</span>
 					</div>
+					<div class=\"delete-container\">
+						<button id=\"checkout\" onclick=\"window.location.href='cartHTML.php?act=dlt&id=".$row['cartid']."'\">Rimuovi dal Carrello</button></div>
+					</div>
 				</div>";
 		$total += $row['price'];
 	}
