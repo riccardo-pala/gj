@@ -39,7 +39,10 @@ if (isset($_GET['sl'])) {
 </head>
 
 <body>
+	<div id="bg">
 	
+	<div id="container"></div>
+		
 	<div class="slideshow_container">
 		<div class="slides fade">
 			<img class="slideshow_pics" src="images/ss2.jpg">
@@ -76,7 +79,7 @@ if (isset($_GET['sl'])) {
 	</div>
 	
 	<div id="button_bar">
-		<span id="homeButton"><button class="button" name="home_button" style="border-right: solid red 1px" onclick="window.location.href='index.php'">Home</button></span>
+		<span id="homeButton"><button class="button" name="home_button" style="border-right: solid #C600C6 1px" onclick="window.location.href='index.php'">Home</button></span>
 		<span id="regButton"></span>
 		<span id="logButton"></span>
 		<span id="profButton"></span>
@@ -97,7 +100,7 @@ if (isset($_GET['sl'])) {
 	<?php
 		if ((empty($_SESSION['isLogged']) || $_SESSION['isLogged']==false) && (empty($_GET['logf']) || !$_GET['logf'])) {
 			echo "	<script>document.getElementById(\"regButton\").innerHTML = 
-						'<button class=\"button\" name=\"reg_button\" style=\"border-right: solid red 1px\" onclick=\"window.location.href=\'html/registrationHTML.php\'\">Registrati</button>'
+						'<button class=\"button\" name=\"reg_button\" onclick=\"window.location.href=\'html/registrationHTML.php\'\">Registrati</button>'
 					</script>";
 			echo "	<script>document.getElementById(\"logButton\").innerHTML = 
 						'<button class=\"button\" name=\"log_button\" onclick=\"window.location.href=\'index.php?logf=true\'\">Login</button>'
@@ -125,8 +128,8 @@ if (isset($_GET['sl'])) {
 	
 	<div id="option">
 		<button class="button" id="op_button" onclick="window.location.href='html/searchJourneyHTML.php'">TROVA IL TUO VIAGGIO</button><br>
-		<button class="button" id="op_button" onclick="window.location.href='index.php'">Lorem ipsum</button><br>
-		<button class="button" id="op_button" onclick="window.location.href='index.php'">Lorem ipsum</button>
+		<button class="button" id="op_button" onclick="window.location.href='index.php'">DONAZIONI</button><br>
+		<button class="button" id="op_button" onclick="window.location.href='index.php'">NEWS</button>
 	</div>
 	
 	<script>
@@ -134,6 +137,13 @@ if (isset($_GET['sl'])) {
 		clock = setInterval(showSlides, 5000);
 	</script>
 	
+	<footer>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		<br><br>
+		© 2020-2020 GalacticJourneys. Tutti i diritti sono riservati.
+	</footer>
+	
+	</div>
 </body>
 
 </html>

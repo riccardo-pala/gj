@@ -11,6 +11,24 @@ body {
 	background-repeat: repeat;
 	padding: 0;
 	margin: 0;
+	background-image: url("../images/bg2.jpg");
+	z-index: -5;
+}
+
+#bg {
+	background-color: none;
+	position: absolute;
+	right: 10%;
+	left: 10%;
+}
+
+#container {
+	background-color: black;
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
 }
 
 /* BUTTON BAR */
@@ -21,8 +39,9 @@ body {
 	height: 40px;
 	width: 100%;
 	background-color: #0C0C0C;
-	border-top: solid red 1px;
-	border-bottom: solid red 1px;
+	border-top: solid #C600C6 1px;
+	border-bottom: solid #C600C6 1px;
+	border-right: solid #C600C6 1px;
 	overflow: visible;
 }
 #homeButton {
@@ -33,7 +52,7 @@ body {
 #regButton {
 	width: 100px;
 	display: inline-block;
-	float: right;
+	float: right; 
 }
 #logButton {
 	width: 100px;
@@ -46,7 +65,7 @@ body {
 	float: right;
 	overflow: visible;
 	position: absolute;
-	right: 8px;
+	right: 1px;
 	outline: none;
 }
 #profButton ul {
@@ -62,22 +81,22 @@ body {
 	padding: 0;
 	width: 100%;
 	float: left;
-	color: red;
-	border-bottom:  solid red 1px;
+	color: #C600C6;
+	border-bottom:  solid #C600C6 1px;
 }
 #profButton:hover ul {
 	display: block;
 	position: absolute;
 	z-index: 1;
-	border-left: solid red 1px;
-	border-right: solid red 1px;
+	border-left: solid #C600C6 1px;
+	border-right: solid #C600C6 1px;
 	border-bottom: 0px;
 }
 #profButton:focus {
 	outline: none;
 }
 #admin_button {
-	border-bottom:  solid red 1px;
+	border-bottom:  solid #C600C6 1px;
 }
 #admin_button:focus {
 	outline: none;
@@ -90,20 +109,20 @@ body {
 .button {
 	padding: 0;
 	margin: 0;
-	border-left: solid red 1px;
+	border-left: solid #C600C6 1px;
 	border-top: 0px;
 	border-right: 0px;
 	border-bottom: 0px;
 	width: 100%;
 	height: 40px;
 	background-color: #0C0C0C;
-	color: red;
+	color: #C600C6;
 	font-size: 100%;
 	cursor: pointer;
 }
 
 .button:hover {
-	text-shadow: 2px 2px 10px red;
+	text-shadow: 2px 2px 10px #C600C6;
 	cursor: pointer;
 	background-color: black; 
 }
@@ -118,13 +137,13 @@ body {
 	width: 200px;
 	height: 40px;
 	background-color: #0C0C0C;
-	color: red;
+	color: #C600C6;
 	font-size: 15px;
 	border: 0px;
 }
 
 .list_button:hover {
-	text-shadow: 2px 2px 10px red;
+	text-shadow: 2px 2px 10px #C600C6;
 	cursor: pointer;
 	background-color: black; 
 }
@@ -136,11 +155,14 @@ body {
 	padding: 0;
 	margin: 0;
 	background: none;
+	border-left: 1px solid dimgrey;
+	border-right: 1px solid dimgrey;
+	border-top: 1px solid dimgrey;
 }
 /* SS PICS */
 .slides {
 	display: none;
-	height: 320px;
+	height: 256px;
 	width: 100%;
 	vertical-align: middle;
 }
@@ -168,7 +190,7 @@ body {
 	border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
-	background-color: red;
+	background-color: #C600C6;
 }
 /* SS TEXT */
 .text {
@@ -201,10 +223,10 @@ body {
 	display: inline-block;
 }
 .dot:hover {
-	background-color: #FF5252;
+	background-color: white;
 }
 .dot.active {
-	background-color: red;
+	background-color: #C600C6;
 	-webkit-animation-name: fade;
 	-webkit-animation-duration: 5s;
 	animation-name: fade;
@@ -235,17 +257,17 @@ input:focus {
 
 #option {
 	text-align: center;
-	height: 400px;
+	height: 300px;
 }
 
 #op_button {
-	border-top: solid red 1px;
-	border-right: solid red 1px;
-	border-bottom: solid red 1px;
+	border-top: solid #C600C6 1px;
+	border-right: solid #C600C6 1px;
+	border-bottom: solid #C600C6 1px;
 	width: 360px;
 	height: 60px;
 	background-color: #0C0C0C;
-	color: red;
+	color: #C600C6;
 	text-align: center;
 	margin: 10px;
 	font-size: 30px;
@@ -253,7 +275,7 @@ input:focus {
 }
 
 #op_button:hover {
-	text-shadow: 2px 2px 10px red;
+	text-shadow: 2px 2px 10px #C600C6;
 	cursor: pointer;
 	background-color: black; 
 }
@@ -268,7 +290,7 @@ input:focus {
 input[type=email],input[type=password] {
 	color: white;
 	text-align: left;
-	border: solid red 1px;
+	border: solid #C600C6 1px;
 	background: none;
 	padding-left: 4px;
 	padding-bottom: 0px;
@@ -286,35 +308,35 @@ input[type=password]:focus::-webkit-input-placeholder
 }
 
 #back {
-	border-top: solid red 1px;
-	border-right: solid red 1px;
-	border-bottom: solid red 1px;
-	border-left: solid red 1px;
+	border-top: solid #C600C6 1px;
+	border-right: solid #C600C6 1px;
+	border-bottom: solid #C600C6 1px;
+	border-left: solid #C600C6 1px;
 	width: 22px;
 	height: 22px;
 	background-color: #0C0C0C;
-	color: red;
+	color: #C600C6;
 	text-align: center;
 	font-size: 16px;
 	padding-right: 2px;
 }
 
 #loginField {
-	border-top: solid red 1px;
-	border-right: solid red 1px;
-	border-bottom: solid red 1px;
-	border-left: solid red 1px;
+	border-top: solid #C600C6 1px;
+	border-right: solid #C600C6 1px;
+	border-bottom: solid #C600C6 1px;
+	border-left: solid #C600C6 1px;
 	width: 22px;
 	height: 22px;
 	background-color: #0C0C0C;
-	color: red;
+	color: #C600C6;
 	text-align: center;
 	font-size: 16px;
 	padding-left: 6px;
 }
 
 #back:hover,#loginField:hover {
-	text-shadow: 2px 2px 10px red;
+	text-shadow: 2px 2px 10px #C600C6;
 	cursor: pointer;
 	background-color: black; 
 }
@@ -325,18 +347,31 @@ input[type=password]:focus::-webkit-input-placeholder
 	width: 100%;
 	height: 40px;
 	background-color: #0C0C0C;
-	color: red;
+	color: #C600C6;
 	border: 0px;
 	font-size: 100%;
 	margin-bottom: 1px;
 }
 #name_button:hover {
-	text-shadow: 2px 2px 10px red;
+	text-shadow: 2px 2px 10px #C600C6;
 	cursor: pointer;
 }
 #name_button:focus {
 	outline: none;
 }
+
+footer {
+	display: block;
+	color: white;
+	background-color: dimgrey;
+	opacity: 0.2;
+	height: 100px;
+	text-align: center;
+	border: 1px solid white;
+ 
+}
+
+
 
 @-webkit-keyframes fade {
 	0% {opacity: 0}
