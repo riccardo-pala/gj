@@ -36,7 +36,7 @@ if (isset($_GET['act'])) {
 		else if ($_GET['act']==='updt') {
 			if (isset($_POST['departure']) && isset($_POST['destination']) && isset($_POST['price'])
 				&& isset($_POST['date']) && isset($_POST['description']) && isset($_POST['totalseat'])
-				&& isset($_POST['availableseat'])) {
+				&& isset($_POST['availableseat']) && isset($_POST['image'])) {
 				$departure = $_POST['departure'];
 				$destination = $_POST['destination'];
 				$price = $_POST['price'];
@@ -79,7 +79,7 @@ if (isset($_GET['act'])) {
 	else if ($_GET['act']==='addnew') {
 		if (isset($_POST['departure']) && isset($_POST['destination']) && isset($_POST['price'])
 			&& isset($_POST['date']) && isset($_POST['description']) && isset($_POST['totalseat'])
-			&& isset($_POST['availableseat'])) {
+			&& isset($_POST['availableseat']) && isset($_POST['image'])) {
 			$departure = $_POST['departure'];
 			$destination = $_POST['destination'];
 			$price = $_POST['price'];
@@ -91,7 +91,7 @@ if (isset($_GET['act'])) {
 			
 			$query = "	INSERT INTO journeys 
 						(departure, destination, price, date, description, totalseat, availableseat, image)
-						VALUES (?, ?, ?, ?, ?, ?, ?)
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 					";
 			$stmt = mysqli_prepare($con, $query);
 			mysqli_stmt_bind_param($stmt, 'ssdssiis', $departure, $destination, $price, $date, $description, $totalseat, $availableseat, $image);
