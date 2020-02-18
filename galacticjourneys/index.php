@@ -79,9 +79,7 @@ if (isset($_GET['sl'])) {
 		<span id="homeButton"><button class="button" name="home_button" style="border-right: solid red 1px" onclick="window.location.href='index.php'">Home</button></span>
 		<span id="regButton"></span>
 		<span id="logButton"></span>
-		<span id="logoutButton"></span>
 		<span id="profButton"></span>
-		<span id="adminButton"></span>
 		
 		<?php
 		if(isset( $_GET['logf']) && $_GET['logf']) {

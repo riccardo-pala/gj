@@ -204,7 +204,7 @@ body {
 	display: inline-block;
 }
 .dot:hover {
-	background-color: #FF9E7D;
+	background-color: #FF5252;
 }
 .dot.active {
 	background-color: red;
