@@ -44,7 +44,7 @@ require_once('../php/searchJourney.php');
 			for ($i = 1; $i <= $numrows; $i++) {
 				$row = mysqli_fetch_assoc($results);
 				echo "	<div class=\"journey\">
-							<img class=\"images\" src=\"../images/card.jpg\" alt=\"image\" style=\"width:100px\">
+							<img class=\"images\" src=\"../images/".$row['image']."\" alt=\"image\" style=\"width:90%\">
 							<div class=\"info-container\">
 								<h4><b>
 									Partenza: 		".$row['departure']."<br>

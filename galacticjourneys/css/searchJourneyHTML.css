@@ -64,10 +64,17 @@ body {
 	cursor: pointer;
 	background-color: #0C0C0C; 
 }
-#home_button, #back_button {
+#home_button {
 	border-right: solid #D035D0 1px;
 }
-#home_button:hover, #back_button:hover {
+
+#back_button {
+	position: absolute;
+	right: 0px;
+}
+
+#home_button:hover, 
+#back_button:hover {
 	cursor: pointer;
 	background-color: black;
 }
