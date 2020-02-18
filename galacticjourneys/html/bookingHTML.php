@@ -32,23 +32,33 @@ require_once('../php/booking.php');
 
 <body>
 	
+	<div id="button_bar">
+		<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+	</div>
+	
 <?php
 if (!isset($results) )
 	echo "Non hai prenotazioni attive.";
 else {
+	$total = 0;
 	for ($i = 1; $i <= $numrows; $i++) {
 		$row = mysqli_fetch_assoc($results);
 		echo "	<div class=\"journey\">
 					<div class=\"pic-container\">
-						<img class=\"images\" src=\"../images/card.jpg\" alt=\"image\">
+						<img class=\"images\" src=\"../images/".$row['image']."\" alt=\"image\">
 					</div>
 					<div class=\"info-container\">
-						Partenza: 		".$row['departure']."<br>
-						Arrivo:  		".$row['destination']."<br>
-						Data:  			".$row['date']."
+						<b>Partenza:</b>  	<span class=\"infos\">".$row['departure']."</span><br>
+						<b>Arrivo:</b>   	<span class=\"infos\">".$row['destination']."</span><br>
+						<b>Data:</b>   		<span class=\"infos\">".$row['date']."</span><br>
+						<b>Prezzo:</b>  	<span class=\"infos\">".$row['price']."€</span>
 					</div>
 				</div>";
+		$total += $row['price'];
 	}
+	
+	echo 	"<div id=\"total\"><b>TOTALE:</b> $total €<br>
+			<button id=\"checkout\" onclick=\"window.location.href='bookingHTML.php'\">Procedi con il Checkout</button></div>";
 }
 ?>
 </body>
