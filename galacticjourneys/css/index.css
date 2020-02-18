@@ -25,7 +25,6 @@ body {
 	border-bottom: solid red 1px;
 	overflow: visible;
 }
-
 #homeButton {
 	width: 100px;
 	display: inline-block;
@@ -48,8 +47,8 @@ body {
 	overflow: visible;
 	position: absolute;
 	right: 8px;
+	outline: none;
 }
-
 #profButton ul {
 	margin: 0;
 	padding: 0;
@@ -66,7 +65,6 @@ body {
 	color: red;
 	border-bottom:  solid red 1px;
 }
-
 #profButton:hover ul {
 	display: block;
 	position: absolute;
@@ -75,7 +73,15 @@ body {
 	border-right: solid red 1px;
 	border-bottom: 0px;
 }
-
+#profButton:focus {
+	outline: none;
+}
+#admin_button {
+	border-bottom:  solid red 1px;
+}
+#admin_button:focus {
+	outline: none;
+}
 #logoutButton {
 	width: 100px;
 	display: inline-block;
@@ -116,15 +122,6 @@ body {
 	font-size: 15px;
 	border: 0px;
 }
-
-#admin_button {
-	border-bottom:  solid red 1px;
-}
-
-#admin_button:focus {
-	outline: none;
-}
-
 
 .list_button:hover {
 	text-shadow: 2px 2px 10px red;
@@ -333,10 +330,12 @@ input[type=password]:focus::-webkit-input-placeholder
 	font-size: 100%;
 	margin-bottom: 1px;
 }
-
 #name_button:hover {
 	text-shadow: 2px 2px 10px red;
 	cursor: pointer;
+}
+#name_button:focus {
+	outline: none;
 }
 
 @-webkit-keyframes fade {
