@@ -9,7 +9,7 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 	$con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db); 
 	if (mysqli_connect_errno($con)) {
 		echo "Collegamento a MySQL non riuscito: ".mysqli_connect_error($con); 
-		header("Location: ../html/bookingHTML.php?err=7"); // mancata connessione al server
+		header("Location: ../html/cartHTML.php?err=7"); // mancata connessione al server
 		exit;
 	}
 	
@@ -19,16 +19,16 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		
 		$journeyid = $_POST['id'];
 
-		$query = "INSERT INTO bookings (email, journeyid) VALUES (?, ?)";
+		$query = "INSERT INTO carts (email, journeyid) VALUES (?, ?)";
 		$stmt = mysqli_prepare($con, $query);
 		mysqli_stmt_bind_param($stmt, 'si', $email, $journeyid);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
 	}
 	
-	$query = "SELECT * FROM bookings
+	$query = "SELECT * FROM carts
 				INNER JOIN journeys
-				ON bookings.journeyid=journeys.id
+				ON carts.journeyid=journeys.id
 				WHERE email=?";
 	
 	$stmt = mysqli_prepare($con, $query);

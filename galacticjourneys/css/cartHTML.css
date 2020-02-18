@@ -159,3 +159,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	cursor: pointer;
 	background-color: #0C0C0C; 
 }
+#checkout:focus {
+	outline: none;
+}

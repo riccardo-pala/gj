@@ -55,7 +55,7 @@ if (isset($_GET['search']) && isset($results))	{
 							Posti Tot:  	".$row['totalseat']."<br>
 							Posti Disp:  	".$row['availableseat']."
 						</p>
-						<form action=\"bookingHTML.php\" method=\"POST\">
+						<form action=\"cartHTML.php\" method=\"POST\">
 							<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">
 							<button class=\"button\">Prenota</button>
 						</form>
