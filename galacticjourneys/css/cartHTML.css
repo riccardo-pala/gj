@@ -11,6 +11,7 @@ body {
 	background-position: center;
 	background-repeat: repeat;
 	padding: 0;
+	margin: 0;
 	background-image: url("../images/bg2.jpg");
 	z-index: -5;
 }
@@ -18,7 +19,7 @@ body {
 	position: absolute;
 	right: 10%;
 	left: 10%;
-	padding: 0 0 250px 0;
+	margin-bottom: 2px;
 }
 #container {
 	background-color: black;
@@ -153,8 +154,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #total {
 	position: fixed;
 	background-color: #0C0C0C;
-	right: 0;
-	bottom: 0;
+	z-index: 2;
+	right: 50px;
+	bottom: 50px;
 	height: 100px;
 	width: 400px;
 	padding: 50px 20px;
@@ -187,4 +189,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 #checkout:focus, #delete:focus {
 	outline: none;
+}
+
+footer {
+	display: block;
+	position: relative;
+	bottom: 0px;
+	margin-top: 180px;
+	color: white;
+	background-color: dimgrey;
+	opacity: 0.2;
+	height: 100px;
+	text-align: center;
+	border: 1px solid white;
 }

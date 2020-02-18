@@ -18,7 +18,7 @@ body {
 	position: absolute;
 	right: 10%;
 	left: 10%;
-	padding: 0 0 250px 0;
+	margin-bottom: 2px;
 }
 #container {
 	background-color: black;
@@ -188,4 +188,17 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .info-container .button {
 	border: solid #D035D0 1px;
 	border-radius: 0px;
+}
+
+footer {
+	display: block;
+	position: relative;
+	bottom: 0px;
+	margin-top: 80px;
+	color: white;
+	background-color: dimgrey;
+	opacity: 0.2;
+	height: 100px;
+	text-align: center;
+	border: 1px solid white;
 }
