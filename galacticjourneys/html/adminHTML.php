@@ -84,7 +84,9 @@ require_once('../php/admin.php');
 					<br>
 					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" value=\"".$row['availableseat']."\" required>
 					<br>
-					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" value=\"".$row['image']."\" required>
+					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" value=\"".$row['image']."\">
+					<br>
+					*NON selezionare nessun file per non modificarlo.
 					<br>
 					<input type=\"submit\" value=\"Modifica\">
 					</form>

@@ -23,6 +23,7 @@ body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-top: 60px;
+	color: silver;
 }
 
 
@@ -85,10 +86,11 @@ input[type="datetime-local"] {
 	background: url("../images/calendario.png")  95% 50% no-repeat ;
 }
 input[type="datetime-local"]::-webkit-inner-spin-button {
-  display: none;
+	display: none;
+	right: 5%;
 }
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
+	opacity: 0;
 }
 
 #button_bar {

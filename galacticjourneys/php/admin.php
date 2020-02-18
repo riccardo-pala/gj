@@ -27,9 +27,8 @@ if (isset($_GET['act'])) {
 			$stmt = mysqli_prepare($con, $query);
 			mysqli_stmt_bind_param($stmt, 'i', $id);
 			mysqli_stmt_execute($stmt);
-			if (mysqli_stmt_affected_rows($stmt)<1) {
+			if (mysqli_stmt_affected_rows($stmt)<1)
 				header("Location: ../html/adminHTML.php?err=8"); // FATAL ERROR
-			}
 			mysqli_stmt_close($stmt);
 			mysqli_close($con);
 			header("Location: ../html/adminHTML.php");
@@ -45,12 +44,28 @@ if (isset($_GET['act'])) {
 				$description = $_POST['description'];
 				$totalseat = $_POST['totalseat'];
 				$availableseat = $_POST['availableseat'];
-				$query = "	UPDATE journeys 
-							SET departure=?, destination=?, price=?, date=?, description=?, totalseat=?, availableseat=?
-							WHERE id=?
-						";
+				$image = $_POST['image'];
+				
+				if (empty($_POST['image'])) {
+					$checkImage = false;
+					$query = "	UPDATE journeys 
+								SET departure=?, destination=?, price=?, date=?, description=?, totalseat=?, availableseat=?
+								WHERE id=?
+							";
+				}
+				else {
+					$checkImage = true;
+					$query = "	UPDATE journeys 
+								SET departure=?, destination=?, price=?, date=?, description=?, totalseat=?, availableseat=?, image=?
+								WHERE id=?
+							";
+				}
 				$stmt = mysqli_prepare($con, $query);
-				mysqli_stmt_bind_param($stmt, 'ssdssiii', $departure, $destination, $price, $date, $description, $totalseat, $availableseat, $id);
+				if (!$checkImage)
+					mysqli_stmt_bind_param($stmt, 'ssdssiii', $departure,$destination,$price,$date,$description,$totalseat,$availableseat,$id);
+				else
+					mysqli_stmt_bind_param($stmt, 'ssdssiiis', $departure,$destination,$price,$date,$description,$totalseat,$availableseat,$image,$id);
+				
 				mysqli_stmt_execute($stmt);
 				mysqli_stmt_close($stmt);
 				mysqli_close($con);
@@ -72,12 +87,14 @@ if (isset($_GET['act'])) {
 			$description = $_POST['description'];
 			$totalseat = $_POST['totalseat'];
 			$availableseat = $_POST['availableseat'];
+			$image = $_POST['image'];
+			
 			$query = "	INSERT INTO journeys 
-						(departure, destination, price, date, description, totalseat, availableseat)
+						(departure, destination, price, date, description, totalseat, availableseat, image)
 						VALUES (?, ?, ?, ?, ?, ?, ?)
 					";
 			$stmt = mysqli_prepare($con, $query);
-			mysqli_stmt_bind_param($stmt, 'ssdssii', $departure, $destination, $price, $date, $description, $totalseat, $availableseat);
+			mysqli_stmt_bind_param($stmt, 'ssdssiis', $departure, $destination, $price, $date, $description, $totalseat, $availableseat, $image);
 			mysqli_stmt_execute($stmt);
 			mysqli_stmt_close($stmt);
 			mysqli_close($con);
