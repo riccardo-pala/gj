@@ -41,7 +41,6 @@ body {
 	background-color: #0C0C0C;
 	border-top: solid #D035D0 1px;
 	border-bottom: solid #D035D0 1px;
-	border-right: solid #D035D0 1px;
 	overflow: visible;
 }
 #homeButton {
@@ -54,6 +53,7 @@ body {
 	width: 100px;
 	display: inline-block;
 	float: right; 
+	border-right: solid #D035D0 1px;
 }
 #logButton {
 	width: 100px;
@@ -66,13 +66,15 @@ body {
 	float: right;
 	overflow: visible;
 	position: absolute;
-	right: 1px;
+	right: 0px;
 	outline: none;
+	border-right: solid #D035D0 1px;
 }
 #profButton ul {
 	margin: 0;
 	padding: 0;
 	width: 100%;
+	right: -1px;
 	list-style-type: none;
 	display: none;
 	border: 0px;
@@ -156,9 +158,11 @@ body {
 	padding: 0;
 	margin: 0;
 	background: none;
+	border-top: 1px solid dimgrey;
 	border-left: 1px solid dimgrey;
 	border-right: 1px solid dimgrey;
-	border-top: 1px solid dimgrey;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 /* SS PICS */
 .slides {
@@ -286,6 +290,11 @@ input:focus {
 	margin-bottom: 0 auto;
 	margin-right: 6px;
 	float: right;
+}
+
+#form {
+	height: 100%;
+	border-right: solid #D035D0 1px;
 }
 
 input[type=email],input[type=password] {

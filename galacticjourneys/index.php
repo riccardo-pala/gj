@@ -86,13 +86,13 @@ if (isset($_GET['sl'])) {
 		
 		<?php
 		if(isset( $_GET['logf']) && $_GET['logf']) {
-			echo "	<form action=\"php/login.php\" method=\"POST\" id=\"loginForm\">
+			echo "	<div id=\"form\"><form action=\"php/login.php\" method=\"POST\" id=\"loginForm\">
 						<span><button type=\"button\" class=\"button\" id=\"back\" onclick=\"location.href='index.php?logf=0'\">
 						<</button></span>
 						<span><input type=\"email\" id=\"emailField\" placeholder=\"Email\" name=\"email\" value=\"\" required></span>
 						<span><input type=\"password\" id=\"passField\" placeholder=\"Password\" name=\"pass\" value=\"\" required></span>
 						<span><input type=\"submit\" id=\"loginField\" value=\">\"></span>
-					</form>";
+					</form></div>";
 		}
 		?>
 	</div>
