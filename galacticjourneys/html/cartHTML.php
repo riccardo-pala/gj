@@ -31,6 +31,8 @@ require_once('../php/cart.php');
 </head>
 
 <body>
+<div id="bg">
+	<div id="container"></div>
 	
 	<div id="button_bar">
 		<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
@@ -54,7 +56,7 @@ else {
 						<b>Prezzo:</b>  	<span class=\"infos\">".$row['price']."€</span>
 					</div>
 					<div class=\"delete-container\">
-						<button id=\"checkout\" onclick=\"window.location.href='cartHTML.php?act=dlt&id=".$row['cartid']."'\">Rimuovi dal Carrello</button></div>
+						<button id=\"delete\" onclick=\"window.location.href='cartHTML.php?act=dlt&id=".$row['cartid']."'\">Rimuovi dal Carrello</button>
 					</div>
 				</div>";
 		$total += $row['price'];
@@ -64,5 +66,6 @@ else {
 			<button id=\"checkout\" onclick=\"window.location.href='cartHTML.php'\">Procedi con il Checkout</button></div>";
 }
 ?>
+</div>
 </body>
 </html>

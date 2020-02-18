@@ -32,8 +32,12 @@ require_once('../php/admin.php');
 </head>
 
 <body>
+<div id="bg">
+	<div id="container"></div>
+	
 	<div id="button_bar">
 		<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+		<span id="title">AMMINISTRA</span>
 		<span id="addButton"></span>
 		<span id="adminButton"></span>
 	</div>
@@ -118,5 +122,6 @@ require_once('../php/admin.php');
 		}
 	}
 	?>
+</div>
 </body>
 </html>
