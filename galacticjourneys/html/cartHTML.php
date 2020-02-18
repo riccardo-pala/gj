@@ -27,7 +27,7 @@ require_once('../php/cart.php');
 	<link rel='stylesheet' type='text/css' href='../css/cartHTML.css'>
 	<link rel='stylesheet' type='text/css' href='../css/standards.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
-	<title>Prenotazioni - Galactic Journeys</title>
+	<title>Carrello - Galactic Journeys</title>
 </head>
 
 <body>
@@ -40,9 +40,10 @@ require_once('../php/cart.php');
 	
 <?php
 if (!isset($results) )
-	echo "Non hai prenotazioni attive.";
+	echo "<div id=\"nothing\">Non hai viaggi nel carrello.</div>";
 else {
 	$total = 0;
+	$journeys = array();
 	for ($i = 1; $i <= $numrows; $i++) {
 		$row = mysqli_fetch_assoc($results);
 		echo "	<div class=\"journey\">
@@ -60,10 +61,14 @@ else {
 					</div>
 				</div>";
 		$total += $row['price'];
+		$journeys[$i] = $row['journeyid'];
 	}
-	
-	echo 	"<div id=\"total\"><b>TOTALE:</b> $total €<br>
-			<button id=\"checkout\" onclick=\"window.location.href='cartHTML.php'\">Procedi con il Checkout</button></div>";
+	$_SESSION['journeys'] = array();
+	$_SESSION['journeys'] = $journeys;
+	echo 	"<div id=\"total\">
+				<b>TOTALE:</b> $total €<br>
+				<button id=\"checkout\" onclick=\"window.location.href='bookingHTML.php?act=add'\">Procedi con il Checkout</button>
+			</div>";
 }
 ?>
 	<footer>

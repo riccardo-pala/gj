@@ -112,7 +112,7 @@ if (isset($_GET['sl'])) {
 			$email = substr($email, 0, $pos+1);
 			
 			echo "	<script>document.getElementById(\"profButton\").innerHTML = 
-			'<button id=\"name_button\" name=\"profile_button\" onclick=\"window.location.href=\'#\'\">$email</button><ul><li><button class=\"list_button\" onclick=\"window.location.href=\'html/profileHTML.php\'\">Modifica Profilo</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'html/passwordHTML.php\'\">Modifica Password</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'html/cartHTML.php\'\">Prenotazioni</button></li><div id=\"adminButton\"></div><li><button class=\"list_button\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button></li></ul>';
+			'<button id=\"name_button\" name=\"profile_button\" onclick=\"window.location.href=\'#\'\">$email</button><ul><li><button class=\"list_button\" onclick=\"window.location.href=\'html/profileHTML.php\'\">Modifica Profilo</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'html/passwordHTML.php\'\">Modifica Password</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'html/cartHTML.php\'\">Carrello</button></li><li><button class=\"list_button\" onclick=\"window.location.href=\'html/bookingHTML.php\'\">I miei Viaggi</button></li><div id=\"adminButton\"></div><li><button class=\"list_button\" onclick=\"window.location.href=\'php/logout.php\'\">Logout</button></li></ul>';
 					</script>";
 			if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
 				echo "	<script>document.getElementById(\"adminButton\").innerHTML = 

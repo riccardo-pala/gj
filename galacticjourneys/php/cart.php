@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['email'])) {
 	
 	require_once('../db/mysql_credentials.php');

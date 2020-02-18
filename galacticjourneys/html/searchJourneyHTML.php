@@ -44,23 +44,25 @@ require_once('../php/searchJourney.php');
 			for ($i = 1; $i <= $numrows; $i++) {
 				$row = mysqli_fetch_assoc($results);
 				echo "	<div class=\"journey\">
-							<img class=\"images\" src=\"../images/".$row['image']."\" alt=\"image\" style=\"width:90%\">
-							<div class=\"info-container\">
-								<h4><b>
-									Partenza: 		".$row['departure']."<br>
-									Arrivo:  		".$row['destination']."<br>
-								</b></h4>
-								<p>
-									Prezzo:  		".$row['price']."€<br>
-									Data:  			".$row['date']."<br>
-									Descrizione:  	".$row['description']."<br>
-									Posti Tot:  	".$row['totalseat']."<br>
-									Posti Disp:  	".$row['availableseat']."
-								</p>
-								<form action=\"cartHTML.php?act=add\" method=\"POST\">
-									<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">
-									<button class=\"button\">Prenota</button>
-								</form>
+							<div class=\"pic-container\">
+								<img class=\"images\" src=\"../images/".$row['image']."\" alt=\"image\"\">
+							</div>
+							<div class=\"info-container1\">
+								<b>Partenza:</b>  		<span class=\"infos\">".$row['departure']."</span><br>
+								<b>Arrivo:</b>   		<span class=\"infos\">".$row['destination']."</span><br>
+								<b>Data:</b>   			<span class=\"infos\">".$row['date']."</span><br>
+								<b>Prezzo:</b>  		<span class=\"infos\">".$row['price']."€</span>
+							</div>
+							<div class=\"info-container2\">
+								<b>Descrizione:</b>  	<span class=\"infos\">".$row['description']."</span><br>
+								<b>Posti Tot:</b> 		<span class=\"infos\">".$row['totalseat']."</span><br>
+								<b>Posti Disp:</b>		<span class=\"infos\">".$row['availableseat']."</span>
+							</div>
+							<div class=\"booking-container\">
+							<form action=\"cartHTML.php?act=add\" method=\"POST\" id=\"bform\">
+								<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">
+								<button id=\"booking\" class=\"button\">Prenota</button>
+							</form>
 							</div>
 						</div>";
 			}
