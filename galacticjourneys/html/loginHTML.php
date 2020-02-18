@@ -37,7 +37,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		else {
 			$email = '';
 		}
-		echo "<div style='color:red'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
+		echo "<div style='color:#D035D0'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
 		exit;
 	}
 	?>
@@ -47,11 +47,11 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	</div>
 	<div class="form">
 		<form action="../php/login.php" method="POST">
-			<input class="input" type="email" name="email" placeholder="Email" required>
+			<input class="input" type="email" name="email" placeholder="Email" requi#D035D0>
 			<br>
-			<input class="input" type="password" name="pass" placeholder="Password" id="passwordField" required>
+			<input class="input" type="password" name="pass" placeholder="Password" id="passwordField" requi#D035D0>
 			<input type="checkbox" onclick="showPassword()">Mostra Password
-			<div id='error' style='color:red'></div>
+			<div id='error' style='color:#D035D0'></div>
 			<input id="submitButton" type="submit" value="Conferma">
 			<br>
 			Non possiedi un account? <a class="link" href="registrationHTML.php">REGISTRATI</a>

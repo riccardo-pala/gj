@@ -34,9 +34,9 @@ require_once('../php/show_profile.php');
 
 	<div class="form">
 		<form action="../php/update_profile.php" method="POST" name="Form">
-			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>" required><br>
-			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>" required><br>
-			<input type="email" required name="email" placeholder="Email" value="<?php echo $email; ?>" required><br>
+			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>" requi#D035D0><br>
+			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>" requi#D035D0><br>
+			<input type="email" requi#D035D0 name="email" placeholder="Email" value="<?php echo $email; ?>" requi#D035D0><br>
 			<input type="submit" value="Modifica">
 		</form>
 			<button class="button" name="mod_button" onclick="window.location.href='passwordHTML.php'">Modifica Password</button>

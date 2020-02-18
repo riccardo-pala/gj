@@ -78,7 +78,7 @@ else {
 				</div>
 				<input type=\"date\" name=\"date\" placeholder=\"\"><br>
 				<input type=\"submit\" id=\"search_submit\" value=\"Cerca\">
-				<div id=\"err\" style=\"color:red\"></div>
+				<div id=\"err\" style=\"color:#D035D0\"></div>
 			</form>
 		</div>
 	";

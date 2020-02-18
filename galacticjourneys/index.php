@@ -79,7 +79,7 @@ if (isset($_GET['sl'])) {
 	</div>
 	
 	<div id="button_bar">
-		<span id="homeButton"><button class="button" name="home_button" style="border-right: solid #C600C6 1px" onclick="window.location.href='index.php'">Home</button></span>
+		<span id="homeButton"><button class="button" name="home_button" onclick="window.location.href='index.php'">Home</button></span>
 		<span id="regButton"></span>
 		<span id="logButton"></span>
 		<span id="profButton"></span>
@@ -89,8 +89,8 @@ if (isset($_GET['sl'])) {
 			echo "	<form action=\"php/login.php\" method=\"POST\" id=\"loginForm\">
 						<span><button type=\"button\" class=\"button\" id=\"back\" onclick=\"location.href='index.php?logf=0'\">
 						<</button></span>
-						<span><input type=\"email\" id=\"emailField\" placeholder=\"Email\" name=\"email\" value=\"\" required></span>
-						<span><input type=\"password\" id=\"passField\" placeholder=\"Password\" name=\"pass\" value=\"\" required></span>
+						<span><input type=\"email\" id=\"emailField\" placeholder=\"Email\" name=\"email\" value=\"\" requi#D035D0></span>
+						<span><input type=\"password\" id=\"passField\" placeholder=\"Password\" name=\"pass\" value=\"\" requi#D035D0></span>
 						<span><input type=\"submit\" id=\"loginField\" value=\">\"></span>
 					</form>";
 		}

@@ -36,10 +36,10 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	</div>
 	<div class="form">
 		<form action="../php/update_password.php" method="POST" name="Form">
-			<input type="password" name="oldPassword" placeholder="Password Attuale" id="passwordField"  required>
+			<input type="password" name="oldPassword" placeholder="Password Attuale" id="passwordField"  requi#D035D0>
 			<input type="checkbox" onclick="showPassword()">Mostra Password<br>
-			<input type="password" name="newPassword" placeholder="Nuova Password" required><br>
-			<input type="password" name="newPassword2" placeholder="Conferma Nuova Password" required><br>
+			<input type="password" name="newPassword" placeholder="Nuova Password" requi#D035D0><br>
+			<input type="password" name="newPassword2" placeholder="Conferma Nuova Password" requi#D035D0><br>
 			<input type="submit" name="Modifica" value="MODIFICA"><br>
 		</form>
 		<div id='error'></div>

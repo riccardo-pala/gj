@@ -48,6 +48,7 @@ body {
 	width: 100px;
 	display: inline-block;
 	float: left;
+	border-right: solid #D035D0 1px;
 }
 #regButton {
 	width: 100px;

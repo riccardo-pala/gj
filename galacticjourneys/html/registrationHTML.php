@@ -33,22 +33,22 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		else {
 			$email = '';
 		}
-		echo "<div style='color:red'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
+		echo "<div style='color:#D035D0'>ERRORE! Risulti già loggato$email. Torna alla <a class=\"link\" href=\"index.php\">HOME</a></div>";
 		exit;
 	}
 	?>
 	<div>
 		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
 		<form action="../php/registration.php" method="POST">
-		<input type="text" name="firstname" placeholder="Nome*" required>
+		<input type="text" name="firstname" placeholder="Nome*" requi#D035D0>
 		<br>
-		<input type="text" name="lastname" placeholder="Cognome*" required>
+		<input type="text" name="lastname" placeholder="Cognome*" requi#D035D0>
 		<br>
-		<input type="email" name="email" placeholder="Email*" required>
+		<input type="email" name="email" placeholder="Email*" requi#D035D0>
 		<br>
-		<input type="password" name="pass" placeholder="Password*" required>
+		<input type="password" name="pass" placeholder="Password*" requi#D035D0>
 		<br>
-		<input type="password" name="confirm" placeholder="Conferma Password*" required>
+		<input type="password" name="confirm" placeholder="Conferma Password*" requi#D035D0>
 		<div id='error'></div>
 		<input type="submit" value="Submit">
 		</form>
