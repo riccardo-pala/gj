@@ -20,26 +20,28 @@ require_once('../php/show_profile.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
-	<link rel='stylesheet' type='text/css' href=''>
+	<link rel='stylesheet' type='text/css' href='../css/profileHTML.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Modifica Profilo - Galactic Journeys</title>
 </head>
 
 <body>
-
-	<div class="title">
-		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
-		LOGIN
+	<div id="bg">
+		<div id="container"></div>
+	
+	<div id="button_bar">
+		<button id="home_button" onclick="window.location.href='../index.php'">Home</button>
+		<span id="title">MODIFICA PROFILO</span>
+		<button id="mod_button" onclick="window.location.href='passwordHTML.php'">Modifica Password</button>
 	</div>
 
 	<div class="form">
 		<form action="../php/update_profile.php" method="POST" name="Form">
-			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>" requi#D035D0><br>
-			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>" requi#D035D0><br>
-			<input type="email" requi#D035D0 name="email" placeholder="Email" value="<?php echo $email; ?>" requi#D035D0><br>
+			<input type="text" name="firstname" placeholder="Nome" value="<?php echo $firstname; ?>" required><br>
+			<input type="text" name="lastname" placeholder="Cognome" value="<?php echo $lastname; ?>" required><br>
+			<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" required><br>
 			<input type="submit" value="Modifica">
 		</form>
-			<button class="button" name="mod_button" onclick="window.location.href='passwordHTML.php'">Modifica Password</button>
 		<div id='error'></div>
 	</div>
 
@@ -67,6 +69,13 @@ require_once('../php/show_profile.php');
 	}
 	if (isset($_GET['succ']) && $_GET['succ'] == 1)
 		echo "<script>window.alert('Modifiche effettuate con successo!');</script>";
-	?>
+	?>	
+		<footer>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<br><br>
+			© 2020-2020 GalacticJourneys. Tutti i diritti sono riservati.
+		</footer>
+	</div>
+	
 </body>
 </html>

@@ -65,7 +65,7 @@ if(!mysqli_stmt_execute($stmt)) {
 	echo "".mysqli_stmt_error($stmt);
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
-	//header("Location: ../html/profileHTML.php?err=1"); // email già esistente
+	header("Location: ../html/profileHTML.php?err=1"); // email già esistente
 }
 else if (mysqli_stmt_affected_rows($stmt)==1) {
 	$_SESSION['email'] = $newEmail;

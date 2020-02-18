@@ -30,7 +30,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 
 <body>
 	<div class="title">
-		<button class="button" name="profile_button" onclick="window.location.href='show_profile.php'">Modifica Profilo</button>
+		<button class="button" name="profile_button" onclick="window.location.href='profileHTML.php'">Modifica Profilo</button>
 		MODIFICA PASSWORD
 		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>			
 	</div>
