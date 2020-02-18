@@ -36,6 +36,7 @@ require_once('../php/cart.php');
 	
 	<div id="button_bar">
 		<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+		<span id="title">CARRELLO</span>
 	</div>
 	
 <?php

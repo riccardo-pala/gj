@@ -36,6 +36,7 @@ require_once('../php/booking.php');
 	
 	<div id="button_bar">
 		<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+		<span id="title">I MIEI VIAGGI</span>
 	</div>
 	
 <?php

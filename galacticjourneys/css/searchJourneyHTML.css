@@ -45,6 +45,7 @@ body {
 	border-top: solid #D035D0 1px;
 	border-bottom: solid #D035D0 1px;
 	border-right: solid #D035D0 1px;
+	color: #D035D0;
 }
 .button {
 	padding: 0;
@@ -67,7 +68,14 @@ body {
 #home_button {
 	border-right: solid #D035D0 1px;
 }
-
+#title {
+	text-align: center;
+	position: absolute;
+	left: 30%;
+	right: 30%;
+	line-height: 40px;
+	font-size: 30px;
+}
 #back_button {
 	position: absolute;
 	right: 0px;

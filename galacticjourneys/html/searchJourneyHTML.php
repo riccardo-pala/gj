@@ -32,6 +32,7 @@ require_once('../php/searchJourney.php');
 		<div id="container"></div>
 		<div id="button_bar">
 			<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
+			<span id="title">RICERCA</span>
 			<span id="backButton"></span>
 		</div>
 		
