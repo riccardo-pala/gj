@@ -23,37 +23,47 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
-	<link rel='stylesheet' type='text/css' href=''>
+	<link rel='stylesheet' type='text/css' href='../css/passwordHTML.css'>
+	<link rel='stylesheet' type='text/css' href='../css/standards.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Modifica Password - Galactic Journeys</title>
 </head>
 
 <body>
-	<div class="title">
-		<button class="button" name="profile_button" onclick="window.location.href='profileHTML.php'">Modifica Profilo</button>
-		MODIFICA PASSWORD
-		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>			
-	</div>
-	<div class="form">
-		<form action="../php/update_password.php" method="POST" name="Form">
-			<input type="password" name="oldPassword" placeholder="Password Attuale" id="passwordField"  requi#D035D0>
-			<input type="checkbox" onclick="showPassword()">Mostra Password<br>
-			<input type="password" name="newPassword" placeholder="Nuova Password" requi#D035D0><br>
-			<input type="password" name="newPassword2" placeholder="Conferma Nuova Password" requi#D035D0><br>
-			<input type="submit" name="Modifica" value="MODIFICA"><br>
-		</form>
-		<div id='error'></div>
-	</div>
-	
-	<?php
-	if(isset($_GET['err']) && $_GET['err'] == 2)
-		echo "<script>document.getElementById('error').innerHTML = 'Password attuale errata.'</script>";
-	if(isset($_GET['err']) && $_GET['err'] == 3)
-		echo "<script>document.getElementById('error').innerHTML = 'Si prega di inserire una password diversa da quella attuale.'</script>";
-	if(isset($_GET['err']) && $_GET['err'] == 4)
-		echo "<script>document.getElementById('error').innerHTML = 'Le nuove password NON corrispondono.'</script>";
+	<div id="bg">
+		
+		<div id="container"></div>
 
-	?>
-	
+		<div id="button_bar">
+			<button  id="home_button" onclick="window.location.href='../index.php'">Home</button>	
+			<span id="title">LOGIN</span>
+			<button  id="profile_button" onclick="window.location.href='profileHTML.php'">Modifica Profilo</button>
+		</div>
+		<div class="form">
+			<form action="../php/update_password.php" method="POST" name="Form">
+				<input type="password" name="oldPassword" placeholder="Password Attuale" id="passwordField" required><br>
+				<input type="checkbox" onclick="showPassword()">Mostra Password<br>
+				<input type="password" name="newPassword" placeholder="Nuova Password" required><br>
+				<input type="password" name="newPassword2" placeholder="Conferma Nuova Password" required><br>
+				<input type="submit" name="Modifica" value="Modifica"><br>
+			</form>
+			<div id='error'></div>
+		</div>
+
+		<?php
+		if(isset($_GET['err']) && $_GET['err'] == 2)
+			echo "<script>document.getElementById('error').innerHTML = 'Password attuale errata.'</script>";
+		if(isset($_GET['err']) && $_GET['err'] == 3)
+			echo "<script>document.getElementById('error').innerHTML = 'Si prega di inserire una password diversa da quella attuale.'</script>";
+		if(isset($_GET['err']) && $_GET['err'] == 4)
+			echo "<script>document.getElementById('error').innerHTML = 'Le nuove password NON corrispondono.'</script>";
+
+		?>
+		<footer>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<br><br>
+			© 2020-2020 GalacticJourneys. Tutti i diritti sono riservati.
+		</footer>
+	</div>
 </body>
 </html>

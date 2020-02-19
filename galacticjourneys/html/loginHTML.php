@@ -24,7 +24,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='../css/loginHTML.css'>
-		<link rel='stylesheet' type='text/css' href='../css/standards.css'>
+	<link rel='stylesheet' type='text/css' href='../css/standards.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Login - Galactic Journeys</title>
 </head>
@@ -46,7 +46,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 			?>
 			<div id="button_bar">
 				<span id="homeButton"><button class="button" id="home_button" onclick="window.location.href='../index.php'">Home</button></span>
-				<!-- <span id="title">LOGIN</span> -->
+				<span id="title">LOGIN</span>
 			</div>
 			<div class="form">
 				<form action="../php/login.php" method="POST">

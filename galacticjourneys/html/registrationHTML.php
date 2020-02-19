@@ -20,6 +20,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	<meta charset="utf-8">
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='../css/registrationHTML.css'>
+	<link rel='stylesheet' type='text/css' href='../css/standards.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Registrati! - Galactic Journeys</title>
 </head>
@@ -37,22 +38,34 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		exit;
 	}
 	?>
-	<div>
-		<button class="button" name="home_button" onclick="window.location.href='../index.php'">Home</button>
-		<form action="../php/registration.php" method="POST">
-		<input type="text" name="firstname" placeholder="Nome*" requi#D035D0>
-		<br>
-		<input type="text" name="lastname" placeholder="Cognome*" requi#D035D0>
-		<br>
-		<input type="email" name="email" placeholder="Email*" requi#D035D0>
-		<br>
-		<input type="password" name="pass" placeholder="Password*" requi#D035D0>
-		<br>
-		<input type="password" name="confirm" placeholder="Conferma Password*" requi#D035D0>
-		<div id='error'></div>
-		<input type="submit" value="Submit">
-		</form>
-		*Campi Obbligatori.
+	<div id="bg">
+		
+		<div id="container"></div>
+		
+		<div id="button_bar">
+			<button id="home_button" onclick="window.location.href='../index.php'">Home</button>
+			<span id="title">REGISTRATI</span>
+		</div>
+			
+		<div class="form">
+			<form action="../php/registration.php" method="POST">
+			<input type="text" name="firstname" placeholder="Nome" required>
+			<br>
+			<input type="text" name="lastname" placeholder="Cognome" required>
+			<br>
+			<input type="email" name="email" placeholder="Email" required>
+			<br>
+			<input type="password" name="pass" placeholder="Password" required>
+			<br>
+			<input type="password" name="confirm" placeholder="Conferma Password" required>
+			<br>
+			<input type="submit" value="Iscriviti">
+			</form>
+			<div id='error'></div>
+			<br>
+			Sei già registrato? <a class="link" href="loginHTML.php"><u>LOGIN</u></a>
+		</div>
+		
 		<?php
 		if(isset($_GET['err'])) {
 			switch($_GET['err']) {
@@ -79,6 +92,11 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 			}
 		}
 		?>
+		<footer>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<br><br>
+			© 2020-2020 GalacticJourneys. Tutti i diritti sono riservati.
+		</footer>
 	</div>
 </body>
 </html>
