@@ -3,7 +3,7 @@
 function show_logged_user($baseurl = 'http://localhost/galacticjourneys/galacticjourneys') {
     $ch = curl_init();
 
-    $url = "$baseurl/html/show_profile.php";
+    $url = "$baseurl/html/profileHTML.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {

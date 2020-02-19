@@ -1,12 +1,12 @@
 <?php
 
-function update($first_name, $last_name, $baseurl = 'http://localhost:5000') {
+function update($first_name, $last_name, $baseurl = 'http://localhost/galacticjourneys/galacticjourneys') {
     $first_name = urlencode($first_name);
     $last_name = urlencode($last_name);
 
     $ch = curl_init();
 
-    $url = "$baseurl/update_profile.php";
+    $url = "$baseurl/php/update_profile.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {

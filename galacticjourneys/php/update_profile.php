@@ -29,12 +29,24 @@ else {
 $oldFirstname = $row['firstname'];
 $oldLastname = $row['lastname'];
 
-$newFirstname = test_input($con, $_POST['firstname']); 
-$newLastname = test_input($con, $_POST['lastname']); 	
-$newEmail = test_input($con, $_POST['email']); 
-
-// eliminare controllo su validità mail perchè il campo 
-// email nel db è UNIQUE 
+if (isset($_POST['firstname'])) {
+	$newFirstname = test_input($con, $_POST['firstname']);
+}
+else {
+	$newFirstname = $oldFirstname;
+}
+if (isset($_POST['lastname'])) {
+	$newLastname = test_input($con, $_POST['lastname']);
+}
+else {
+	$newLastname = $oldLastname;
+}
+if (isset($_POST['email'])) {
+	$newEmail = test_input($con, $_POST['email']);  
+}
+else {
+	$newEmail = $oldEmail;
+}
 
 if ($newFirstname==$oldFirstname && $newLastname==$oldLastname && $newEmail==$oldEmail) {
 	mysqli_close($con);
