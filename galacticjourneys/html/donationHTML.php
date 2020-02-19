@@ -11,7 +11,7 @@ if ((isset($_GET['err']) && $_GET['err'] == 8)) {
 }
 
 if (isset($_GET['sd']) && $_GET['sd'] == 1) {
-	echo "<script>window.alert('La transazione è avvenuta con successo.\nGrazie per la tua donazione!')</script>";
+	echo "<script>window.alert('La transazione è avvenuta con successo.\\nGrazie per la tua donazione!')</script>";
 }
 
 require_once('../php/donation.php');
