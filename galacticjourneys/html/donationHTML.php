@@ -18,6 +18,9 @@ require_once('../php/donation.php');
 
 $progr_percent = ($progress*100)/10000000;
 
+if ($progr_percent>100)
+	$progr_percent = 100;
+
 ?>
 
 
@@ -60,7 +63,7 @@ $progr_percent = ($progress*100)/10000000;
 		<div class="form">
 			<div id="text">Contribuisci al nostro miglioramento</div>
 			<form action="donationHTML.php?act=dnt" method="POST" name="Form">
-				<input type="number" value="100" step="100" min="100" max="10000000" name="amount"><span id="euro">(€)</span><br>
+				<input type="number" value="100" step="100" min="100" max="1000000" name="amount"><span id="euro">(€)</span><br>
 				<input type="submit" value="Dona"><br>
 			</form>
 		</div>
