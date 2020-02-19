@@ -73,15 +73,15 @@ if ($progr_percent>100)
 				for ($i=1; $i<=$numrows; $i++) {
 					$row = mysqli_fetch_assoc($result);
 					$donor_id = $row["donorid"];
+					$d_amount = $row["amount"];
 					
 					$stmt = mysqli_prepare($con, "SELECT email FROM users WHERE id=?");
 					mysqli_stmt_bind_param($stmt, 'i', $donor_id);
 					mysqli_stmt_execute($stmt);
-					$result = mysqli_stmt_get_result($stmt);
-					$res = mysqli_fetch_array($result);
+					$result2 = mysqli_stmt_get_result($stmt);
+					$row2 = mysqli_fetch_array($result2);
 					
-					$donor_email = $res[0];
-					$d_amount = $row["amount"];
+					$donor_email = $row2[0];
 					echo "<span class=\"donor\">$donor_email</span><span class=\"d_amount\">$d_amount</span>";
 				}
 				mysqli_stmt_close($stmt);
