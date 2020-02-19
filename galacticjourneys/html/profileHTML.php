@@ -21,6 +21,7 @@ require_once('../php/show_profile.php');
 	<meta charset="utf-8"> 
 	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Play'> 
 	<link rel='stylesheet' type='text/css' href='../css/profileHTML.css'>
+	<link rel='stylesheet' type='text/css' href='../css/standards.css'>
 	<script src="../js/scripts.js" type="text/javascript"></script>
 	<title>Modifica Profilo - Galactic Journeys</title>
 </head>
