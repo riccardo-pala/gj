@@ -12,23 +12,23 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		exit;
 	}
 	
-	$email = $_SESSION['email'];
+	$userid = $_SESSION['userid'];
 	
 	if (isset($_GET['act'])) {
 		
 		if ($_GET['act']==='add' && isset($_SESSION['journeys'])) {
 			$journeysid = array();
 			$journeysid = $_SESSION['journeys'];
-			$query1 = "INSERT INTO bookings (email, journeyid) VALUES (?, ?)";
-			$query2 = "DELETE FROM carts WHERE (email=? AND journeyid=?)";
+			$query1 = "INSERT INTO bookings (userid, journeyid) VALUES (?, ?)";
+			$query2 = "DELETE FROM carts WHERE (userid=? AND journeyid=?)";
 			$i=1;
 			while (isset($journeysid[$i])) {
 				$stmt1 = mysqli_prepare($con, $query1);
 				$stmt2 = mysqli_prepare($con, $query2);
-				mysqli_stmt_bind_param($stmt1, 'si', $email, $journeysid[$i]);
+				mysqli_stmt_bind_param($stmt1, 'ii', $userid, $journeysid[$i]);
 				mysqli_stmt_execute($stmt1);
 				mysqli_stmt_close($stmt1);
-				mysqli_stmt_bind_param($stmt2, 'si', $email, $journeysid[$i]);
+				mysqli_stmt_bind_param($stmt2, 'ii', $userid, $journeysid[$i]);
 				mysqli_stmt_execute($stmt2);
 				mysqli_stmt_close($stmt2);
 				$i++;
@@ -41,10 +41,10 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		$query = "SELECT * FROM bookings
 					INNER JOIN journeys
 					ON bookings.journeyid=journeys.id
-					WHERE email=?";
+					WHERE userid=?";
 
 		$stmt = mysqli_prepare($con, $query);
-		mysqli_stmt_bind_param($stmt, 's', $email);
+		mysqli_stmt_bind_param($stmt, 'i', $userid);
 		mysqli_stmt_execute($stmt);
 		$results = mysqli_stmt_get_result($stmt);
 		mysqli_stmt_close($stmt);

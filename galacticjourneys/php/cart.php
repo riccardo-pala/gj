@@ -12,7 +12,7 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		exit;
 	}
 	
-	$email = $_SESSION['email'];
+	$userid = $_SESSION['userid'];
 	
 	if (isset($_GET['act'])) {
 		
@@ -29,9 +29,9 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		}
 		else if ($_GET['act']==='add' && isset($_POST['id'])) {
 			$journeyid = $_POST['id'];
-			$query = "INSERT INTO carts (email, journeyid) VALUES (?, ?)";
+			$query = "INSERT INTO carts (userid, journeyid) VALUES (?, ?)";
 			$stmt = mysqli_prepare($con, $query);
-			mysqli_stmt_bind_param($stmt, 'si', $email, $journeyid);
+			mysqli_stmt_bind_param($stmt, 'ii', $userid, $journeyid);
 			mysqli_stmt_execute($stmt);
 			mysqli_stmt_close($stmt);
 		}
@@ -42,10 +42,10 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		$query = "SELECT * FROM carts
 					INNER JOIN journeys
 					ON carts.journeyid=journeys.id
-					WHERE email=?";
+					WHERE userid=?";
 
 		$stmt = mysqli_prepare($con, $query);
-		mysqli_stmt_bind_param($stmt, 's', $email);
+		mysqli_stmt_bind_param($stmt, 'i', $userid);
 		mysqli_stmt_execute($stmt);
 		$results = mysqli_stmt_get_result($stmt);
 		mysqli_stmt_close($stmt);

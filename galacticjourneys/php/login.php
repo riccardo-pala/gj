@@ -26,7 +26,7 @@ else{
 }
 
 // Get user from login
-$stmt = mysqli_prepare($con, "SELECT firstname, lastname, email, isAdmin FROM users WHERE email=? AND password=?");
+$stmt = mysqli_prepare($con, "SELECT * FROM users WHERE email=? AND password=?");
 mysqli_stmt_bind_param($stmt, 'ss', $email, $pass);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
@@ -35,6 +35,7 @@ if (mysqli_num_rows($result) == 1) {
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 	$_SESSION['isLogged'] = true;
+	$_SESSION['userid'] = $row['id'];
 	$_SESSION['firstname'] = $row['firstname'];
 	$_SESSION['lastname'] = $row['lastname'];
 	$_SESSION['email'] = $row['email'];

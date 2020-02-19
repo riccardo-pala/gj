@@ -47,7 +47,7 @@ else {
 		$row = mysqli_fetch_assoc($results);
 		echo "	<div class=\"journey\">
 					<div class=\"pic-container\">
-						<img class=\"images\" src=\"../images/".$row['image']."\" alt=\"image\">
+						<img class=\"images\" src=\"../images/journeys/".$row['image']."\" alt=\"image\">
 					</div>
 					<div class=\"info-container\">
 						<b>Partenza:</b>  	<span class=\"infos\">".$row['departure']."</span><br>

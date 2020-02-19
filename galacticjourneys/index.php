@@ -45,25 +45,25 @@ if (isset($_GET['sl'])) {
 		
 	<div class="slideshow_container">
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss2.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss2.jpg">
 		</div>
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss1.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss1.jpg">
 		</div>
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss3.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss3.jpg">
 		</div>
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss4.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss4.jpg">
 		</div>
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss5.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss5.jpg">
 		</div>
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss6.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss6.jpg">
 		</div>
 		<div class="slides fade">
-			<img class="slideshow_pics" src="images/ss7.jpg">
+			<img class="slideshow_pics" src="images/slideshow/ss7.jpg">
 		</div>
 		<a class="prev" onclick="clearInterval(clock); plusSlides(-1);">&#10094;</a>
 		<a class="next" onclick="clearInterval(clock); plusSlides(1);">&#10095;</a>
