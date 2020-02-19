@@ -61,10 +61,15 @@ require_once('../php/search.php');
 							</div>
 							<div class=\"booking-container\">
 							<form action=\"cartHTML.php?act=add\" method=\"POST\" id=\"bform\">
-								<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">
-								<button id=\"booking\" class=\"button\">Prenota</button>
-							</form>
-							</div>
+								<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">";
+					if ($row['availableseat']>0) {
+						echo	"<button id=\"booking\">Prenota</button>";
+					}
+					echo	"</form>";
+					if ($row['availableseat']<=0) {
+						echo	"<button id=\"nobooking\">Posti Esauriti</button>";
+					}
+					echo	"</div>
 						</div>";
 			}
 		}
