@@ -10,9 +10,14 @@ if (mysqli_connect_errno($con)) {
 	exit;
 }
 
-if (isset($_GET['act']) && $_GET['act']=="dnt" && isset($_POST['amount']) 
-		&& isset($_SESSION['isLogged']) && $_SESSION['isLogged']==true ) {
-		
+if (isset($_GET['act']) && $_GET['act']=="dnt" && isset($_POST['amount'])) {
+	
+	if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged']!=true) {
+		mysqli_close($con);
+		header("Location: ../html/loginHTML.php"); // FATAL ERROR
+		exit;
+	}
+	
 	$userid = $_SESSION['userid'];
 	$amount = $_POST['amount'];
 
