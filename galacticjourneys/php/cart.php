@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['email'])) {
+if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['userid'])) {
 	
 	require_once('../db/mysql_credentials.php');
 	include('functions.php');
@@ -29,6 +29,25 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		}
 		else if ($_GET['act']==='add' && isset($_POST['id'])) {
 			$journeyid = $_POST['id'];
+			$query = "SELECT * FROM bookings WHERE journeyid=?";
+			$stmt = mysqli_prepare($con, $query);
+			mysqli_stmt_bind_param($stmt, 'i', $journeyid);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+			if (mysqli_num_rows($result)>0) {
+				header("Location: ../html/cartHTML.php?err=1"); //viaggio già prenotato
+				exit;
+			}
+			$query = "SELECT * FROM carts WHERE journeyid=?";
+			$stmt = mysqli_prepare($con, $query);
+			mysqli_stmt_bind_param($stmt, 'i', $journeyid);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+			if (mysqli_num_rows($result)>0) {
+				header("Location: ../html/cartHTML.php?err=2"); //viaggio già nel carrello
+				exit;
+			}
+			mysqli_stmt_close($stmt);
 			$query = "INSERT INTO carts (userid, journeyid) VALUES (?, ?)";
 			$stmt = mysqli_prepare($con, $query);
 			mysqli_stmt_bind_param($stmt, 'ii', $userid, $journeyid);
