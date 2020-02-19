@@ -13,7 +13,7 @@ function login($email, $pass, $baseurl = 'http://localhost/galacticjourneys/gala
         fclose($fh);
     }
 
-    curl_setopt($ch, CURLOPT_URL, "$baseurl/php/login.php");
+    curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&pass=$pass");

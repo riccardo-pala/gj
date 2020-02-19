@@ -24,9 +24,6 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		mysqli_free_result($result);
 		mysqli_stmt_close($stmt);
 		mysqli_close($con);
-		//echo $firstname;
-		//echo $lastname;
-		//echo $email;	
 	}
 	else {
 		mysqli_free_result($result);

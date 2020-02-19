@@ -31,7 +31,8 @@ echo "[-] Calling register.php\n";
 register($email, $pass, $first_name, $last_name, $baseurl);
 
 echo "[-] Calling login.php\n";
-login($email, $pass, $baseurl);
+
+echo login($email, $pass, $baseurl);
 
 echo "[-] Calling show_profile.php\n";
 
@@ -63,6 +64,18 @@ echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseu
 
 
 echo "------------------------\n";
-echo "TODO: implement search tests";
 
-// TODO: implement search check
+echo "---\n";
+$departure = "Napoli";
+$destination = "Saturno";
+$date = "2020-02-19";
+echo "Departure: $departure\n";
+echo "Destination: $destination\n";
+echo "Date: $date\n";
+echo "---\n";
+
+echo "[-] Calling search.php\n";
+
+echo check_search_found($departure, $destination, $date, search($departure, $destination, $date, $baseurl))
+    ? "[*] Success!\n"
+    : "[*] Failed\n";

@@ -9,7 +9,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 	echo "Errore fatale.";
 	exit;
 }
-require_once('../php/searchJourney.php');
+require_once('../php/search.php');
 ?>
 
 <!doctype html>

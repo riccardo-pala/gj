@@ -37,7 +37,7 @@ if (isset($_GET['err']) && $_GET['err'] == 8) {
 		<div id="button_bar">
 			<button  id="home_button" onclick="window.location.href='../index.php'">Home</button>	
 			<span id="title">LOGIN</span>
-			<button  id="profile_button" onclick="window.location.href='show_profile.php'">Modifica Profilo</button>
+			<button  id="profile_button" onclick="window.location.href='profileHTML.php'">Modifica Profilo</button>
 		</div>
 		<div class="form">
 			<form action="../php/update_password.php" method="POST" name="Form">

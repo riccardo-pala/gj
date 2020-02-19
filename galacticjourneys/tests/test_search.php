@@ -1,12 +1,14 @@
 <?php
 
-function search($search ,$baseurl = 'http://localhost:5000') {
+function search($departure, $destination, $date, $baseurl = 'http://localhost/galacticjourneys/galacticjourneys') {
 
-    $search = urlencode($search);
+    $departure = urlencode($departure);
+	$destination = urlencode($destination);
+	$date = urlencode($date);
 
     $ch = curl_init();
 
-    $url = "$baseurl/search.php";
+    $url = "$baseurl/html/searchJourneyHTML.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {
@@ -15,7 +17,7 @@ function search($search ,$baseurl = 'http://localhost:5000') {
         fclose($fh);
     }
 
-    curl_setopt($ch, CURLOPT_URL, $url."?search=$search");
+    curl_setopt($ch, CURLOPT_URL, $url."?search=1&departure=$departure&destination=$destination&date=$date");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
     $headers = array();
@@ -33,6 +35,6 @@ function search($search ,$baseurl = 'http://localhost:5000') {
     return $result;
 } 
 
-function check_search_found($search, $search_page) {
-    return strpos($show_page, $search); 
+function check_search_found($departure, $destination, $date, $search_page) {
+    return strpos($search_page, $departure) && strpos($search_page, $destination) && strpos($search_page, $date); 
 }
