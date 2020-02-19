@@ -9,73 +9,73 @@ require 'utils.php';
 
 $baseurl =  'http://localhost/galacticjourneys/galacticjourneys';
 
-echo "[+] Testing Registration - Login - Show Profile\n";
+echo "[+] Testing Registration - Login - Show Profile<br>";
 
-echo "[*] Generating random user\n";
+echo "[*] Generating random user<br>";
 
-echo "---\n";
+echo "---<br>";
 $email = generate_random_email();
 $pass = generate_random_password();
 $first_name = generate_random_name();
 $last_name = generate_random_name();
-echo "Email: $email\n";
-echo "Pass: $pass\n";
-echo "First name: $first_name\n";
-echo "Last name: $last_name\n";
-echo "---\n";
+echo "Email: $email<br>";
+echo "Pass: $pass<br>";
+echo "First name: $first_name<br>";
+echo "Last name: $last_name<br>";
+echo "---<br>";
 
 
 
-echo "[-] Calling register.php\n";
+echo "[-] Calling register.php<br>";
 
 register($email, $pass, $first_name, $last_name, $baseurl);
 
-echo "[-] Calling login.php\n";
+echo "[-] Calling login.php<br>";
 
 echo login($email, $pass, $baseurl);
 
-echo "[-] Calling show_profile.php\n";
+echo "[-] Calling show_profile.php<br>";
 
 echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseurl))
-    ? "[*] Success!\n"
-    : "[*] Failed\n";
+    ? "[*] Success!<br>"
+    : "[*] Failed<br>";
 
-echo "------------------------\n";
+echo "------------------------<br>";
 
-echo "[+] Testing Update - Show Profile\n";
+echo "[+] Testing Update - Show Profile<br>";
 
-echo "[*] Generating new random user\n";
+echo "[*] Generating new random user<br>";
 $first_name = generate_random_name();
 $last_name = generate_random_name();
 
-echo "---\n";
-echo "First name: $first_name\n";
-echo "Last name: $last_name\n";
-echo "---\n";
+echo "---<br>";
+echo "First name: $first_name<br>";
+echo "Last name: $last_name<br>";
+echo "---<br>";
 
-echo "[-] Calling update_profile.php\n";
+echo "[-] Calling update_profile.php<br>";
 update($first_name, $last_name, $baseurl);
 
-echo "[-] Calling show_profile.php\n";
+echo "[-] Calling show_profile.php<br>";
 
 echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseurl))
-    ? "[*] Success!\n"
-    : "[*] Failed\n";
+    ? "[*] Success!<br>"
+    : "[*] Failed<br>";
 
 
-echo "------------------------\n";
+echo "------------------------<br>";
 
-echo "---\n";
+echo "---<br>";
 $departure = "Napoli";
 $destination = "Saturno";
 $date = "2020-02-19";
-echo "Departure: $departure\n";
-echo "Destination: $destination\n";
-echo "Date: $date\n";
-echo "---\n";
+echo "Departure: $departure<br>";
+echo "Destination: $destination<br>";
+echo "Date: $date<br>";
+echo "---<br>";
 
-echo "[-] Calling search.php\n";
+echo "[-] Calling search.php<br>";
 
 echo check_search_found($departure, $destination, $date, search($departure, $destination, $date, $baseurl))
-    ? "[*] Success!\n"
-    : "[*] Failed\n";
+    ? "[*] Success!<br>"
+    : "[*] Failed<br>";
