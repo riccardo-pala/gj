@@ -50,3 +50,7 @@ function loadHint(value, id) {
 		document.getElementById(id + "Hints").innerHTML = '';
 	}
 }
+
+function changeValue(id, value) {
+	document.getElementById(id).setAttribute("value", "Cane");
+}

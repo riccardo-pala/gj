@@ -34,7 +34,7 @@ if (isset($_GET['search']) && isset($_GET['id'])) {
 		for ($i=1; $i<=$numrows; $i++) {
 			$row = mysqli_fetch_assoc($results);
 			$value = $row[$id];
-			echo $value."<br>";
+			echo "<div id=\"hint\" onclick=\"document.getElementById('$id').value = '$value'\">$value</div>";
 		}
 	}
 }

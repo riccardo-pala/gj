@@ -80,7 +80,7 @@ require_once('../php/search.php');
 					<form action=\"searchJourneyHTML.php\" method=\"GET\" autocomplete=\"off\">
 						<input type=\"hidden\" name=\"search\" value=1>
 						<div id=\"departureField\">
-							<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" required id=\"departure\" onKeyUp=\"loadHint(this.value, this.id)\"><br>
+							<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" value=\"\" id=\"departure\" onKeyUp=\"loadHint(this.value, this.id)\" required><br>
 							<div id=\"departureHints\"></div>
 						</div>
 						<div id=\"destinationField\">

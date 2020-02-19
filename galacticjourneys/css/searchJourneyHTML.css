@@ -96,8 +96,10 @@ body {
 }
 
 #departureHints, #destinationHints {
-	width: 320px;
-	padding-left: 5px;
+	width: 315px;
+	border-left: solid #D035D0 5px;
+	border-right: solid #D035D0 5px;
+	border-bottom: solid #D035D0 5px;
 	text-align: left;
 	display: inline-block;
 }
