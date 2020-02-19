@@ -68,6 +68,27 @@ if ($progr_percent>100)
 			</form>
 		</div>
 		
+		<div class="donors_list">
+			<?php
+				for ($i=1; $i<=$numrows; $i++) {
+					$row = mysqli_fetch_assoc($result);
+					$donor_id = $row["donorid"];
+					
+					$stmt = mysqli_prepare($con, "SELECT email FROM users WHERE id=?");
+					mysqli_stmt_bind_param($stmt, 'i', $donor_id);
+					mysqli_stmt_execute($stmt);
+					$result = mysqli_stmt_get_result($stmt);
+					$res = mysqli_fetch_array($result);
+					
+					$donor_email = $res[0];
+					$d_amount = $row["amount"];
+					echo "<span class=\"donor\">$donor_email</span><span class=\"d_amount\">$d_amount</span>";
+				}
+				mysqli_stmt_close($stmt);
+				mysqli_close($con);
+			?>
+		</div>
+		
 		<footer>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			<br><br>

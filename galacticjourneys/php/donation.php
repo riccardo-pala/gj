@@ -14,7 +14,7 @@ if (isset($_GET['act']) && $_GET['act']=="dnt" && isset($_POST['amount'])) {
 	
 	if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged']!=true) {
 		mysqli_close($con);
-		header("Location: ../html/loginHTML.php"); // FATAL ERROR
+		header("Location: ../html/loginHTML.php");
 		exit;
 	}
 	
@@ -43,6 +43,10 @@ $query = "SELECT SUM(amount) AS sum FROM donations";
 $result = mysqli_query($con,$query);
 $row = mysqli_fetch_assoc($result);
 $progress = $row['sum'];
+mysqli_free_result($result);
 
+$query = "SELECT * FROM donations";
+$result = mysqli_query($con,$query);
+$numrows = mysqli_num_rows($result);
 
 ?>
