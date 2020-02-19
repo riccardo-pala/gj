@@ -7,7 +7,7 @@ require 'test_update.php';
 require 'test_search.php';
 require 'utils.php';
 
-$baseurl =  'http://localhost:5000';
+$baseurl =  'http://localhost/galacticjourneys/galacticjourneys';
 
 echo "[+] Testing Registration - Login - Show Profile\n";
 

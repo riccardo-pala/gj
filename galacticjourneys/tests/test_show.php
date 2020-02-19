@@ -1,9 +1,9 @@
 <?php
 
-function show_logged_user($baseurl = 'http://localhost:5000') {
+function show_logged_user($baseurl = 'http://localhost/galacticjourneys/galacticjourneys') {
     $ch = curl_init();
 
-    $url = "$baseurl/show_profile.php";
+    $url = "$baseurl/html/show_profile.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {

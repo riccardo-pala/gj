@@ -1,6 +1,6 @@
 <?php
 
-function register($email, $password, $first_name, $last_name, $baseurl = 'http://localhost:5000') {
+function register($email, $password, $first_name, $last_name, $baseurl = 'http://localhost/galacticjourneys/galacticjourneys') {
 
     $email = urlencode($email);
     $first_name = urlencode($first_name);
@@ -9,7 +9,7 @@ function register($email, $password, $first_name, $last_name, $baseurl = 'http:/
 
     $ch = curl_init();
 
-    $url = "$baseurl/registration.php";
+    $url = "$baseurl/php/registration.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {
@@ -18,7 +18,7 @@ function register($email, $password, $first_name, $last_name, $baseurl = 'http:/
         fclose($fh);
     }
 
-    curl_setopt($ch, CURLOPT_URL, "$baseurl/registration.php");
+    curl_setopt($ch, CURLOPT_URL, "$baseurl/php/registration.php");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&firstname=$first_name&lastname=$last_name&pass=$password&confirm=$password");
