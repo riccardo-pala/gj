@@ -52,7 +52,7 @@ else {
 	
 	if (mysqli_stmt_affected_rows($stmt) == 1) {
 		mysqli_close($con);
-		header("Location: ../html/profileHTML.php?succ=1");
+		header("Location: ../html/show_profile.php?succ=1");
 	}
 	else {
 		mysqli_close($con);
