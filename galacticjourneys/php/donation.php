@@ -45,7 +45,11 @@ $row = mysqli_fetch_assoc($result);
 $progress = $row['sum'];
 mysqli_free_result($result);
 
-$query = "SELECT * FROM donations";
+$query = "
+			SELECT users.email AS email,donations.amount AS amount 
+			FROM donations INNER JOIN users ON users.id=donations.donorid
+			ORDER BY amount DESC
+		";
 $result = mysqli_query($con,$query);
 $numrows = mysqli_num_rows($result);
 
