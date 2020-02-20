@@ -36,7 +36,7 @@ if (isset($_GET['act'])) {
 		else if ($_GET['act']==='updt') {
 			if (isset($_POST['departure']) && isset($_POST['destination']) && isset($_POST['price'])
 				&& isset($_POST['date']) && isset($_POST['description']) && isset($_POST['totalseat'])
-				&& isset($_POST['availableseat'])) {
+				&& isset($_POST['availableseat']) && isset($_POST['image'])) {
 				$departure = $_POST['departure'];
 				$destination = $_POST['destination'];
 				$price = $_POST['price'];
@@ -46,7 +46,7 @@ if (isset($_GET['act'])) {
 				$availableseat = $_POST['availableseat'];
 				$image = $_POST['image'];
 				
-				if (!isset($_POST['image'])) {
+				if (empty($_POST['image'])) {
 					$checkImage = false;
 					$query = "	UPDATE journeys 
 								SET departure=?, destination=?, price=?, date=?, description=?, totalseat=?, availableseat=?
