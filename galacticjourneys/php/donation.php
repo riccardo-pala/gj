@@ -20,6 +20,12 @@ if (isset($_GET['act']) && $_GET['act']=="dnt" && isset($_POST['amount'])) {
 	
 	$userid = $_SESSION['userid'];
 	$amount = $_POST['amount'];
+	
+	if($amount<100 || $amount>1000000) {
+		mysqli_close($con);
+		header("Location: ../html/donationHTML.php?err=1");
+		exit;
+	}
 
 	$query = "INSERT INTO donations (donorid,amount) VALUES (?,?)"; 
 	$stmt = mysqli_prepare($con, $query);

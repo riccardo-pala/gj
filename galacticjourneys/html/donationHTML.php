@@ -1,15 +1,21 @@
 <?php
 session_start();
 
-if (isset($_GET['err']) && $_GET['err'] == 7) {
-echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>"; 
-exit;
-}
-if ((isset($_GET['err']) && $_GET['err'] == 8)) {
-	echo "Errore fatale.";
-	exit;
-}
+if (isset($_GET['err'])) {
 
+	if ($_GET['err'] == 7) {
+	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>"; 
+	exit;
+	}
+	if ($_GET['err'] == 8) {
+		echo "Errore fatale.";
+		exit;
+	}
+	if ($_GET['err'] == 1) {
+		echo "<script>window.alert('Inserire un importo valido!')</script>";
+	}
+}
+	
 if (isset($_GET['sd']) && $_GET['sd'] == 1) {
 	echo "<script>window.alert('La transazione è avvenuta con successo.\\nGrazie per la tua donazione!')</script>";
 }
