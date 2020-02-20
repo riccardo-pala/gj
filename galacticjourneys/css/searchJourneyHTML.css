@@ -108,11 +108,16 @@ form {
 	margin: 0 4px;
 	position: relative;
 	display: inline-block;
+	max-height: 75px;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 #hint {
 	padding-left: 4px;
 	position: relative;
 	transition: 0.3s;
+	line-height: 30px;
+	height: 30px;
 }
 #hint:hover {
 	text-shadow: 0px 0px 8px #D035D0;
