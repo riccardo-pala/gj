@@ -46,7 +46,7 @@ if (isset($_GET['act'])) {
 				$availableseat = $_POST['availableseat'];
 				$image = $_POST['image'];
 				
-				if (empty($_POST['image'])) {
+				if (!isset($_POST['image'])) {
 					$checkImage = false;
 					$query = "	UPDATE journeys 
 								SET departure=?, destination=?, price=?, date=?, description=?, totalseat=?, availableseat=?
@@ -60,6 +60,7 @@ if (isset($_GET['act'])) {
 								WHERE id=?
 							";
 				}
+				
 				$stmt = mysqli_prepare($con, $query);
 				if (!$checkImage)
 					mysqli_stmt_bind_param($stmt, 'ssdssiii', $departure,$destination,$price,$date,$description,$totalseat,$availableseat,$id);
