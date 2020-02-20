@@ -36,7 +36,7 @@ if (isset($_GET['act'])) {
 		else if ($_GET['act']==='updt') {
 			if (isset($_POST['departure']) && isset($_POST['destination']) && isset($_POST['price'])
 				&& isset($_POST['date']) && isset($_POST['description']) && isset($_POST['totalseat'])
-				&& isset($_POST['availableseat']) && isset($_POST['image'])) {
+				&& isset($_POST['availableseat'])) {
 				$departure = $_POST['departure'];
 				$destination = $_POST['destination'];
 				$price = $_POST['price'];

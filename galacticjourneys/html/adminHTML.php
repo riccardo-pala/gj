@@ -76,19 +76,19 @@ require_once('../php/admin.php');
 			echo	"
 				<div id=\"divform\">
 					<form action=\"../php/admin.php?act=updt&id=".$row['id']."\" method=\"POST\">
-					<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" value=\"".$row['departure']."\" requi#D035D0>
+					<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" value=\"".$row['departure']."\" required>
 					<br>
-					<input type=\"text\" name=\"destination\" placeholder=\"Arrivo\" value=\"".$row['destination']."\" requi#D035D0>
+					<input type=\"text\" name=\"destination\" placeholder=\"Arrivo\" value=\"".$row['destination']."\" required>
 					<br>
-					<input type=\"text\" name=\"price\" placeholder=\"Prezzo\" value=\"".$row['price']."\" requi#D035D0>
+					<input type=\"text\" name=\"price\" placeholder=\"Prezzo\" value=\"".$row['price']."\" required>
 					<br>
-					<input type=\"datetime-local\" name=\"date\" placeholder=\"Data\" value=\"".$datestring."\" requi#D035D0>
+					<input type=\"datetime-local\" name=\"date\" placeholder=\"Data\" value=\"".$datestring."\" required>
 					<br>
-					<textarea name=\"description\" id=\"description\" placeholder=\"Aggiungi una descrizione...\"requi#D035D0>".$row['description']."</textarea>
+					<textarea name=\"description\" id=\"description\" placeholder=\"Aggiungi una descrizione...\"required>".$row['description']."</textarea>
 					<br>
-					<input type=\"text\" name=\"totalseat\" placeholder=\"Posti Totali\" value=\"".$row['totalseat']."\" requi#D035D0>
+					<input type=\"text\" name=\"totalseat\" placeholder=\"Posti Totali\" value=\"".$row['totalseat']."\" required>
 					<br>
-					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" value=\"".$row['availableseat']."\" requi#D035D0>
+					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" value=\"".$row['availableseat']."\" required>
 					<br>
 					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" value=\"".$row['image']."\">
 					<br>
@@ -102,21 +102,21 @@ require_once('../php/admin.php');
 			echo	"
 				<div id=\"divform\">
 					<form action=\"../php/admin.php?act=addnew\" method=\"POST\">
-					<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" requi#D035D0>
+					<input type=\"text\" name=\"departure\" placeholder=\"Partenza\" required>
 					<br>
-					<input type=\"text\" name=\"destination\" placeholder=\"Arrivo\" requi#D035D0>
+					<input type=\"text\" name=\"destination\" placeholder=\"Arrivo\" required>
 					<br>
-					<input type=\"text\" name=\"price\" placeholder=\"Prezzo\" requi#D035D0>
+					<input type=\"text\" name=\"price\" placeholder=\"Prezzo\" required>
 					<br>
-					<input type=\"datetime-local\" name=\"date\" placeholder=\"Data\" requi#D035D0>
+					<input type=\"datetime-local\" name=\"date\" placeholder=\"Data\" required>
 					<br>
-					<textarea name=\"description\" id=\"description\" placeholder=\"Aggiungi una descrizione...\"requi#D035D0></textarea>
+					<textarea name=\"description\" id=\"description\" placeholder=\"Aggiungi una descrizione...\"required></textarea>
 					<br>
-					<input type=\"text\" name=\"totalseat\" placeholder=\"Posti Totali\" requi#D035D0>
+					<input type=\"text\" name=\"totalseat\" placeholder=\"Posti Totali\" required>
 					<br>
-					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" requi#D035D0>
+					<input type=\"text\" name=\"availableseat\" placeholder=\"Posti Disponibili\" required>
 					<br>
-					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" requi#D035D0>
+					<input type=\"file\" name=\"image\" placeholder=\"Immagine\" required>
 					<br>
 					<input type=\"submit\" value=\"Aggiungi Viaggio\">
 					</form>
