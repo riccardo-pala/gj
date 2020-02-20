@@ -284,6 +284,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	margin: 0 0 0 30px;
 }
 
+::-webkit-scrollbar-track {border-bottom: solid #D035D0 1px;}
+
 footer {
 	display: block;
 	position: relative;
