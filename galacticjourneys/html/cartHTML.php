@@ -7,9 +7,6 @@ if (!isset($_SESSION['isLogged']) || !$_SESSION['isLogged'] || !isset($_SESSION[
 }
 if (isset($_GET['err'])) {
 	switch($_GET['err']) {
-	case 1:
-		echo "<script>window.alert('Hai già prenotato questo viaggio!')</script>";
-		break;
 	case 2:
 		echo "<script>window.alert('Questo viaggio è già nel tuo carrello!')</script>";
 		break;

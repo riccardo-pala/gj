@@ -5,14 +5,21 @@ if (!isset($_SESSION['isLogged']) || !$_SESSION['isLogged'] || !isset($_SESSION[
 	header ('Location: loginHTML.php');
 	exit;
 }
-if (isset($_GET['err']) && $_GET['err'] == 7) {
-	echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>"; 
-	exit;
+
+if (isset($_GET['err'])) {
+	switch($_GET['err']) {
+	case 1:
+		echo "<script>window.alert('Hai già prenotato questo viaggio!')</script>";
+		break;
+	case 7:
+		echo "Errore di connessione al server. Torna alla <a class=\"link\" href=\"../index.php\">HOME</a>"; 
+		exit;
+	case 8:
+		echo "Errore fatale.";
+		exit;	
+	}
 }
-if (isset($_GET['err']) && $_GET['err'] == 8) {
-	echo "Errore fatale.";
-	exit;
-}
+
 require_once('../php/booking.php');
 ?>
 

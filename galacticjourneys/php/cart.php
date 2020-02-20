@@ -35,7 +35,7 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['us
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
 			if (mysqli_num_rows($result)>0) {
-				header("Location: ../html/cartHTML.php?err=1"); //viaggio già prenotato
+				header("Location: ../html/bookingHTML.php?err=1"); //viaggio già prenotato
 				exit;
 			}
 			$query = "SELECT * FROM carts WHERE journeyid=?";
