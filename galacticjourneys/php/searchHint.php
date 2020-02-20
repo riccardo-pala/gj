@@ -26,7 +26,6 @@ if (isset($_GET['search']) && isset($_GET['id'])) {
 	if (mysqli_num_rows($results)==0) {
 		mysqli_free_result($results);
 		mysqli_close($con);
-		unset($results);
 	}
 	else {
 		mysqli_close($con);
@@ -34,7 +33,7 @@ if (isset($_GET['search']) && isset($_GET['id'])) {
 		for ($i=1; $i<=$numrows; $i++) {
 			$row = mysqli_fetch_assoc($results);
 			$value = $row[$id];
-			echo "<div id=\"hint\" onclick=\"document.getElementById('$id').value = '$value'\">$value</div>";
+			echo "<div id=\"hint\" onclick=\"changeValue('$id','$value');\">$value</div>";
 		}
 	}
 }

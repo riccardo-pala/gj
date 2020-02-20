@@ -91,17 +91,36 @@ body {
 	outline: none;
 }
 
-#departureField {
+form {
 	text-align: center;
 }
-
+#departure, #destination {
+	margin-bottom: 0px;
+}
+#departureField, #destinationField {
+	text-align: center;
+	width: 100%;
+}
 #departureHints, #destinationHints {
-	width: 315px;
-	border-left: solid #D035D0 5px;
-	border-right: solid #D035D0 5px;
-	border-bottom: solid #D035D0 5px;
-	text-align: left;
+	width: 325px;
+	border-left: solid #D035D0 1px;
+	border-right: solid #D035D0 1px;
+	margin: 0 4px;
+	position: relative;
 	display: inline-block;
+}
+#hint {
+	padding-left: 4px;
+	position: relative;
+	transition: 0.3s;
+}
+#hint:hover {
+	text-shadow: 0px 0px 8px #D035D0;
+	cursor: pointer;
+	background-color: black;
+}
+#hint:focus {
+	outline: none;
 }
 #search {
 	padding-top: 40px;

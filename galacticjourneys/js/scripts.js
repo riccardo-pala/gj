@@ -34,11 +34,12 @@ function showSlides() {
 	dots[slideIndex-1].className += " active";
 }
 
-function loadHint(value, id) {
-	if (value.length>0) {
+function loadHint(value, id, click) {
+	if (value.length>0 && click==0) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById(id + "Hints").style.borderBottom = "solid #D035D0 1px";
 				document.getElementById(id + "Hints").innerHTML =
 				this.responseText;
 		   }
@@ -48,9 +49,11 @@ function loadHint(value, id) {
 	}
 	else {
 		document.getElementById(id + "Hints").innerHTML = '';
+		document.getElementById(id + "Hints").style.borderBottom = "0px";
 	}
 }
 
 function changeValue(id, value) {
-	document.getElementById(id).setAttribute("value", "Cane");
+	document.getElementById(id).value = value;
+	loadHint(value, id, 1);
 }

@@ -1,0 +1,32 @@
+/* CSS Document */
+
+body {
+	background-color: #0C0C0C;
+	background: url("../images/UnderConstruction.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: space;
+	background-position: center;
+	text-align: center;
+}
+
+#button {
+	padding: 0;
+	margin: 0;
+	border: solid white 1px;
+	background-color: #0C0C0C;
+	color: white;
+	height: 50px;
+	width: 250px;
+	font-size: 20px;
+	transition: 0.3s;
+}
+#button:hover {
+	text-shadow: 0px 0px 3px #D035D0;
+	box-shadow: 0px 0px 6px 3px #D035D0;
+	cursor: pointer;
+	background-color: #0C0C0C; 
+}
+#button:focus {
+	outline: none;	
+}

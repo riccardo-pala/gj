@@ -129,7 +129,7 @@ if (isset($_GET['sl'])) {
 	<div id="option">
 		<button class="button" id="op_button" onclick="window.location.href='html/searchJourneyHTML.php'">TROVA IL TUO VIAGGIO</button><br>
 		<button class="button" id="op_button" onclick="window.location.href='html/donationHTML.php'">DONAZIONI</button><br>
-		<button class="button" id="op_button" onclick="window.location.href='index.php'">NEWS</button>
+		<button class="button" id="op_button" onclick="window.location.href='html/newsHTML.php'">NEWS</button>
 	</div>
 	
 	<script>
