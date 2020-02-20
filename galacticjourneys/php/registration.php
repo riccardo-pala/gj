@@ -47,6 +47,7 @@ else if ($pass != $confirm) {
 	exit;
 }
 
+/*
 $stmt = mysqli_prepare($con, "SELECT email FROM users WHERE email=?");
 mysqli_stmt_bind_param($stmt, 's', $email);
 mysqli_stmt_execute($stmt);
@@ -60,15 +61,19 @@ if (mysqli_num_rows($result) > 0) {
 	exit;
 }
 mysqli_free_result($result);
+*/
 
 //preparo la query
 $stmt = mysqli_prepare($con, "INSERT INTO users (firstname, lastname, email, password, isAdmin) VALUES (?, ?, ?, ?, 0)");
 mysqli_stmt_bind_param($stmt, 'ssss', $firstname, $lastname, $email, $pass);
-
-//eseguo la query
-mysqli_stmt_execute($stmt);
-
-if (mysqli_stmt_affected_rows($stmt) == 1) {
+//
+if(!mysqli_stmt_execute($stmt)) {
+	echo "".mysqli_stmt_error($stmt);
+	mysqli_stmt_close($stmt);
+	mysqli_close($con);
+	header('Location: ../html/registrationHTML.php?err=6'); // email già esistente
+}
+else if (mysqli_stmt_affected_rows($stmt) == 1) {
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
 	header('Location: ../html/loginHTML.php?sr=1'); // registrato con successo
