@@ -87,7 +87,7 @@ require_once('../php/search.php');
 							<input type=\"text\" name=\"destination\" placeholder=\"Destinazione\" required id=\"destination\" onKeyUp=\"loadHint(this.value, this.id, 0)\"><br>
 							<div id=\"destinationHints\"></div>
 						</div>
-						<input type=\"date\" name=\"date\" placeholder=\"\" required><br>
+						<input type=\"date\" name=\"date\" placeholder=\"\" required><br><br>
 						<input type=\"submit\" id=\"search_submit\" value=\"Cerca\">
 						<div id=\"err\"></div>
 					</form>

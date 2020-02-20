@@ -169,10 +169,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
-#search_submit {
-	display: none;
-}
-
 #err {
 	text-align: center;
 	margin-top: 30px;
@@ -239,7 +235,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #bform {
 	margin: 0;
 }
-#booking, #nobooking {
+#search_submit, #booking, #nobooking {
 	padding: 0;
 	margin: 0;
 	border: solid white 1px;
@@ -262,8 +258,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	cursor: not-allowed;
 	background-color: #0C0C0C; 
 }
-#booking:focus, #nobooking:focus {
+#search_submit:focus, #booking:focus, #nobooking:focus {
 	outline: none;	
+}
+#search_submit {
+	font-size: 22px;
+	color: #D035D0;
+	width: 240px;
+	height: 50px;
+	cursor: pointer;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	border: solid #D035D0 1px;
+	background: none;
+}
+#search_submit:hover {
+	text-shadow: 2px 2px 10px #D035D0;
+	background-color: black;
 }
 
 .infos {
