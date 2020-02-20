@@ -29,18 +29,18 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['us
 		}
 		else if ($_GET['act']==='add' && isset($_POST['id'])) {
 			$journeyid = $_POST['id'];
-			$query = "SELECT * FROM bookings WHERE journeyid=?";
+			$query = "SELECT * FROM bookings WHERE userid=? AND journeyid=?";
 			$stmt = mysqli_prepare($con, $query);
-			mysqli_stmt_bind_param($stmt, 'i', $journeyid);
+			mysqli_stmt_bind_param($stmt, 'ii', $userid, $journeyid);
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
 			if (mysqli_num_rows($result)>0) {
 				header("Location: ../html/bookingHTML.php?err=1"); //viaggio già prenotato
 				exit;
 			}
-			$query = "SELECT * FROM carts WHERE journeyid=?";
+			$query = "SELECT * FROM carts WHERE userid=? AND journeyid=?";
 			$stmt = mysqli_prepare($con, $query);
-			mysqli_stmt_bind_param($stmt, 'i', $journeyid);
+			mysqli_stmt_bind_param($stmt, 'ii', $userid, $journeyid);
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
 			if (mysqli_num_rows($result)>0) {
