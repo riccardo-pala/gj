@@ -18,7 +18,7 @@ if (isset($_GET['search']) && $_GET['search']==1) {
 	$query = "SELECT * FROM journeys WHERE 
 				(departure LIKE CONCAT(?,'%')) AND
 				(destination LIKE CONCAT(?,'%')) AND
-				(date LIKE CONCAT(?,'%'))"; 
+				(date LIKE CONCAT(?,'%')) ORDER BY date"; 
 
 	$stmt = mysqli_prepare($con, $query);
 

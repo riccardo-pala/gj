@@ -106,7 +106,7 @@ if (isset($_GET['act'])) {
 	}
 }
 else {
-	$query = "SELECT * FROM journeys";
+	$query = "SELECT * FROM journeys ORDER BY date";
 	$result = mysqli_query($con, $query) or DIE('Query non riuscita!'.mysqli_error($con));
 	mysqli_close($con);
 	$numrows = mysqli_num_rows($result);

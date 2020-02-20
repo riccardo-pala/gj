@@ -38,11 +38,9 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 				
 				mysqli_stmt_bind_param($stmt1, 'ii', $userid, $journeyid);
 				mysqli_stmt_execute($stmt1);
-				mysqli_stmt_close($stmt1);
 				
 				mysqli_stmt_bind_param($stmt2, 'ii', $userid, $journeyid);
 				mysqli_stmt_execute($stmt2);
-				mysqli_stmt_close($stmt2);
 				
 				mysqli_stmt_bind_param($stmt3, 'i', $journeyid);
 				mysqli_stmt_execute($stmt3);
@@ -50,15 +48,17 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 				$row = mysqli_fetch_assoc($result);
 				mysqli_free_result($result);
 				$availableseat = $row['availableseat'];
-				mysqli_stmt_close($stmt3);
 				
 				$availableseat = $availableseat-1;
 				mysqli_stmt_bind_param($stmt4, 'ii', $availableseat, $journeyid);
 				mysqli_stmt_execute($stmt4);
-				mysqli_stmt_close($stmt4);
 				
 				$i++;
 			}
+			mysqli_stmt_close($stmt1);
+			mysqli_stmt_close($stmt2);
+			mysqli_stmt_close($stmt3);
+			mysqli_stmt_close($stmt4);
 		}
 		header("Location: ../html/bookingHTML.php");
 		exit;
@@ -67,7 +67,7 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['em
 		$query = "SELECT * FROM bookings
 					INNER JOIN journeys
 					ON bookings.journeyid=journeys.id
-					WHERE userid=?";
+					WHERE userid=? ORDER BY date";
 
 		$stmt = mysqli_prepare($con, $query);
 		mysqli_stmt_bind_param($stmt, 'i', $userid);

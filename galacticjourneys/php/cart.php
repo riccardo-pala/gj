@@ -61,7 +61,7 @@ if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] && isset($_SESSION['us
 		$query = "SELECT * FROM carts
 					INNER JOIN journeys
 					ON carts.journeyid=journeys.id
-					WHERE userid=?";
+					WHERE userid=? ORDER BY date";
 
 		$stmt = mysqli_prepare($con, $query);
 		mysqli_stmt_bind_param($stmt, 'i', $userid);
