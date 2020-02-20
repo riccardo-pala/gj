@@ -66,9 +66,9 @@ echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseu
 echo "------------------------<br>";
 
 echo "---<br>";
-$departure = "Napoli";
+$departure = "Terra";
 $destination = "Saturno";
-$date = "2020-02-19";
+$date = "2020-04-20";
 echo "Departure: $departure<br>";
 echo "Destination: $destination<br>";
 echo "Date: $date<br>";

@@ -26,7 +26,6 @@ if (isset($_GET['search']) && isset($_GET['id'])) {
 	if (mysqli_num_rows($results)==0) {
 		mysqli_free_result($results);
 		mysqli_close($con);
-		echo "<script>document.getElementById('".$id."Hints').style.borderBottom = \"0px\"</script>";
 	}
 	else {
 		mysqli_close($con);

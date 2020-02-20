@@ -40,8 +40,11 @@ function loadHint(value, id, click) {
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById(id + "Hints").style.borderBottom = "solid #D035D0 1px";
-				document.getElementById(id + "Hints").innerHTML =
-				this.responseText;
+				var response = this.responseText;
+				document.getElementById(id + "Hints").innerHTML = response;
+				if (response === "") {
+					document.getElementById(id + "Hints").style.borderBottom = "0px";
+				}
 		   }
 		};
 		xhttp.open("GET", "../php/searchHint.php?search=" + value + "&id=" + id, true);

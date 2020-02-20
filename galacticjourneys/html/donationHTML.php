@@ -74,6 +74,8 @@ if ($progr_percent>100)
 				for ($i=1; $i<=$numrows; $i++) {
 					$row = mysqli_fetch_assoc($result);
 					$d_email = $row["email"];
+					$pos = strpos($d_email,'@');
+					$d_email = substr($d_email, 0, $pos+1);
 					$d_amount = $row["amount"];
 					echo "<div id=\"d_row\"><span class=\"d_email\">$d_email</span><span class=\"d_amount\">$d_amount €</span></div>";
 				}
