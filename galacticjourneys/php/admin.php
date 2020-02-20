@@ -65,7 +65,7 @@ if (isset($_GET['act'])) {
 				if (!$checkImage)
 					mysqli_stmt_bind_param($stmt, 'ssdssiii', $departure,$destination,$price,$date,$description,$totalseat,$availableseat,$id);
 				else
-					mysqli_stmt_bind_param($stmt, 'ssdssiiis', $departure,$destination,$price,$date,$description,$totalseat,$availableseat,$image,$id);
+					mysqli_stmt_bind_param($stmt, 'ssdssiisi', $departure,$destination,$price,$date,$description,$totalseat,$availableseat,$image,$id);
 				
 				mysqli_stmt_execute($stmt);
 				mysqli_stmt_close($stmt);
