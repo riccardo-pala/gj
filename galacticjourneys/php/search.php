@@ -11,15 +11,16 @@ if (isset($_GET['search']) && $_GET['search']==1) {
 		exit;
 	}
 	
-	$departure = test_input($_GET['departure']);
-	$destination = test_input($_GET['destination']);
-	$date = test_input($_GET['date']);
+	$departure = $_GET['departure'];
+	$destination = $_GET['destination'];
+	$date = $_GET['date'];
 
 	if (empty($departure) || empty($destination) || empty($date)) {
 		mysqli_close($con);
 		header('Location: ../html/searchJourneyHTML.php?err=1'); // i campi del form non sono correttamente compilati
 		exit;
 	}
+
 	$query = "SELECT * FROM journeys WHERE 
 				(departure LIKE CONCAT(?,'%')) AND
 				(destination LIKE CONCAT(?,'%')) AND
