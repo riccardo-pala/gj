@@ -184,7 +184,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 .pic-container {
 	display: inline-block;
-	width: 300px;
+	width: 27%;
 	height: 100%;
 	top: 0;
 	float: left;

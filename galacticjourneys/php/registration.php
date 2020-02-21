@@ -19,6 +19,11 @@ if (isset($_POST['firstname'])&&isset($_POST['lastname'])
 	$email = test_input($con, $_POST['email']);
 	$pass = crypt_password($_POST['pass']);
 	$confirm = crypt_password($_POST['confirm']);
+	if (empty($firstname) || empty($lastname) || empty($email) || empty($pass) || empty($confirm)) {
+		mysqli_close($con);
+		header('Location: ../html/registrationHTML.php?err=1'); // i campi del form non sono correttamente compilati
+		exit;
+	}
 }
 else {
 	mysqli_close($con);

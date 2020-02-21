@@ -102,7 +102,7 @@ require_once('../php/search.php');
 
 		if (isset($_GET['err']) && $_GET['err']==1) {
 			echo "	<script>document.getElementById(\"err\").innerHTML = 
-						'Si prega di compilare almeno un campo del form.'
+						'Si prega di compilare tutti i campi del form.'
 					</script>";
 		}
 		?>
